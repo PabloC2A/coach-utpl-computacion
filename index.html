@@ -10,24 +10,27 @@
 /* Modo: aplicación (Operate). Identidad: azul UTPL y amarillo de la malla; neutros con tinte azul.
    Tipografía: Bricolage Grotesque para títulos, Instrument Sans para texto. Escala de espacio base 4px. */
 :root{
-  --bg:#F2F5F9; --surface:#FFFFFF; --surface2:#E8EEF5; --ink:#0E2135; --muted:#4D6074; --line:#CFD9E4;
-  --navy:#0A3F6B; --navy-ink:#FFFFFF; --navy-soft:#C8D9EA; --accent:#0B5CA8; --accent-ink:#FFFFFF; --gold:#E9A800; --gold-soft:#FFF1C7;
-  --good:#17784A; --bad:#B3362A; --warn:#8A5A00;
-  --t-f:#0B5CA8; --t-v:#17784A; --t-e:#7A3EA6; --t-x:#B3362A;
-  --r:14px; --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px;
+  --bg:#EEF3FB; --surface:#FFFFFF; --surface2:#E4ECF8; --ink:#13223A; --muted:#51627C; --line:#D2DDEC;
+  --navy:#0A3F6B; --navy-ink:#FFFFFF; --navy-soft:#C8D9EA; --accent:#2563EB; --accent-ink:#FFFFFF; --gold:#FFC23D; --gold-d:#D99A0B; --gold-soft:#FFF4D6;
+  --good:#22B36B; --good-d:#168A50; --cta:#12844A; --cta-d:#0B5E34; --bad:#E5484D; --bad-d:#B8363A; --warn:#8A5A00;
+  --t-f:#2D6BFF; --t-f-d:#1D4FC9; --t-v:#16A36A; --t-v-d:#0F7A4E; --t-e:#8B5CF6; --t-e-d:#6A3BD6; --t-x:#E5484D;
+  --locked:#DCE4F0; --locked-d:#B7C4D8; --link-todo:#B7C4D8;
+  --r:16px; --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px;
   --ease:cubic-bezier(.16,1,.3,1);
   color-scheme:light;
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --bg:#0B1520; --surface:#122131; --surface2:#1A2C40; --ink:#E6EEF6; --muted:#9DB0C4; --line:#2A3F55;
-  --navy:#0B3556; --navy-ink:#FFFFFF; --navy-soft:#A9C3DC; --accent:#73B6F5; --accent-ink:#04203A; --gold:#F2B92A; --gold-soft:#3A3014;
-  --good:#53C58E; --bad:#F28A7F; --warn:#E8B24A;
-  --t-f:#73B6F5; --t-v:#53C58E; --t-e:#C39BEA; --t-x:#F28A7F; color-scheme:dark; } }
+  --bg:#0C1626; --surface:#142236; --surface2:#1C2E46; --ink:#E8EEF7; --muted:#9FB2C9; --line:#2B405C;
+  --navy:#0B3556; --navy-ink:#FFFFFF; --navy-soft:#A9C3DC; --accent:#7AA7FF; --accent-ink:#06203F; --gold:#FFC23D; --gold-d:#C98A00; --gold-soft:#3B3116;
+  --good:#2EC27A; --good-d:#1C8A55; --cta:#1E9A5A; --cta-d:#116B3C; --bad:#FF6B6F; --bad-d:#C24548; --warn:#E8B24A;
+  --t-f:#4C82FF; --t-f-d:#2E5ED0; --t-v:#22B373; --t-v-d:#168553; --t-e:#9B72FA; --t-e-d:#7449DE; --t-x:#FF6B6F;
+  --locked:#25395A; --locked-d:#18283F; --link-todo:#3A5276; color-scheme:dark; } }
 :root[data-theme="dark"]{
-  --bg:#0B1520; --surface:#122131; --surface2:#1A2C40; --ink:#E6EEF6; --muted:#9DB0C4; --line:#2A3F55;
-  --navy:#0B3556; --navy-ink:#FFFFFF; --navy-soft:#A9C3DC; --accent:#73B6F5; --accent-ink:#04203A; --gold:#F2B92A; --gold-soft:#3A3014;
-  --good:#53C58E; --bad:#F28A7F; --warn:#E8B24A;
-  --t-f:#73B6F5; --t-v:#53C58E; --t-e:#C39BEA; --t-x:#F28A7F; color-scheme:dark; }
+  --bg:#0C1626; --surface:#142236; --surface2:#1C2E46; --ink:#E8EEF7; --muted:#9FB2C9; --line:#2B405C;
+  --navy:#0B3556; --navy-ink:#FFFFFF; --navy-soft:#A9C3DC; --accent:#7AA7FF; --accent-ink:#06203F; --gold:#FFC23D; --gold-d:#C98A00; --gold-soft:#3B3116;
+  --good:#2EC27A; --good-d:#1C8A55; --cta:#1E9A5A; --cta-d:#116B3C; --bad:#FF6B6F; --bad-d:#C24548; --warn:#E8B24A;
+  --t-f:#4C82FF; --t-f-d:#2E5ED0; --t-v:#22B373; --t-v-d:#168553; --t-e:#9B72FA; --t-e-d:#7449DE; --t-x:#FF6B6F;
+  --locked:#25395A; --locked-d:#18283F; --link-todo:#3A5276; color-scheme:dark; }
 
 *{box-sizing:border-box}
 html,body{margin:0}
@@ -217,6 +220,97 @@ footer{border-top:1px solid var(--line);padding-block:var(--s5);color:var(--mute
 .path.enter .goal.ok .ico{animation:settle .6s var(--ease) .7s both}
 #side > *{animation:fadeUp .3s var(--ease) both}
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01s!important}.tnode.just .ico,.path.enter .ends,.path.enter .tnode,.path.enter .goal,.rhead.enter .bar i,.tnode.next::after,.seg.draw,.path.enter .goal.ok .ico{animation:none!important}.seg.draw{stroke-dashoffset:0!important}#side > *{animation-name:none}.tnode.next{box-shadow:0 0 0 2px var(--gold)}}
+
+/* ===== Tema de estudio: mapa de aprendizaje tipo juego ===== */
+.btn{border:2px solid var(--line);border-radius:14px;box-shadow:0 3px 0 var(--line);transition:transform .08s,box-shadow .08s,border-color .15s}
+.btn:active:not([disabled]){transform:translateY(2px);box-shadow:0 1px 0 var(--line)}
+.btn.primary{background:var(--cta);border-color:var(--cta-d);color:#fff;box-shadow:0 4px 0 var(--cta-d)}
+.btn.primary:hover{filter:brightness(1.06)}
+.btn.primary:active:not([disabled]){box-shadow:0 2px 0 var(--cta-d)}
+.btn.big{min-height:56px;padding:12px 22px;font-size:17px;border-radius:16px}
+.hud-row{display:flex;flex-wrap:wrap;gap:8px}
+.stat-chip{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:6px 14px;border-radius:999px;background:var(--surface);border:2px solid var(--line);font-weight:600;font-size:15px}
+.stat-chip svg.i{width:20px;height:20px}
+.stat-chip.streak svg{color:#FF7A1A} .stat-chip.xp svg{color:var(--gold-d)} .stat-chip.lvl svg{color:var(--t-e)}
+.lvlbar{display:inline-block;width:56px;height:8px;border-radius:4px;background:var(--surface2);overflow:hidden;margin-left:4px}
+.lvlbar i{display:block;height:100%;background:var(--t-e)}
+.rhead{display:flex;flex-wrap:wrap;gap:20px 32px;align-items:flex-end;justify-content:space-between;background:var(--navy);color:var(--navy-ink);border-radius:24px;padding:28px 32px;margin-bottom:32px}
+.rhead h2{color:#fff;font-size:clamp(26px,3.4vw,40px);margin-bottom:6px}
+.rh-text{flex:1 1 420px;min-width:0}
+.rh-meta{color:var(--navy-soft);margin:0 0 14px}
+.rprog{display:flex;align-items:center;gap:12px;max-width:460px}
+.rprog .bar{flex:1;height:16px;border-radius:8px;background:rgba(255,255,255,.16)}
+.rprog .bar i{background:var(--gold);border-radius:8px}
+.pctl{font-weight:800;color:var(--gold);font-size:18px}
+.path{gap:22px;padding-block:8px 24px}
+.ends{position:relative;background:var(--navy);color:#fff;border-radius:999px;padding:8px 22px;font-weight:700}
+.unit{position:relative;width:min(560px,100%);display:flex;justify-content:space-between;align-items:center;gap:12px;border-radius:18px;padding:14px 18px;color:#fff;background:var(--uc);box-shadow:0 4px 0 var(--ud)}
+.unit.u0{--uc:var(--t-f-d);--ud:color-mix(in srgb,var(--t-f-d) 72%,#000)} .unit.u1{--uc:var(--t-v-d);--ud:color-mix(in srgb,var(--t-v-d) 72%,#000)} .unit.u2{--uc:var(--t-e-d);--ud:color-mix(in srgb,var(--t-e-d) 72%,#000)} .unit.u3{--uc:var(--gold);--ud:var(--gold-d);color:#2B2000}
+.unit b{display:block;font:800 19px "Bricolage Grotesque",sans-serif}
+.unit span{font-size:14px;opacity:.95}
+.unit .ucount{font-weight:800;font-size:15px;background:rgba(255,255,255,.24);border-radius:999px;padding:4px 12px;opacity:1}
+.pn{position:relative;display:grid;grid-template-columns:84px 250px;align-items:center;gap:14px;transform:translateX(var(--dx,0px))}
+@media (max-width:640px){.pn{transform:none;grid-template-columns:76px minmax(0,1fr);width:100%}}
+.orb{position:relative;width:76px;height:76px;border-radius:50%;border:0;display:grid;place-items:center;color:#fff;background:var(--oc);box-shadow:0 6px 0 var(--od);transition:transform .12s var(--ease),box-shadow .12s,background-color .3s}
+.orb svg.i{width:32px;height:32px;stroke-width:2.4}
+.orb:hover svg.i{transform:scale(1.1)}
+.orb svg.i{transition:transform .2s var(--ease)}
+.orb:active{transform:translateY(4px);box-shadow:0 2px 0 var(--od)}
+.orb.f{--oc:var(--t-f);--od:var(--t-f-d)} .orb.v{--oc:var(--t-v);--od:var(--t-v-d)} .orb.e{--oc:var(--t-e);--od:var(--t-e-d)}
+.orb.todo:not(.next),.orb.skip{--oc:var(--locked);--od:var(--locked-d);color:var(--muted)}
+.orb.skip{opacity:.7}
+.orb.learning{outline:4px solid color-mix(in srgb,var(--oc) 40%,transparent);outline-offset:4px}
+.orb.done{--oc:var(--good);--od:var(--good-d)}
+.orb.next{--oc:var(--gold);--od:var(--gold-d);color:#2B2000}
+.orb.on{box-shadow:0 6px 0 var(--od),0 0 0 5px var(--bg),0 0 0 9px var(--accent)}
+.orb.next::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:3px solid var(--gold);opacity:0;pointer-events:none;animation:pulse 2.4s var(--ease) infinite}
+.lbl{display:grid;gap:3px;text-align:left;background:none;border:0;padding:0;cursor:pointer;color:var(--ink)}
+.lbl b{font-weight:700;font-size:16px;line-height:1.25}
+.lbl span{font-size:13px;color:var(--muted)}
+.lbl:hover b{color:var(--accent)}
+.bubble{position:absolute;left:-4px;top:-46px;z-index:2;white-space:nowrap;background:var(--surface);border:2px solid var(--gold);border-radius:12px;padding:4px 12px;font-weight:800;font-size:13px;color:var(--ink);animation:bob 1.4s ease-in-out infinite alternate}
+.bubble::after{content:"";position:absolute;left:30px;bottom:-8px;width:12px;height:12px;background:var(--surface);border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(45deg)}
+@keyframes bob{to{transform:translateY(-5px)}}
+.chest{width:64px;height:64px;margin-left:6px;border-radius:18px;display:grid;place-items:center;background:var(--locked);color:var(--muted);box-shadow:0 5px 0 var(--locked-d);transition:background-color .3s}
+.chest.open{background:var(--gold);color:#2B2000;box-shadow:0 5px 0 var(--gold-d)}
+.chest svg.i{width:30px;height:30px}
+.chest-lbl{font-size:14px;color:var(--muted)}
+.chest-lbl b{color:var(--ink)}
+.goal-wrap{grid-template-columns:96px 250px}
+.goal-orb{position:relative;width:88px;height:88px;border-radius:50%;display:grid;place-items:center;background:var(--surface);color:var(--gold-d);border:3px dashed var(--gold)}
+.goal-orb.ok{background:var(--gold);color:#2B2000;border-style:solid;box-shadow:0 6px 0 var(--gold-d)}
+.goal-orb svg.i{width:40px;height:40px}
+.seg{stroke-width:6}
+.seg.todo{stroke:var(--link-todo);stroke-dasharray:1 13;stroke-width:6}
+.seg.done{stroke:var(--good)}
+.path.enter .pn > *{animation:nodeIn .5s var(--ease) both;animation-delay:calc(var(--k,0) * 45ms)}
+.path.enter .unit{animation:nodeIn .5s var(--ease) both;animation-delay:calc(var(--k,0) * 45ms)}
+.orb.just{animation:settle .5s var(--ease)}
+.orb.just svg{animation:settle .5s var(--ease) .1s both}
+.orb.just::before{content:"";position:absolute;inset:0;border-radius:50%;animation:doneRing .9s ease-out .1s}
+.side{background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:var(--s4) var(--s5)}
+.tagband{display:flex;align-items:center;gap:10px;margin:calc(-1 * var(--s4)) calc(-1 * var(--s5)) var(--s4);padding:14px var(--s5);border-radius:18px 18px 0 0;color:#fff;background:var(--oc);font-weight:700}
+.tagband.f{--oc:var(--t-f-d)} .tagband.v{--oc:var(--t-v-d)} .tagband.e{--oc:var(--t-e-d)}
+.pn.has-bubble{margin-top:34px}
+.tagband svg.i{width:22px;height:22px}
+.tagband span{margin-left:auto;font-weight:600;opacity:.92;font-size:14px}
+.side .seg-ctl{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.side .seg-ctl button{min-height:40px;border:2px solid var(--line);border-radius:999px;background:var(--surface);padding:6px 14px;font-weight:600;font-size:14px}
+.side .seg-ctl button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+.hoy li::marker{color:var(--t-v)}
+/* Retos */
+.opt{border:2px solid var(--line);border-radius:16px;box-shadow:0 4px 0 var(--line);transition:transform .08s,box-shadow .08s,border-color .15s,background-color .2s}
+.opt:active:not([disabled]){transform:translateY(2px);box-shadow:0 2px 0 var(--line)}
+.opt.good{border-color:var(--good);box-shadow:0 4px 0 var(--good-d)}
+.opt.bad{border-color:var(--bad);box-shadow:0 4px 0 var(--bad-d)}
+.fb{border:2px solid var(--line)}
+.fb.good{background:color-mix(in srgb,var(--good) 14%,var(--surface));border-color:var(--good)}
+.fb.bad{background:color-mix(in srgb,var(--bad) 12%,var(--surface));border-color:var(--bad)}
+.quiz .bar{height:14px;border-radius:7px}
+.end{position:relative;overflow:hidden}
+.cf{position:absolute;top:38%;width:10px;height:14px;border-radius:2px;background:var(--c);pointer-events:none;animation:cf 1.5s cubic-bezier(.2,.7,.3,1) both}
+@keyframes cf{0%{transform:translate(0,0) rotate(0);opacity:1}55%{transform:translate(var(--x),var(--y)) rotate(var(--r));opacity:1}100%{transform:translate(var(--x),calc(var(--y) + 280px)) rotate(var(--r));opacity:0}}
+@media (prefers-reduced-motion:reduce){.path.enter .pn > *,.path.enter .unit,.bubble,.orb.next::after,.orb.just,.orb.just svg,.orb.just::before{animation:none!important}.orb.next{box-shadow:0 6px 0 var(--od),0 0 0 4px var(--gold)}}
 </style>
 </head>
 <body>
@@ -371,6 +465,14 @@ const ICONS = {
   flag:'<path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/>',
   heart:'<path d="M12 20s-7-4.4-9.2-8.7C1.3 8.2 3 5 6.3 5c2 0 3.2 1.1 3.9 2.2.3.5 1.3.5 1.6 0C12.5 6.1 13.7 5 15.7 5 19 5 20.7 8.2 19.2 11.3 17 15.6 12 20 12 20z"/>',
   skip:'<path d="M6 12h12"/>',
+  book:'<path d="M4 4h6a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4z"/><path d="M20 4h-6a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h7z"/>',
+  bolt:'<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
+  spark:'<path d="M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6z"/><path d="M19 3v4M17 5h4"/>',
+  flame:'<path d="M12 22c4 0 7-3 7-7 0-3-2-5-3-7-1 2-2 3-4 3 0-3 1-5-1-9-2 3-6 7-6 12 0 4 3 8 7 8z"/>',
+  star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
+  chest:'<rect x="3" y="9" width="18" height="11" rx="2"/><path d="M3 13h18M12 12v3M5 9V7a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v2"/>',
+  trophy:'<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3a3 3 0 0 1-3 4M7 5H4a3 3 0 0 0 3 4"/>',
+  play:'<path d="M8 5l11 7-11 7z"/>',
 };
 function icon(name, extra){ const s = document.createElementNS("http://www.w3.org/2000/svg","svg"); s.setAttribute("viewBox","0 0 24 24"); s.setAttribute("class","i " + (extra || "")); s.setAttribute("aria-hidden","true"); s.innerHTML = ICONS[name]; return s; }
 const tagEl = k => h("span", {class:"tag " + k}, TAG[k]);
@@ -381,13 +483,18 @@ const state = {it:"II", route:"fia", topic:null, sample:null, quizFocus:""};
 
 /* ---------- Avance (solo en este navegador) ---------- */
 let PR = {st:{}, xp:0};
-try{ const raw = localStorage.getItem("coach-progress-v1"); if(raw){ const o = JSON.parse(raw); if(o && typeof o.st === "object") PR = {st:o.st, xp:+o.xp || 0}; } }catch(e){}
+try{ const raw = localStorage.getItem("coach-progress-v1"); if(raw){ const o = JSON.parse(raw); if(o && typeof o.st === "object") PR = {st:o.st, xp:+o.xp || 0, days:o.days || null}; } }catch(e){}
 function savePR(){ try{ localStorage.setItem("coach-progress-v1", JSON.stringify(PR)); }catch(e){} }
 const stOf = k => PR.st[k] || "todo";
 function setSt(k, v){ if(v === "todo") delete PR.st[k]; else PR.st[k] = v; savePR(); }
 function subjProg(id){ const list = topicsOf(id); return {done:list.filter(t => stOf(t.key) === "done").length, n:list.length}; }
 function totalProg(){ let d = 0, n = 0; S.forEach(s => { if(s.itinerario && s.itinerario !== state.it) return; const p = subjProg(s.id); d += p.done; n += p.n; }); return {d, n}; }
-function addXP(x){ PR.xp += x; savePR(); }
+function addXP(x){
+  PR.xp += x;
+  const t = todayKey(), d = PR.days || {};
+  if(d.last !== t){ const diff = d.last ? Math.round((new Date(t) - new Date(d.last)) / 86400000) : 99; PR.days = {last:t, n:diff === 1 ? (d.n || 0) + 1 : 1}; }
+  savePR();
+}
 
 /* ---------- Navegación ---------- */
 const TABS = [["rutas","Rutas"],["asignaturas","Asignaturas"],["tutor","Tutor"],["retos","Retos"],["como","Cómo funciona"]];
@@ -405,21 +512,32 @@ $("#tabs").append(...TABS.map(([k,l]) => h("button", {class:"tab", role:"tab", "
 window.addEventListener("hashchange", () => show(location.hash.slice(1)));
 
 /* ---------- Rutas ---------- */
-const DX = [0, 44, 66, 44, 0, -44, -66, -44];
+const DX = [0, 70, 105, 70, 0, -70, -105, -70];
 const ST_LABEL = {todo:"Pendiente", learning:"Estudiando", done:"Completado", skip:"Omitido"};
+const TAG_ICON = {f:"book", v:"bolt", e:"spark"};
+const UNIT_SIZE = 4;
 let justDone = null;
 function subjectSelect(id, onChange){
   const sel = h("select", {id}, CIC.map(c => h("optgroup", {label:"Ciclo " + c}, S.filter(s => s.ciclo === c).map(s => h("option", {value:s.id}, s.nombre + (s.itinerario ? ` (Itinerario ${s.itinerario})` : ""))))));
   sel.addEventListener("change", () => onChange(sel.value));
   return sel;
 }
+function todayKey(){ const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+function streakNow(){ const d = PR.days || {}; if(!d.last) return 0; const diff = Math.round((new Date(todayKey()) - new Date(d.last)) / 86400000); return diff <= 1 ? (d.n || 0) : 0; }
+function hudEl(){
+  const lvl = Math.floor(PR.xp / 100) + 1, into = PR.xp % 100, st = streakNow();
+  return h("div", {class:"hud-row"},
+    h("span", {class:"stat-chip streak", title:"Días seguidos con práctica"}, icon("flame"), h("b", {class:"num"}, st), st === 1 ? " día de racha" : " días de racha"),
+    h("span", {class:"stat-chip xp"}, icon("bolt"), h("b", {class:"num"}, PR.xp), " XP"),
+    h("span", {class:"stat-chip lvl"}, icon("star"), "Nivel ", h("b", {class:"num"}, lvl), h("span", {class:"lvlbar", role:"progressbar", "aria-label":`${into} de 100 XP para el nivel ${lvl + 1}`, "aria-valuenow":into, "aria-valuemin":0, "aria-valuemax":100}, h("i", {style:`width:${into}%`}))));
+}
 function buildRutas(){
   $("#v-rutas").replaceChildren(
     h("div", {class:"rtop"},
       h("label", {class:"field"}, "Asignatura", subjectSelect("rsel", v => { state.route = v; state.topic = null; paintRuta(); })),
-      h("div", {class:"legend", "aria-label":"Leyenda"}, tagEl("f"), tagEl("v"), tagEl("e"))),
+      h("div", {id:"hud"})),
     h("div", {id:"rhead", class:"rhead"}),
-    h("div", {class:"rlayout"}, h("div", {class:"path", id:"path"}), h("aside", {class:"card side", id:"side", "aria-live":"polite"})));
+    h("div", {class:"rlayout"}, h("div", {class:"path", id:"path"}), h("aside", {class:"side", id:"side", "aria-live":"polite"})));
 }
 function paintRuta(){
   const s = byId[state.route]; if(!s) return;
@@ -428,23 +546,82 @@ function paintRuta(){
   const nextIdx = list.findIndex(t => stOf(t.key) !== "done" && stOf(t.key) !== "skip");
   const changed = state.lastRoute !== s.id; state.lastRoute = s.id;
   if(state.topic && state.topic !== "goal" && (!topicByKey[state.topic] || topicByKey[state.topic].sid !== s.id)) state.topic = null;
+  $("#hud").replaceChildren(hudEl());
+  const nx = list[nextIdx], units = Math.ceil(list.length / UNIT_SIZE);
   $("#rhead").replaceChildren(
-    h("div", {}, h("h2", {}, s.nombre), h("p", {class:"meta"}, `Ciclo ${s.ciclo} · ${list.length} temas · revisión de ${REVISION}`)),
-    h("div", {class:"rprog"}, h("div", {class:"pt"}, h("span", {}, "Tu avance"), h("span", {class:"num"}, `${pg.done} de ${pg.n} temas`)), h("div", {class:"bar", role:"progressbar", "aria-valuenow":pct, "aria-valuemin":0, "aria-valuemax":100, "aria-label":"Avance de la ruta"}, h("i", {style:`width:${pct}%`}))));
-  $("#path").replaceChildren(
-    h("div", {class:"ends", style:"--k:0"}, "Inicio de la ruta"),
-    ...list.map((t,i) => { const st = stOf(t.key);
-      return h("div", {class:"pnode", style:`--dx:${DX[i % DX.length]}px`},
-        h("button", {class:`tnode ${st}` + (state.topic === t.key ? " on" : "") + (i === nextIdx ? " next" : "") + (justDone === t.key ? " just" : ""), style:`--k:${i + 1}`, "aria-pressed":String(state.topic === t.key), onclick:() => { state.topic = t.key; paintRuta(); }},
-          h("span", {class:"ico"}, st === "done" ? icon("check") : st === "skip" ? icon("skip") : String(i + 1)),
-          h("span", {class:"tt"}, t.t),
-          h("span", {class:"st"}, tagEl(t.tag), " · ", i === nextIdx ? "Siguiente tema" : ST_LABEL[st]))); }),
-    h("button", {class:"goal" + (pg.n && pg.done === pg.n ? " ok" : ""), style:`--k:${list.length + 1}`, onclick:() => { state.topic = "goal"; paintRuta(); }}, h("span", {class:"ico"}, icon("flag")), h("span", {}, h("b", {}, "Proyecto: " + r.proyecto.t), h("span", {class:"muted small"}, "Aplica lo aprendido en la ruta"))));
+    h("div", {class:"rh-text"},
+      h("h2", {}, s.nombre),
+      h("p", {class:"rh-meta"}, `Ciclo ${s.ciclo} · ${list.length} temas en ${units} ${units === 1 ? "unidad" : "unidades"} · revisión de ${REVISION}`),
+      h("div", {class:"rprog"}, h("div", {class:"bar", role:"progressbar", "aria-valuenow":pct, "aria-valuemin":0, "aria-valuemax":100, "aria-label":"Avance de la ruta"}, h("i", {style:`width:${pct}%`})), h("span", {class:"num pctl"}, `${pct} %`))),
+    nx ? h("button", {class:"btn primary big", onclick:() => startTopicQuiz(nx)}, icon("play"), pg.done === 0 && nextIdx === 0 ? "Empezar la ruta" : "Continuar: " + nx.t)
+       : h("button", {class:"btn primary big", onclick:() => { state.topic = "goal"; paintRuta(); }}, icon("trophy"), "Ver el proyecto final"));
+  const kids = [h("div", {class:"ends"}, "Inicio de la ruta")];
+  let k = 1;
+  for(let u = 0; u < units; u++){
+    const chunk = list.slice(u * UNIT_SIZE, (u + 1) * UNIT_SIZE), ud = chunk.filter(t => stOf(t.key) === "done").length, full = ud === chunk.length;
+    kids.push(h("div", {class:`unit u${u % 4}`, style:`--k:${k++}`},
+      h("div", {}, h("b", {}, `Unidad ${u + 1}`), h("span", {}, chunk.slice(0, 2).map(t => t.t).join(" · ") + (chunk.length > 2 ? " y más" : ""))),
+      h("span", {class:"ucount num", "aria-label":`${ud} de ${chunk.length} temas completados`}, `${ud}/${chunk.length}`)));
+    chunk.forEach(t => {
+      const i = t.i, st = stOf(t.key), isNext = i === nextIdx, on = state.topic === t.key;
+      const open = () => { state.topic = t.key; paintRuta(); };
+      kids.push(h("div", {class:"pn" + (isNext ? " has-bubble" : ""), style:`--dx:${DX[i % DX.length]}px;--k:${k++}`},
+        isNext ? h("span", {class:"bubble"}, pg.done === 0 && i === 0 ? "Empieza aquí" : "Sigue aquí") : null,
+        h("button", {class:`orb ${t.tag} ${st}` + (isNext ? " next" : "") + (on ? " on" : "") + (justDone === t.key ? " just" : ""), "aria-label":`${t.t}. ${TAG[t.tag]}. ${isNext ? "Siguiente tema" : ST_LABEL[st]}.`, "aria-pressed":String(on), onclick:open},
+          icon(st === "done" ? "check" : st === "skip" ? "skip" : TAG_ICON[t.tag])),
+        h("button", {class:"lbl", tabindex:"-1", "aria-hidden":"true", onclick:open}, h("b", {}, t.t), h("span", {}, tagEl(t.tag), " · ", isNext ? "Siguiente tema" : ST_LABEL[st]))));
+    });
+    kids.push(h("div", {class:"pn", style:`--dx:0px;--k:${k++}`},
+      h("div", {class:"chest" + (full ? " open" : ""), role:"img", "aria-label": full ? `Cofre de la unidad ${u + 1}, abierto` : `Cofre de la unidad ${u + 1}, cerrado`}, icon("chest")),
+      h("span", {class:"chest-lbl"}, full ? h("b", {}, `Unidad ${u + 1} completada`) : `Completa la unidad ${u + 1} para abrir el cofre`)));
+  }
+  kids.push(h("div", {class:"pn goal-wrap", style:`--dx:0px;--k:${k++}`},
+    h("button", {class:"goal-orb" + (pg.n && pg.done === pg.n ? " ok" : ""), "aria-label":"Proyecto final: " + r.proyecto.t, onclick:() => { state.topic = "goal"; paintRuta(); }}, icon("trophy")),
+    h("span", {class:"chest-lbl"}, h("b", {}, "Proyecto final"), h("br"), r.proyecto.t)));
+  $("#path").replaceChildren(...kids);
   $("#path").classList.toggle("enter", changed);
   $("#rhead").classList.toggle("enter", changed);
   justDone = null;
   paintSide(s, list, nextIdx);
   requestAnimationFrame(() => drawLinks(changed));
+}
+function paintSide(s, list, nextIdx){
+  const side = $("#side"), r = RT[s.id];
+  if(state.topic === "goal"){
+    side.replaceChildren(h("div", {class:"tagband", style:"--oc:var(--gold);color:#2B2000"}, icon("trophy"), "Proyecto final"),
+      h("h3", {}, r.proyecto.t), h("p", {class:"muted"}, `Aplica lo aprendido en la ruta de ${s.nombre} con un resultado concreto.`),
+      h("ol", {}, r.proyecto.pasos.map(p => h("li", {}, p))),
+      h("div", {class:"row"}, h("button", {class:"btn", onclick:() => { state.topic = null; paintRuta(); }}, icon("left"), "Resumen de la ruta")));
+    return;
+  }
+  const t = state.topic ? topicByKey[state.topic] : null;
+  if(!t){
+    const nx = list[nextIdx >= 0 ? nextIdx : 0];
+    side.replaceChildren(...[
+      h("h3", {}, "Resumen de la ruta"),
+      h("p", {class:"muted"}, "Estudia cada tema, apruébalo con 4 de 5 aciertos, abre los cofres de cada unidad y termina con el proyecto."),
+      nx ? h("button", {class:"btn primary", onclick:() => { state.topic = nx.key; paintRuta(); }}, "Ver el tema: " + nx.t) : null,
+      h("h4", {}, "Hoy en la industria"), h("ul", {class:"hoy"}, r.hoy.map(x => h("li", {}, x))),
+      h("h4", {}, "En desuso"), r.desuso.length ? h("ul", {class:"old"}, r.desuso.map(x => h("li", {}, x))) : h("p", {class:"muted"}, "No se identifican tecnologías en desuso: los temas de esta ruta son fundamentos que no caducan."),
+      h("p", {class:"muted small", style:"margin-top:16px"}, REF_NOTE)].filter(Boolean));
+    return;
+  }
+  const st = stOf(t.key), aiHost = h("div", {}), prev = list[t.i - 1], next = list[t.i + 1];
+  side.replaceChildren(
+    h("div", {class:"tagband " + t.tag}, icon(TAG_ICON[t.tag]), TAG[t.tag], h("span", {}, `Tema ${t.i + 1} de ${t.n}`)),
+    h("h3", {}, t.t),
+    h("p", {}, t.d),
+    h("div", {class:"seg-ctl", role:"group", "aria-label":"Estado del tema"}, [["learning","Estudiando"],["done","Completado"],["skip","Omitir"]].map(([v,l]) => h("button", {"aria-pressed":String(st === v), onclick:() => { setSt(t.key, st === v ? "todo" : v); if(v === "done" && st !== v) justDone = t.key; paintRuta(); }}, l))),
+    h("div", {class:"row"},
+      h("button", {class:"btn primary", onclick:() => startTopicQuiz(t)}, icon("play"), "Practicar · +50 XP"),
+      h("button", {class:"btn", onclick:() => { $("#q").value = `Explícame ${t.t} de ${s.nombre}`; go("tutor"); ask($("#q").value); }}, "Preguntar al tutor"),
+      h("button", {class:"btn ai-only", onclick:e => { e.currentTarget.disabled = true; explainTopic(aiHost, t); }}, "Explicar con Claude")),
+    aiHost,
+    h("div", {class:"nav"},
+      h("button", {class:"btn", disabled:!prev, onclick:() => { if(prev){ state.topic = prev.key; paintRuta(); } }}, icon("left"), "Anterior"),
+      h("button", {class:"btn", onclick:() => { state.topic = null; paintRuta(); }}, "Resumen"),
+      h("button", {class:"btn", disabled:!next, onclick:() => { if(next){ state.topic = next.key; paintRuta(); } }}, "Siguiente", icon("right"))),
+    h("p", {class:"muted small", style:"margin-top:16px"}, REF_NOTE));
 }
 const SVGNS = "http://www.w3.org/2000/svg";
 function drawLinks(animate){
@@ -455,11 +632,11 @@ function drawLinks(animate){
   svg.setAttribute("class", "links"); svg.setAttribute("aria-hidden", "true");
   svg.setAttribute("width", pr.width); svg.setAttribute("height", pr.height); svg.setAttribute("viewBox", `0 0 ${pr.width} ${pr.height}`);
   path.prepend(svg);
-  const items = [...path.querySelectorAll(".ends, .tnode, .goal")];
-  const isDone = el => el.classList.contains("ends") || el.classList.contains("done") || el.classList.contains("ok");
+  const items = [...path.querySelectorAll(".ends, .orb, .chest, .goal-orb")];
+  const isDone = el => el.classList.contains("ends") || el.classList.contains("done") || el.classList.contains("open") || el.classList.contains("ok");
   for(let i = 0; i < items.length - 1; i++){
     const a = items[i].getBoundingClientRect(), b = items[i + 1].getBoundingClientRect();
-    const x1 = a.left + a.width / 2 - pr.left, y1 = a.bottom - pr.top, x2 = b.left + b.width / 2 - pr.left, y2 = b.top - pr.top, my = (y1 + y2) / 2;
+    const x1 = a.left + a.width / 2 - pr.left, y1 = a.bottom - pr.top + 4, x2 = b.left + b.width / 2 - pr.left, y2 = b.top - pr.top - 4, my = (y1 + y2) / 2;
     const p = document.createElementNS(SVGNS, "path");
     p.setAttribute("d", `M${x1.toFixed(1)} ${y1.toFixed(1)} C ${x1.toFixed(1)} ${my.toFixed(1)}, ${x2.toFixed(1)} ${my.toFixed(1)}, ${x2.toFixed(1)} ${y2.toFixed(1)}`);
     const done = isDone(items[i]) && isDone(items[i + 1]);
@@ -472,54 +649,6 @@ function drawLinks(animate){
 }
 let rzT; window.addEventListener("resize", () => { clearTimeout(rzT); rzT = setTimeout(() => drawLinks(false), 120); });
 if(document.fonts && document.fonts.ready) document.fonts.ready.then(() => drawLinks(false));
-function paintSide(s, list, nextIdx){
-  const side = $("#side"), r = RT[s.id];
-  if(state.topic === "goal"){
-    side.replaceChildren(h("h3", {}, r.proyecto.t), h("p", {class:"muted"}, `Proyecto propuesto para ${s.nombre}. Desarrollarlo integra los temas de la ruta en un resultado concreto.`),
-      h("ol", {}, r.proyecto.pasos.map(p => h("li", {}, p))),
-      h("div", {class:"row"}, h("button", {class:"btn", onclick:() => { state.topic = null; paintRuta(); }}, icon("left"), "Resumen de la ruta")));
-    return;
-  }
-  const t = state.topic ? topicByKey[state.topic] : null;
-  if(!t){
-    const nx = list[nextIdx >= 0 ? nextIdx : 0];
-    side.replaceChildren(...[
-      h("h3", {}, "Resumen de la ruta"),
-      h("p", {class:"muted"}, "Estudia cada tema, apruébalo con 4 de 5 aciertos y termina con el proyecto."),
-      nx ? h("button", {class:"btn primary", onclick:() => { state.topic = nx.key; paintRuta(); }}, "Continuar con: " + nx.t) : null,
-      h("h4", {}, "Hoy en la industria"), h("ul", {class:"hoy"}, r.hoy.map(x => h("li", {}, x))),
-      h("h4", {}, "En desuso"), r.desuso.length ? h("ul", {class:"old"}, r.desuso.map(x => h("li", {}, x))) : h("p", {class:"muted"}, "No se identifican tecnologías en desuso: los temas de esta ruta son fundamentos que no caducan."),
-      h("h4", {}, "Proyecto propuesto"), h("p", {}, h("button", {class:"linkbtn", onclick:() => { state.topic = "goal"; paintRuta(); }}, r.proyecto.t)),
-      h("p", {class:"muted small"}, REF_NOTE)].filter(Boolean));
-    return;
-  }
-  const st = stOf(t.key), aiHost = h("div", {}), prev = list[t.i - 1], next = list[t.i + 1];
-  side.replaceChildren(
-    h("p", {class:"muted small"}, `Tema ${t.i + 1} de ${t.n}`),
-    h("h3", {}, t.t),
-    h("p", {}, tagEl(t.tag)),
-    h("p", {}, t.d),
-    h("div", {class:"seg", role:"group", "aria-label":"Estado del tema"}, [["learning","Estudiando"],["done","Completado"],["skip","Omitir"]].map(([v,l]) => h("button", {"aria-pressed":String(st === v), onclick:() => { setSt(t.key, st === v ? "todo" : v); if(v === "done" && st !== v) justDone = t.key; paintRuta(); }}, l))),
-    h("div", {class:"row"},
-      h("button", {class:"btn primary", onclick:() => startTopicQuiz(t)}, "Practicar este tema"),
-      h("button", {class:"btn", onclick:() => { $("#q").value = `Explícame ${t.t} de ${s.nombre}`; go("tutor"); ask($("#q").value); }}, "Preguntar al tutor"),
-      h("button", {class:"btn ai-only", onclick:e => { e.currentTarget.disabled = true; explainTopic(aiHost, t); }}, "Explicar con Claude")),
-    aiHost,
-    h("div", {class:"nav"},
-      h("button", {class:"btn", disabled:!prev, onclick:() => { if(prev){ state.topic = prev.key; paintRuta(); } }}, icon("left"), "Anterior"),
-      h("button", {class:"btn", onclick:() => { state.topic = null; paintRuta(); }}, "Resumen"),
-      h("button", {class:"btn", disabled:!next, onclick:() => { if(next){ state.topic = next.key; paintRuta(); } }}, "Siguiente", icon("right"))),
-    h("p", {class:"muted small", style:"margin-top:16px"}, REF_NOTE));
-}
-async function explainTopic(host, t){
-  const s = byId[t.sid];
-  const prompt = `Eres el tutor del Coach UTPL Computación. Explica el tema «${t.t}» de la asignatura ${s.nombre} a un estudiante universitario, en español formal, en un máximo de 150 palabras y con un ejemplo actual de la industria.
-Reglas: no te salgas del tema. Parte de la descripción del temario referencial: "${t.d}". El tema se clasifica como ${TAG_LONG[t.tag]}. Termina con una pregunta corta de comprobación, sin dar la respuesta.`;
-  const out = h("div", {class:"ai-out"}, "Consultando al modelo…");
-  host.replaceChildren(out, h("details", {class:"prompt"}, h("summary", {}, "Ver el prompt enviado al modelo"), h("pre", {}, prompt)));
-  try{ await state.sample(prompt, {modelTier:"quick", onText:({text}) => { out.textContent = text; }}); }
-  catch(e){ const c = e && e.code; out.textContent = (c === "not_granted" || c === "sampling_disabled") ? "El modelo no está disponible en esta vista." : c === "rate_limited" ? "Se alcanzó el límite de consultas al modelo. Inténtalo más tarde." : ((e && e.text) || "No se pudo generar la explicación."); }
-}
 
 /* ---------- Asignaturas ---------- */
 function buildCatalog(){
@@ -656,12 +785,18 @@ function paintQuiz(){
       if(!q.refuerzo && Q.lives > 0 && q.tk){ const r = tq(topicByKey[q.tk], pick(["desc","title","tag","subj"].filter(k => k !== q.kind))); r.refuerzo = true; Q.qs.splice(Q.i + 1, 0, r); }
     }
     hud.replaceChildren(heartsEl(), h("span", {class:"num xp"}, `${Q.xp} XP`), h("span", {class:"muted num"}, `Pregunta ${Q.i + 1} de ${Q.qs.length}`));
-    fb.hidden = false;
+    fb.hidden = false; fb.classList.add(good ? "good" : "bad");
     fb.replaceChildren(h("p", {}, h("b", {class:good ? "ok" : "ko"}, good ? "Correcto, +10 XP. " : "Incorrecto, pierdes una vida. "), q.why), h("p", {class:"muted small"}, "Fuente: " + q.cite),
       h("button", {class:"btn primary", id:"next", onclick:() => { Q.i++; paintQuiz(); }}, Q.lives <= 0 || Q.i + 1 >= Q.qs.length ? "Ver resultados" : "Continuar"));
     const nx = $("#next"); if(nx) nx.focus();
   }
   Q.answer = answer;
+}
+function confetti(host){
+  if(!host || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const colors = ["#FFC23D", "#22B36B", "#2D6BFF", "#8B5CF6", "#E5484D"];
+  for(let i = 0; i < 44; i++) host.append(h("i", {class:"cf", "aria-hidden":"true", style:`--x:${Math.round((Math.random() * 2 - 1) * 280)}px;--y:${-Math.round(120 + Math.random() * 220)}px;--r:${Math.round(Math.random() * 720 - 360)}deg;--c:${colors[i % 5]};left:${45 + Math.random() * 10}%;animation-delay:${Math.round(Math.random() * 150)}ms`}));
+  setTimeout(() => host.querySelectorAll(".cf").forEach(x => x.remove()), 2000);
 }
 function paintEnd(){
   const lost = Q.lives <= 0, answered = Math.min(Q.i, Q.qs.length);
@@ -679,6 +814,7 @@ function paintEnd(){
       sid ? h("button", {class:"btn" + (t && Q.passed && nextT ? "" : " primary"), onclick:() => openRoute(sid, t ? t.key : null)}, "Volver a la ruta") : null,
       h("button", {class:"btn", onclick:() => t ? startTopicQuiz(t) : startQuiz(state.quizFocus)}, "Jugar de nuevo"),
       t ? null : h("button", {class:"btn", onclick:buildQuizSetup}, "Cambiar asignatura")))));
+  if(Q.passed) confetti(quizRoot.querySelector(".end"));
 }
 document.addEventListener("keydown", e => {
   if($("#v-retos").hidden || !Q || e.target.closest("input,select,textarea")) return;
