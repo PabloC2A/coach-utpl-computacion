@@ -95,14 +95,19 @@ button.chip:hover{border-color:var(--accent)}
 .rprog .pt{display:flex;justify-content:space-between;align-items:baseline;font-weight:600}
 .rlayout{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s5);align-items:start}
 @media (min-width:1020px){.rlayout{grid-template-columns:minmax(0,1fr) 380px}.side{position:sticky;top:var(--s3)}}
-.path{position:relative;display:flex;flex-direction:column;align-items:center;gap:var(--s3);padding-block:var(--s1)}
-.path::before{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:2px dashed var(--line)}
+.path{position:relative;display:flex;flex-direction:column;align-items:center;gap:28px;padding-block:var(--s1)}
+svg.links{position:absolute;left:0;top:0;pointer-events:none;overflow:visible}
+.seg{fill:none;stroke-width:3;stroke-linecap:round}
+.seg.todo{stroke:var(--line);stroke-dasharray:2 9}
+.seg.done{stroke:var(--good)}
+.seg.draw{animation:draw .7s var(--ease) both;animation-delay:calc(var(--k,0) * 70ms + 150ms)}
 .pnode{position:relative;width:min(360px,100%);transform:translateX(var(--dx,0px))}
 @media (max-width:640px){.pnode{transform:none}}
 .ends{position:relative;border-radius:999px;padding:8px 18px;font-weight:600;background:var(--navy);color:var(--navy-ink);text-align:center;max-width:100%}
-.tnode{width:100%;min-height:64px;display:grid;grid-template-columns:40px minmax(0,1fr);column-gap:var(--s3);align-items:center;text-align:left;border:1px solid var(--line);border-radius:var(--r);padding:var(--s3) var(--s4);background:var(--surface);color:var(--ink);transition:border-color .2s,background-color .3s var(--ease)}
+.tnode{position:relative;width:100%;min-height:64px;display:grid;grid-template-columns:40px minmax(0,1fr);column-gap:var(--s3);align-items:center;text-align:left;border:1px solid var(--line);border-radius:var(--r);padding:var(--s3) var(--s4);background:var(--surface);color:var(--ink);transition:border-color .2s,background-color .3s var(--ease)}
 .tnode:hover{border-color:var(--accent)}
-.tnode .ico{grid-row:1 / 4;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--line);background:var(--surface2);font:700 15px "Bricolage Grotesque",sans-serif;transition:background-color .3s var(--ease),border-color .3s var(--ease),color .3s}
+.tnode:hover .ico{transform:scale(1.08)}
+.tnode .ico{grid-row:1 / 4;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--line);background:var(--surface2);font:700 15px "Bricolage Grotesque",sans-serif;transition:background-color .3s var(--ease),border-color .3s var(--ease),color .3s,transform .2s var(--ease)}
 .tnode .tt{font-weight:600;line-height:1.3}
 .tnode .st{font-size:13px;color:var(--muted)}
 .tnode.next{border-color:var(--gold);background:var(--gold-soft)}
@@ -114,6 +119,7 @@ button.chip:hover{border-color:var(--accent)}
 .tnode.skip .tt{text-decoration:line-through}
 .tnode.on{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
 .goal{position:relative;width:min(360px,100%);display:grid;grid-template-columns:40px minmax(0,1fr);column-gap:var(--s3);align-items:center;text-align:left;border:1px dashed var(--gold);border-radius:var(--r);padding:var(--s3) var(--s4);background:var(--surface)}
+.goal.ok{border-style:solid;background:color-mix(in srgb,var(--gold) 16%,var(--surface))}
 .goal .ico{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:#16202B}
 .goal b{display:block}
 .side h3{font-size:22px;margin-bottom:var(--s2)}
@@ -198,8 +204,19 @@ pre.sample{white-space:pre-wrap;font:13px/1.55 ui-monospace,Consolas,monospace;b
 footer{border-top:1px solid var(--line);padding-block:var(--s5);color:var(--muted);font-size:14px}
 
 @keyframes settle{from{transform:scale(.6)}to{transform:scale(1)}}
-.tnode.just .ico{animation:settle .5s var(--ease)}
-@media (prefers-reduced-motion:reduce){*{transition-duration:.01s!important}.tnode.just .ico{animation:none}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes nodeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pulse{0%{opacity:.85;transform:scale(.985)}70%,100%{opacity:0;transform:scale(1.05)}}
+@keyframes doneRing{from{box-shadow:0 0 0 0 color-mix(in srgb,var(--good) 55%,transparent)}to{box-shadow:0 0 0 16px color-mix(in srgb,var(--good) 0%,transparent)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.path.enter .ends,.path.enter .tnode,.path.enter .goal{animation:nodeIn .5s var(--ease) both;animation-delay:calc(var(--k,0) * 55ms)}
+.rhead.enter .bar i{transform-origin:left;animation:grow .8s var(--ease) .2s both}
+.tnode.next::after{content:"";position:absolute;inset:-6px;border-radius:18px;border:2px solid var(--gold);opacity:0;pointer-events:none;animation:pulse 2.6s var(--ease) infinite}
+.tnode.just .ico{animation:settle .5s var(--ease),doneRing .9s ease-out .1s}
+.path.enter .goal.ok .ico{animation:settle .6s var(--ease) .7s both}
+#side > *{animation:fadeUp .3s var(--ease) both}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01s!important}.tnode.just .ico,.path.enter .ends,.path.enter .tnode,.path.enter .goal,.rhead.enter .bar i,.tnode.next::after,.seg.draw,.path.enter .goal.ok .ico{animation:none!important}.seg.draw{stroke-dashoffset:0!important}#side > *{animation-name:none}.tnode.next{box-shadow:0 0 0 2px var(--gold)}}
 </style>
 </head>
 <body>
@@ -376,9 +393,9 @@ function addXP(x){ PR.xp += x; savePR(); }
 const TABS = [["rutas","Rutas"],["asignaturas","Asignaturas"],["tutor","Tutor"],["retos","Retos"],["como","Cómo funciona"]];
 function show(name){
   if(!TABS.some(t => t[0] === name)) name = "rutas";
+  TABS.forEach(([k]) => { $("#v-"+k).hidden = k !== name; });
   if(name === "rutas") paintRuta();
   if(name === "asignaturas") paintCatalog();
-  TABS.forEach(([k]) => { $("#v-"+k).hidden = k !== name; });
   document.querySelectorAll(".tab").forEach(b => b.setAttribute("aria-selected", String(b.dataset.k === name)));
   if(location.hash.slice(1) !== name){ try{ history.replaceState(null, "", "#" + name); }catch(e){} }
 }
@@ -409,22 +426,52 @@ function paintRuta(){
   $("#rsel").value = s.id;
   const list = topicsOf(s.id), pg = subjProg(s.id), pct = pg.n ? Math.round(pg.done / pg.n * 100) : 0, r = RT[s.id];
   const nextIdx = list.findIndex(t => stOf(t.key) !== "done" && stOf(t.key) !== "skip");
+  const changed = state.lastRoute !== s.id; state.lastRoute = s.id;
   if(state.topic && state.topic !== "goal" && (!topicByKey[state.topic] || topicByKey[state.topic].sid !== s.id)) state.topic = null;
   $("#rhead").replaceChildren(
     h("div", {}, h("h2", {}, s.nombre), h("p", {class:"meta"}, `Ciclo ${s.ciclo} · ${list.length} temas · revisión de ${REVISION}`)),
     h("div", {class:"rprog"}, h("div", {class:"pt"}, h("span", {}, "Tu avance"), h("span", {class:"num"}, `${pg.done} de ${pg.n} temas`)), h("div", {class:"bar", role:"progressbar", "aria-valuenow":pct, "aria-valuemin":0, "aria-valuemax":100, "aria-label":"Avance de la ruta"}, h("i", {style:`width:${pct}%`}))));
   $("#path").replaceChildren(
-    h("div", {class:"ends"}, "Inicio de la ruta"),
+    h("div", {class:"ends", style:"--k:0"}, "Inicio de la ruta"),
     ...list.map((t,i) => { const st = stOf(t.key);
       return h("div", {class:"pnode", style:`--dx:${DX[i % DX.length]}px`},
-        h("button", {class:`tnode ${st}` + (state.topic === t.key ? " on" : "") + (i === nextIdx ? " next" : "") + (justDone === t.key ? " just" : ""), "aria-pressed":String(state.topic === t.key), onclick:() => { state.topic = t.key; paintRuta(); }},
+        h("button", {class:`tnode ${st}` + (state.topic === t.key ? " on" : "") + (i === nextIdx ? " next" : "") + (justDone === t.key ? " just" : ""), style:`--k:${i + 1}`, "aria-pressed":String(state.topic === t.key), onclick:() => { state.topic = t.key; paintRuta(); }},
           h("span", {class:"ico"}, st === "done" ? icon("check") : st === "skip" ? icon("skip") : String(i + 1)),
           h("span", {class:"tt"}, t.t),
           h("span", {class:"st"}, tagEl(t.tag), " · ", i === nextIdx ? "Siguiente tema" : ST_LABEL[st]))); }),
-    h("button", {class:"goal", onclick:() => { state.topic = "goal"; paintRuta(); }}, h("span", {class:"ico"}, icon("flag")), h("span", {}, h("b", {}, "Proyecto: " + r.proyecto.t), h("span", {class:"muted small"}, "Aplica lo aprendido en la ruta"))));
+    h("button", {class:"goal" + (pg.n && pg.done === pg.n ? " ok" : ""), style:`--k:${list.length + 1}`, onclick:() => { state.topic = "goal"; paintRuta(); }}, h("span", {class:"ico"}, icon("flag")), h("span", {}, h("b", {}, "Proyecto: " + r.proyecto.t), h("span", {class:"muted small"}, "Aplica lo aprendido en la ruta"))));
+  $("#path").classList.toggle("enter", changed);
+  $("#rhead").classList.toggle("enter", changed);
   justDone = null;
   paintSide(s, list, nextIdx);
+  requestAnimationFrame(() => drawLinks(changed));
 }
+const SVGNS = "http://www.w3.org/2000/svg";
+function drawLinks(animate){
+  const path = $("#path"); if(!path || !path.offsetParent) return;
+  path.querySelectorAll("svg.links").forEach(x => x.remove());
+  const pr = path.getBoundingClientRect();
+  const svg = document.createElementNS(SVGNS, "svg");
+  svg.setAttribute("class", "links"); svg.setAttribute("aria-hidden", "true");
+  svg.setAttribute("width", pr.width); svg.setAttribute("height", pr.height); svg.setAttribute("viewBox", `0 0 ${pr.width} ${pr.height}`);
+  path.prepend(svg);
+  const items = [...path.querySelectorAll(".ends, .tnode, .goal")];
+  const isDone = el => el.classList.contains("ends") || el.classList.contains("done") || el.classList.contains("ok");
+  for(let i = 0; i < items.length - 1; i++){
+    const a = items[i].getBoundingClientRect(), b = items[i + 1].getBoundingClientRect();
+    const x1 = a.left + a.width / 2 - pr.left, y1 = a.bottom - pr.top, x2 = b.left + b.width / 2 - pr.left, y2 = b.top - pr.top, my = (y1 + y2) / 2;
+    const p = document.createElementNS(SVGNS, "path");
+    p.setAttribute("d", `M${x1.toFixed(1)} ${y1.toFixed(1)} C ${x1.toFixed(1)} ${my.toFixed(1)}, ${x2.toFixed(1)} ${my.toFixed(1)}, ${x2.toFixed(1)} ${y2.toFixed(1)}`);
+    const done = isDone(items[i]) && isDone(items[i + 1]);
+    p.setAttribute("class", "seg " + (done ? "done" : "todo"));
+    svg.append(p);
+    if(done && (animate || items[i + 1].classList.contains("just"))){
+      const L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; p.style.setProperty("--k", i); p.classList.add("draw");
+    }
+  }
+}
+let rzT; window.addEventListener("resize", () => { clearTimeout(rzT); rzT = setTimeout(() => drawLinks(false), 120); });
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(() => drawLinks(false));
 function paintSide(s, list, nextIdx){
   const side = $("#side"), r = RT[s.id];
   if(state.topic === "goal"){
