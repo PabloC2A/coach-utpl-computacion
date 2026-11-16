@@ -14,15 +14,16 @@ El software cambia rápido. Entre 2024 y 2025, la proporción de desarrolladores
 
 | Sección | Qué hace |
 |---|---|
-| Rutas | Muestra los temas de cada asignatura como un camino, al estilo de roadmap.sh. Cada tema se etiqueta como fundamento, vigente o emergente. La ruta incluye lo que se usa hoy en la industria, lo que está en desuso y un proyecto propuesto. |
+| Bienvenida | Al abrir la página, pregunta el nombre, el ciclo y, desde el ciclo VI, el itinerario. Muestra las asignaturas del ciclo con sus unidades y lecciones. El perfil se guarda solo en el navegador. |
+| Rutas | Muestra cada asignatura como un camino de unidades y lecciones, al estilo de roadmap.sh y Duolingo. Las lecciones se reparten en un plan de 16 semanas, la duración de clases de un ciclo de cinco meses. Cada unidad se etiqueta como fundamento, vigente o emergente y termina en una práctica. La ruta incluye lo que se usa hoy en la industria, lo que está en desuso y un proyecto final. |
 | Asignaturas | Catálogo de las asignaturas por ciclo, con el avance del estudiante en cada ruta. |
 | Tutor | Recupera fragmentos de las rutas, responde solo con ese material, cita la fuente y declara lo que está fuera de alcance. |
-| Retos | Preguntas con vidas y puntos, inspiradas en Duolingo. Un tema se completa al aprobar su práctica con 4 de 5 aciertos. Cada error se explica y genera una pregunta de refuerzo. |
+| Retos | Preguntas con vidas y puntos, inspiradas en Duolingo. Una unidad se aprueba con 4 de 5 aciertos en su práctica, y sus lecciones quedan como estudiadas. Cada error se explica y genera una pregunta de refuerzo. |
 | Cómo funciona | Describe la indexación, la recuperación y la respuesta con fuente. |
 
 ## Funcionamiento
 
-1. **Indexación.** 533 fragmentos: 351 temas con 945 subtemas y, por cada una de las 57 rutas, la industria actual, lo que está en desuso y el proyecto propuesto.
+1. **Indexación.** 533 fragmentos: 351 temas (unidades) con 1774 subtemas (lecciones) y, por cada una de las 57 rutas, la industria actual, lo que está en desuso y el proyecto propuesto.
 2. **Recuperación.** La consulta se normaliza (sin tildes y con raíces de palabra) y se puntúa con BM25.
 3. **Respuesta con fuente.** Se construye solo con los fragmentos recuperados y cita su origen.
 
@@ -33,8 +34,8 @@ Como el conocimiento está en documentos, actualizar una ruta consiste en reempl
 ```
 index.html                           Aplicación completa (HTML, CSS y JavaScript)
 data/malla.json                      Asignaturas de la malla, por ciclo e itinerario
-data/temario.json                    Temario referencial: 351 temas en 57 asignaturas
-data/subtemas.json                   945 subtemas y el referente académico de cada tema
+data/temario.json                    Temario referencial: 351 unidades en 57 asignaturas
+data/subtemas.json                   1774 lecciones y el referente académico de cada unidad
 data/referentes.json                 Clases de Harvard CS50 usadas como referente, con su enlace
 data/rutas.json                      Etiquetas de vigencia, industria actual, tecnologías en desuso y proyecto por asignatura
 prompts/ai_studio_instrucciones.txt  Instrucciones de sistema usadas en Google AI Studio (Gemini)

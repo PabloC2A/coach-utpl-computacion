@@ -985,7 +985,10 @@
    [
     "Conectivos y tablas de verdad",
     "Equivalencias lógicas",
-    "Cuantificadores"
+    "Cuantificadores",
+    "Reglas de inferencia",
+    "Lógica de predicados",
+    "Aplicación en programación"
    ],
    null
   ],
@@ -993,7 +996,10 @@
    [
     "Unión, intersección y complemento",
     "Producto cartesiano",
-    "Propiedades de las relaciones"
+    "Propiedades de las relaciones",
+    "Diagramas de Venn",
+    "Relaciones de equivalencia",
+    "Funciones como relaciones"
    ],
    null
   ],
@@ -1001,7 +1007,10 @@
    [
     "Propiedades de los reales",
     "Ecuaciones lineales y cuadráticas",
-    "Inecuaciones y valor absoluto"
+    "Inecuaciones y valor absoluto",
+    "Intervalos",
+    "Sistemas de ecuaciones",
+    "Valor absoluto en programación"
    ],
    null
   ],
@@ -1009,7 +1018,10 @@
    [
     "Dominio y rango",
     "Composición e inversa",
-    "Funciones lineales, cuadráticas y exponenciales"
+    "Funciones lineales, cuadráticas y exponenciales",
+    "Funciones logarítmicas",
+    "Funciones a trozos",
+    "Transformaciones de gráficas"
    ],
    null
   ],
@@ -1017,7 +1029,10 @@
    [
     "Razones trigonométricas",
     "Identidades",
-    "Ley de senos y cosenos"
+    "Ley de senos y cosenos",
+    "Círculo unitario",
+    "Funciones trigonométricas",
+    "Ecuaciones trigonométricas"
    ],
    null
   ],
@@ -1025,7 +1040,10 @@
    [
     "Progresiones aritméticas",
     "Progresiones geométricas",
-    "Notación sumatoria"
+    "Notación sumatoria",
+    "Series convergentes",
+    "Inducción y sumatorias",
+    "Aplicación en análisis de algoritmos"
    ],
    null
   ]
@@ -1035,7 +1053,10 @@
    [
     "Inducción matemática",
     "Demostración por contradicción",
-    "Contraejemplos"
+    "Contraejemplos",
+    "Demostración directa",
+    "Lógica de predicados",
+    "Demostración por casos"
    ],
    null
   ],
@@ -1043,7 +1064,10 @@
    [
     "Conjuntos y subconjuntos",
     "Cardinalidad",
-    "Conjunto potencia"
+    "Conjunto potencia",
+    "Operaciones entre conjuntos",
+    "Conjuntos infinitos",
+    "Conjuntos en programación"
    ],
    null
   ],
@@ -1051,7 +1075,10 @@
    [
     "Relaciones de equivalencia",
     "Relaciones de orden",
-    "Funciones inyectivas y biyectivas"
+    "Funciones inyectivas y biyectivas",
+    "Clausuras de relaciones",
+    "Funciones recursivas",
+    "Relaciones en bases de datos"
    ],
    null
   ],
@@ -1060,7 +1087,10 @@
     "Permutaciones",
     "Combinaciones",
     "Principio del palomar",
-    "Inclusión-exclusión"
+    "Inclusión-exclusión",
+    "Coeficientes binomiales",
+    "Relaciones de recurrencia",
+    "Probabilidad discreta"
    ],
    null
   ],
@@ -1068,7 +1098,10 @@
    [
     "Grados y caminos",
     "Conectividad",
-    "Grafos eulerianos y hamiltonianos"
+    "Grafos eulerianos y hamiltonianos",
+    "Representación de grafos",
+    "Caminos más cortos",
+    "Coloración de grafos"
    ],
    null
   ],
@@ -1076,7 +1109,10 @@
    [
     "Árboles con raíz",
     "Árboles binarios",
-    "Árbol de expansión"
+    "Árbol de expansión",
+    "Recorridos de árboles",
+    "Árboles de decisión",
+    "Códigos de Huffman"
    ],
    null
   ]
@@ -1086,7 +1122,10 @@
    [
     "Eliminación gaussiana",
     "Sistemas consistentes e inconsistentes",
-    "Rango de una matriz"
+    "Rango de una matriz",
+    "Método de Gauss-Jordan",
+    "Sistemas homogéneos",
+    "Aplicaciones en redes y circuitos"
    ],
    null
   ],
@@ -1094,7 +1133,10 @@
    [
     "Producto de matrices",
     "Matriz inversa",
-    "Matriz transpuesta"
+    "Matriz transpuesta",
+    "Matrices especiales",
+    "Factorización LU",
+    "Matrices en gráficos por computadora"
    ],
    null
   ],
@@ -1102,7 +1144,10 @@
    [
     "Cálculo por cofactores",
     "Propiedades",
-    "Regla de Cramer"
+    "Regla de Cramer",
+    "Determinantes por reducción",
+    "Determinante y matriz inversa",
+    "Volumen y área con determinantes"
    ],
    null
   ],
@@ -1110,7 +1155,10 @@
    [
     "Independencia lineal",
     "Base y dimensión",
-    "Subespacios"
+    "Subespacios",
+    "Combinaciones lineales",
+    "Espacio fila y espacio columna",
+    "Cambio de base"
    ],
    null
   ],
@@ -1118,7 +1166,10 @@
    [
     "Núcleo e imagen",
     "Matriz de una transformación",
-    "Rotaciones y escalados"
+    "Rotaciones y escalados",
+    "Composición de transformaciones",
+    "Transformaciones en 2D y 3D",
+    "Proyecciones"
    ],
    null
   ],
@@ -1126,7 +1177,10 @@
    [
     "Polinomio característico",
     "Diagonalización",
-    "Aplicaciones en PCA"
+    "Aplicaciones en PCA",
+    "Matrices simétricas",
+    "Descomposición en valores singulares",
+    "PageRank como problema de vectores propios"
    ],
    null
   ]
@@ -1136,7 +1190,10 @@
    [
     "Límites laterales",
     "Límites al infinito",
-    "Indeterminaciones"
+    "Indeterminaciones",
+    "Definición formal épsilon-delta",
+    "Límites trigonométricos",
+    "Asíntotas"
    ],
    null
   ],
@@ -1144,7 +1201,10 @@
    [
     "Continuidad en un punto",
     "Tipos de discontinuidad",
-    "Teorema del valor intermedio"
+    "Teorema del valor intermedio",
+    "Continuidad en intervalos",
+    "Funciones continuas a trozos",
+    "Teorema de Bolzano"
    ],
    null
   ],
@@ -1152,7 +1212,10 @@
    [
     "Reglas de derivación",
     "Regla de la cadena",
-    "Derivación implícita"
+    "Derivación implícita",
+    "Derivadas de orden superior",
+    "Derivadas de funciones exponenciales y logarítmicas",
+    "Recta tangente"
    ],
    null
   ],
@@ -1160,7 +1223,10 @@
    [
     "Máximos y mínimos",
     "Optimización",
-    "Regla de L'Hôpital"
+    "Regla de L'Hôpital",
+    "Teorema del valor medio",
+    "Trazado de curvas",
+    "Razones de cambio relacionadas"
    ],
    null
   ],
@@ -1168,7 +1234,10 @@
    [
     "Sumas de Riemann",
     "Teorema fundamental del cálculo",
-    "Áreas entre curvas"
+    "Áreas entre curvas",
+    "Integral indefinida",
+    "Propiedades de la integral",
+    "Volúmenes de revolución"
    ],
    null
   ],
@@ -1176,7 +1245,10 @@
    [
     "Sustitución",
     "Integración por partes",
-    "Fracciones parciales"
+    "Fracciones parciales",
+    "Sustitución trigonométrica",
+    "Integrales impropias",
+    "Integración con software simbólico"
    ],
    null
   ]
@@ -1186,7 +1258,10 @@
    [
     "Sistema internacional",
     "Suma de vectores",
-    "Producto escalar"
+    "Producto escalar",
+    "Notación científica",
+    "Análisis dimensional",
+    "Producto vectorial"
    ],
    null
   ],
@@ -1194,7 +1269,10 @@
    [
     "Movimiento rectilíneo",
     "Caída libre",
-    "Tiro parabólico"
+    "Tiro parabólico",
+    "Movimiento circular",
+    "Velocidad relativa",
+    "Gráficas de movimiento"
    ],
    null
   ],
@@ -1202,7 +1280,10 @@
    [
     "Leyes de Newton",
     "Fricción",
-    "Diagramas de cuerpo libre"
+    "Diagramas de cuerpo libre",
+    "Fuerzas en planos inclinados",
+    "Movimiento circular uniforme",
+    "Simulación de fuerzas"
    ],
    null
   ],
@@ -1210,7 +1291,10 @@
    [
     "Trabajo de una fuerza",
     "Energía cinética y potencial",
-    "Conservación de la energía"
+    "Conservación de la energía",
+    "Potencia",
+    "Impulso y cantidad de movimiento",
+    "Choques"
    ],
    null
   ],
@@ -1218,7 +1302,10 @@
    [
     "Ley de Coulomb",
     "Campo eléctrico",
-    "Potencial eléctrico"
+    "Potencial eléctrico",
+    "Ley de Gauss",
+    "Capacitores",
+    "Dieléctricos"
    ],
    null
   ],
@@ -1226,7 +1313,10 @@
    [
     "Ley de Ohm",
     "Circuitos en serie y en paralelo",
-    "Potencia eléctrica"
+    "Potencia eléctrica",
+    "Leyes de Kirchhoff",
+    "Circuitos RC",
+    "Instrumentos de medición"
    ],
    null
   ]
@@ -1236,7 +1326,10 @@
    [
     "Variables separables",
     "Ecuaciones lineales",
-    "Modelos de crecimiento"
+    "Modelos de crecimiento",
+    "Ecuaciones exactas",
+    "Factor integrante",
+    "Ley de enfriamiento de Newton"
    ],
    null
   ],
@@ -1244,7 +1337,10 @@
    [
     "Coeficientes constantes",
     "Solución homogénea y particular",
-    "Oscilaciones"
+    "Oscilaciones",
+    "Método de coeficientes indeterminados",
+    "Variación de parámetros",
+    "Circuitos RLC"
    ],
    null
   ],
@@ -1252,7 +1348,10 @@
    [
     "Errores de redondeo y truncamiento",
     "Representación IEEE 754",
-    "Propagación del error"
+    "Propagación del error",
+    "Error absoluto y relativo",
+    "Cifras significativas",
+    "Condicionamiento"
    ],
    null
   ],
@@ -1260,7 +1359,10 @@
    [
     "Bisección",
     "Newton-Raphson",
-    "Punto fijo"
+    "Punto fijo",
+    "Método de la secante",
+    "Convergencia de métodos",
+    "Raíces con Python"
    ],
    null
   ],
@@ -1268,7 +1370,10 @@
    [
     "Lagrange",
     "Diferencias divididas de Newton",
-    "Splines"
+    "Splines",
+    "Interpolación polinomial",
+    "Ajuste por mínimos cuadrados",
+    "Fenómeno de Runge"
    ],
    null
   ],
@@ -1276,7 +1381,10 @@
    [
     "Regla del trapecio",
     "Regla de Simpson",
-    "Error de integración"
+    "Error de integración",
+    "Cuadratura de Gauss",
+    "Integración adaptativa",
+    "Integración con SciPy"
    ],
    null
   ],
@@ -1284,7 +1392,10 @@
    [
     "Método de Euler",
     "Runge-Kutta",
-    "Estabilidad"
+    "Estabilidad",
+    "Sistemas de ecuaciones diferenciales",
+    "Métodos multipaso",
+    "Simulación de modelos"
    ],
    null
   ]
@@ -1294,7 +1405,10 @@
    [
     "Compuertas AND, OR y NOT",
     "NAND y NOR universales",
-    "Tablas de verdad"
+    "Tablas de verdad",
+    "Leyes de De Morgan",
+    "Formas canónicas",
+    "Sistemas numéricos binario y hexadecimal"
    ],
    null
   ],
@@ -1302,7 +1416,10 @@
    [
     "Mapas de Karnaugh",
     "Suma de productos",
-    "Condiciones de no importa"
+    "Condiciones de no importa",
+    "Método de Quine-McCluskey",
+    "Producto de sumas",
+    "Minimización con software"
    ],
    null
   ],
@@ -1310,7 +1427,10 @@
    [
     "Sumadores",
     "Multiplexores",
-    "Decodificadores"
+    "Decodificadores",
+    "Codificadores",
+    "Comparadores",
+    "Unidad aritmético-lógica"
    ],
    null
   ],
@@ -1318,7 +1438,10 @@
    [
     "Flip-flop SR",
     "Flip-flop D",
-    "Flip-flop JK"
+    "Flip-flop JK",
+    "Flip-flop T",
+    "Tiempos de establecimiento",
+    "Latches"
    ],
    null
   ],
@@ -1326,7 +1449,10 @@
    [
     "Máquinas de Moore y Mealy",
     "Diagramas de estado",
-    "Sincronización con reloj"
+    "Sincronización con reloj",
+    "Diseño de máquinas de estado",
+    "Simulación de circuitos",
+    "Detectores de secuencia"
    ],
    null
   ],
@@ -1334,7 +1460,10 @@
    [
     "Registros de desplazamiento",
     "Contadores",
-    "Memorias"
+    "Memorias",
+    "Memorias RAM y ROM",
+    "Dispositivos FPGA",
+    "Descripción en Verilog"
    ],
    null
   ]
@@ -1344,7 +1473,10 @@
    [
     "Funciones puras",
     "Inmutabilidad",
-    "Transparencia referencial"
+    "Transparencia referencial",
+    "Efectos secundarios",
+    "Estructuras de datos persistentes",
+    "Lenguajes funcionales como Haskell"
    ],
    null
   ],
@@ -1352,7 +1484,10 @@
    [
     "Funciones como parámetros",
     "Funciones que devuelven funciones",
-    "Clausuras"
+    "Clausuras",
+    "Currificación",
+    "Composición de funciones",
+    "Aplicación parcial"
    ],
    null
   ],
@@ -1360,7 +1495,10 @@
    [
     "Casos base y recursivos",
     "Recursión de cola",
-    "Recursión sobre listas"
+    "Recursión sobre listas",
+    "Recursión mutua",
+    "Memoización",
+    "Recursión frente a iteración"
    ],
    null
   ],
@@ -1368,7 +1506,10 @@
    [
     "Funciones anónimas",
     "Lambdas en Java y Python",
-    "Captura de variables"
+    "Captura de variables",
+    "Referencias a métodos",
+    "Interfaces funcionales",
+    "Lambdas en JavaScript"
    ],
    null
   ],
@@ -1377,7 +1518,10 @@
     "map",
     "filter",
     "reduce",
-    "Streams"
+    "Streams",
+    "flatMap",
+    "Evaluación perezosa",
+    "Colectores"
    ],
    null
   ],
@@ -1386,7 +1530,10 @@
     "Observables",
     "Operadores de flujo",
     "Suscripciones",
-    "RxJS"
+    "RxJS",
+    "Backpressure",
+    "Programación reactiva en Spring WebFlux",
+    "Manejo de errores en flujos"
    ],
    null
   ]
@@ -1396,7 +1543,10 @@
    [
     "Unidad central y memoria",
     "Ciclo de instrucción",
-    "Bus de datos"
+    "Bus de datos",
+    "Arquitectura Harvard",
+    "Representación de datos en memoria",
+    "Rendimiento y CPI"
    ],
    null
   ],
@@ -1404,7 +1554,10 @@
    [
     "Formatos de instrucción",
     "Modos de direccionamiento",
-    "RISC y CISC"
+    "RISC y CISC",
+    "Lenguaje ensamblador",
+    "Arquitectura RISC-V",
+    "Arquitectura ARM"
    ],
    null
   ],
@@ -1412,7 +1565,10 @@
    [
     "Unidad de control",
     "Unidad aritmético-lógica",
-    "Registros"
+    "Registros",
+    "Ruta de datos",
+    "Control cableado y microprogramado",
+    "Banderas de estado"
    ],
    null
   ],
@@ -1420,7 +1576,10 @@
    [
     "Registros y caché",
     "Memoria principal",
-    "Localidad"
+    "Localidad",
+    "Políticas de reemplazo de caché",
+    "Coherencia de caché",
+    "Memoria virtual y TLB"
    ],
    null
   ],
@@ -1428,7 +1587,10 @@
    [
     "Interrupciones",
     "Acceso directo a memoria",
-    "Controladores"
+    "Controladores",
+    "Buses y protocolos",
+    "Almacenamiento SSD y HDD",
+    "Periféricos USB y PCIe"
    ],
    null
   ],
@@ -1436,7 +1598,10 @@
    [
     "Etapas del pipeline",
     "Riesgos de datos y de control",
-    "Predicción de saltos"
+    "Predicción de saltos",
+    "Ejecución superescalar",
+    "Ejecución fuera de orden",
+    "Procesadores multinúcleo"
    ],
    null
   ]
@@ -1446,7 +1611,10 @@
    [
     "Investigación con usuarios",
     "Personas y escenarios",
-    "Mapas de empatía"
+    "Mapas de empatía",
+    "Entrevistas con usuarios",
+    "Mapas de recorrido",
+    "Definición del problema"
    ],
    null
   ],
@@ -1454,7 +1622,10 @@
    [
     "Bocetos rápidos",
     "Arquitectura de información",
-    "Wireframes"
+    "Wireframes",
+    "Flujos de usuario",
+    "Jerarquía visual",
+    "Wireflows"
    ],
    null
   ],
@@ -1462,7 +1633,10 @@
    [
     "Baja fidelidad",
     "Alta fidelidad",
-    "Prototipos interactivos"
+    "Prototipos interactivos",
+    "Maquetas",
+    "Microinteracciones",
+    "Prototipos para dispositivos móviles"
    ],
    null
   ],
@@ -1470,7 +1644,10 @@
    [
     "Figma",
     "Componentes y sistemas de diseño",
-    "Prototipos generados con IA"
+    "Prototipos generados con IA",
+    "Auto layout",
+    "Bibliotecas de componentes",
+    "Entrega a desarrollo"
    ],
    null
   ],
@@ -1478,7 +1655,10 @@
    [
     "Pruebas con usuarios",
     "Métricas de usabilidad",
-    "Heurísticas de Nielsen"
+    "Heurísticas de Nielsen",
+    "Pruebas A/B",
+    "Pruebas remotas",
+    "Accesibilidad en el prototipo"
    ],
    null
   ],
@@ -1486,7 +1666,10 @@
    [
     "Ciclos de iteración",
     "Priorización de cambios",
-    "Documentación del diseño"
+    "Documentación del diseño",
+    "Síntesis de hallazgos",
+    "Diseño iterativo",
+    "Presentación del diseño"
    ],
    null
   ]
@@ -1496,7 +1679,10 @@
    [
     "Estados de un proceso",
     "Hilos",
-    "Cambio de contexto"
+    "Cambio de contexto",
+    "Creación de procesos",
+    "Comunicación entre procesos",
+    "Llamadas al sistema"
    ],
    null
   ],
@@ -1504,7 +1690,10 @@
    [
     "FCFS y SJF",
     "Round Robin",
-    "Prioridades"
+    "Prioridades",
+    "Colas multinivel",
+    "Planificación en tiempo real",
+    "Planificador de Linux"
    ],
    null
   ],
@@ -1512,7 +1701,10 @@
    [
     "Semáforos",
     "Monitores",
-    "Interbloqueos"
+    "Interbloqueos",
+    "Mutex",
+    "Problema productor-consumidor",
+    "Algoritmo del banquero"
    ],
    null
   ],
@@ -1520,7 +1712,10 @@
    [
     "Paginación",
     "Segmentación",
-    "Memoria virtual"
+    "Memoria virtual",
+    "Reemplazo de páginas",
+    "TLB",
+    "Hiperpaginación"
    ],
    null
   ],
@@ -1528,7 +1723,10 @@
    [
     "Estructura de directorios",
     "Asignación de bloques",
-    "Permisos"
+    "Permisos",
+    "Sistemas de archivos ext4 y NTFS",
+    "Journaling",
+    "Montaje de sistemas de archivos"
    ],
    null
   ],
@@ -1536,7 +1734,10 @@
    [
     "Controladores de dispositivo",
     "Planificación de disco",
-    "Búferes"
+    "Búferes",
+    "Virtualización",
+    "Contenedores",
+    "Seguridad del sistema operativo"
    ],
    null
   ]
@@ -1546,7 +1747,10 @@
    [
     "Ciclo de inteligencia de negocios",
     "Decisiones basadas en datos",
-    "Roles del analista"
+    "Roles del analista",
+    "Analítica descriptiva",
+    "Analítica predictiva",
+    "Analítica prescriptiva"
    ],
    null
   ],
@@ -1554,7 +1758,10 @@
    [
     "Data warehouse",
     "Data mart",
-    "Data lake"
+    "Data lake",
+    "Arquitectura de un almacén",
+    "Almacenes en la nube",
+    "Gobierno de datos"
    ],
    null
   ],
@@ -1562,7 +1769,10 @@
    [
     "Extracción",
     "Transformación",
-    "Carga"
+    "Carga",
+    "Herramientas ETL",
+    "Carga incremental",
+    "Calidad en el ETL"
    ],
    null
   ],
@@ -1570,7 +1780,10 @@
    [
     "Tablas de hechos y dimensiones",
     "Esquema en estrella",
-    "Esquema copo de nieve"
+    "Esquema copo de nieve",
+    "Dimensiones lentamente cambiantes",
+    "Granularidad",
+    "Cubos OLAP"
    ],
    null
   ],
@@ -1578,7 +1791,10 @@
    [
     "Definición de KPI",
     "Metas e indicadores",
-    "Cuadro de mando"
+    "Cuadro de mando",
+    "KPI por área",
+    "Balanced Scorecard",
+    "Seguimiento de metas"
    ],
    null
   ],
@@ -1586,7 +1802,10 @@
    [
     "Power BI",
     "Looker Studio",
-    "Buenas prácticas de visualización"
+    "Buenas prácticas de visualización",
+    "Modelado de datos en Power BI",
+    "DAX básico",
+    "Narrativa de tableros"
    ],
    null
   ]
@@ -1596,7 +1815,10 @@
    [
     "Media, mediana y moda",
     "Varianza y desviación estándar",
-    "Gráficos descriptivos"
+    "Gráficos descriptivos",
+    "Medidas de posición",
+    "Datos atípicos",
+    "Análisis exploratorio con Python"
    ],
    null
   ],
@@ -1604,7 +1826,10 @@
    [
     "Espacio muestral",
     "Regla de la suma y del producto",
-    "Probabilidad condicional"
+    "Probabilidad condicional",
+    "Teorema de Bayes",
+    "Eventos independientes",
+    "Técnicas de conteo"
    ],
    null
   ],
@@ -1612,7 +1837,10 @@
    [
     "Variables discretas y continuas",
     "Esperanza",
-    "Varianza"
+    "Varianza",
+    "Función de distribución",
+    "Covarianza",
+    "Simulación de variables"
    ],
    null
   ],
@@ -1620,7 +1848,10 @@
    [
     "Binomial",
     "Poisson",
-    "Normal"
+    "Normal",
+    "Distribución exponencial",
+    "Distribución t de Student",
+    "Teorema central del límite"
    ],
    null
   ],
@@ -1628,7 +1859,10 @@
    [
     "Tipos de muestreo",
     "Estimación puntual",
-    "Intervalos de confianza"
+    "Intervalos de confianza",
+    "Tamaño de muestra",
+    "Error estándar",
+    "Muestreo en encuestas"
    ],
    null
   ],
@@ -1636,7 +1870,10 @@
    [
     "Hipótesis nula y alternativa",
     "Valor p",
-    "Errores tipo I y II"
+    "Errores tipo I y II",
+    "Prueba t",
+    "Prueba chi-cuadrado",
+    "Pruebas A/B"
    ],
    null
   ],
@@ -1644,7 +1881,10 @@
    [
     "Mínimos cuadrados",
     "Coeficiente de correlación",
-    "Interpretación del modelo"
+    "Interpretación del modelo",
+    "Regresión múltiple",
+    "Supuestos del modelo",
+    "Regresión con scikit-learn"
    ],
    null
   ]
@@ -1654,7 +1894,10 @@
    [
     "Fases del ciclo de vida",
     "Mantenimiento y retiro",
-    "Costos del software"
+    "Costos del software",
+    "Crisis del software",
+    "Ingeniería de software como disciplina",
+    "Roles del equipo"
    ],
    null
   ],
@@ -1662,7 +1905,10 @@
    [
     "Cascada",
     "Incremental",
-    "Espiral"
+    "Espiral",
+    "Modelo en V",
+    "Proceso unificado",
+    "Prototipado"
    ],
    null
   ],
@@ -1670,7 +1916,10 @@
    [
     "Scrum",
     "Kanban",
-    "Manifiesto ágil"
+    "Manifiesto ágil",
+    "Extreme Programming",
+    "Lean",
+    "Escalamiento ágil"
    ],
    null
   ],
@@ -1678,7 +1927,10 @@
    [
     "Requisitos funcionales y no funcionales",
     "Historias de usuario",
-    "Priorización"
+    "Priorización",
+    "Modelado con UML",
+    "Especificación de requisitos",
+    "Validación de requisitos"
    ],
    null
   ],
@@ -1686,7 +1938,10 @@
    [
     "Arquitectura y módulos",
     "Principios SOLID",
-    "Diagramas de diseño"
+    "Diagramas de diseño",
+    "Patrones de diseño",
+    "Diseño de interfaces",
+    "Diseño de datos"
    ],
    null
   ],
@@ -1694,7 +1949,10 @@
    [
     "Pruebas unitarias e integración",
     "Pruebas de aceptación",
-    "Automatización"
+    "Automatización",
+    "Pruebas de caja negra",
+    "Pruebas de caja blanca",
+    "Desarrollo guiado por pruebas"
    ],
    null
   ],
@@ -1702,7 +1960,10 @@
    [
     "Mantenimiento correctivo y evolutivo",
     "Deuda técnica",
-    "Refactorización"
+    "Refactorización",
+    "Control de versiones con Git",
+    "Gestión de la configuración",
+    "Reingeniería"
    ],
    null
   ]
@@ -1712,7 +1973,10 @@
    [
     "Calidad del producto y del proceso",
     "Costo de la calidad",
-    "Atributos de calidad"
+    "Atributos de calidad",
+    "Verificación y validación",
+    "Estándares de calidad",
+    "Cultura de calidad"
    ],
    null
   ],
@@ -1720,7 +1984,10 @@
    [
     "ISO/IEC 25010",
     "Fiabilidad y mantenibilidad",
-    "Usabilidad y seguridad"
+    "Usabilidad y seguridad",
+    "ISO/IEC 25023",
+    "Eficiencia y compatibilidad",
+    "Calidad en uso"
    ],
    null
   ],
@@ -1728,7 +1995,10 @@
    [
     "Métricas de tamaño",
     "Complejidad ciclomática",
-    "Defectos por módulo"
+    "Defectos por módulo",
+    "Cobertura de pruebas",
+    "Deuda técnica medida",
+    "Herramientas como SonarQube"
    ],
    null
   ],
@@ -1736,7 +2006,10 @@
    [
     "Revisión de código",
     "Inspecciones formales",
-    "Listas de verificación"
+    "Listas de verificación",
+    "Pruebas de escritorio",
+    "Programación en pareja",
+    "Revisión con pull requests"
    ],
    null
   ],
@@ -1744,7 +2017,10 @@
    [
     "Plan de aseguramiento",
     "Análisis estático",
-    "Integración continua"
+    "Integración continua",
+    "Gestión de defectos",
+    "Pruebas automatizadas",
+    "Auditorías de calidad"
    ],
    null
   ],
@@ -1752,7 +2028,10 @@
    [
     "CMMI",
     "Mejora continua",
-    "Retrospectivas"
+    "Retrospectivas",
+    "ISO/IEC 330xx",
+    "Six Sigma",
+    "DevOps y calidad"
    ],
    null
   ]
@@ -1762,7 +2041,10 @@
    [
     "Requisitos funcionales",
     "Requisitos no funcionales",
-    "Restricciones"
+    "Restricciones",
+    "Requisitos de usuario y de sistema",
+    "Requisitos de calidad",
+    "Especificación IEEE 830"
    ],
    null
   ],
@@ -1770,7 +2052,10 @@
    [
     "Entrevistas",
     "Observación",
-    "Talleres"
+    "Talleres",
+    "Cuestionarios",
+    "Análisis de documentos",
+    "Prototipado para elicitar"
    ],
    null
   ],
@@ -1778,7 +2063,10 @@
    [
     "Casos de uso",
     "Historias de usuario",
-    "Criterios de aceptación"
+    "Criterios de aceptación",
+    "Diagramas de casos de uso",
+    "Mapas de historias de usuario",
+    "Escenarios BDD"
    ],
    null
   ],
@@ -1786,7 +2074,10 @@
    [
     "Revisión con usuarios",
     "Prototipos",
-    "Verificación"
+    "Verificación",
+    "Revisiones formales",
+    "Requisitos ambiguos",
+    "Pruebas de aceptación"
    ],
    null
   ],
@@ -1794,7 +2085,10 @@
    [
     "Control de cambios",
     "Priorización",
-    "Gestión con Jira"
+    "Gestión con Jira",
+    "Línea base de requisitos",
+    "Técnica MoSCoW",
+    "Negociación con interesados"
    ],
    null
   ],
@@ -1802,7 +2096,10 @@
    [
     "Matriz de trazabilidad",
     "Requisitos a pruebas",
-    "Impacto de cambios"
+    "Impacto de cambios",
+    "Herramientas de trazabilidad",
+    "Requisitos y código",
+    "Auditoría de requisitos"
    ],
    null
   ]
@@ -1812,7 +2109,10 @@
    [
     "Alfabetos y cadenas",
     "Operaciones con lenguajes",
-    "Jerarquía de Chomsky"
+    "Jerarquía de Chomsky",
+    "Lenguajes regulares",
+    "Lenguajes formales en compiladores",
+    "Cadenas y prefijos"
    ],
    null
   ],
@@ -1820,7 +2120,10 @@
    [
     "Autómatas deterministas",
     "Autómatas no deterministas",
-    "Minimización"
+    "Minimización",
+    "Equivalencia AFD y AFN",
+    "Autómatas con transiciones vacías",
+    "Simulación de autómatas"
    ],
    null
   ],
@@ -1828,7 +2131,10 @@
    [
     "Sintaxis de expresiones regulares",
     "Equivalencia con autómatas",
-    "Uso en herramientas"
+    "Uso en herramientas",
+    "Lema de bombeo",
+    "Expresiones regulares en Python",
+    "Propiedades de cierre"
    ],
    null
   ],
@@ -1836,7 +2142,10 @@
    [
     "Producciones",
     "Árboles de derivación",
-    "Ambigüedad"
+    "Ambigüedad",
+    "Formas normales de Chomsky y Greibach",
+    "Autómatas de pila",
+    "Gramáticas en lenguajes de programación"
    ],
    null
   ],
@@ -1844,7 +2153,10 @@
    [
     "Tokens y lexemas",
     "Generadores de analizadores léxicos",
-    "Errores léxicos"
+    "Errores léxicos",
+    "Tabla de símbolos",
+    "Herramientas como Flex",
+    "Diseño de un analizador léxico"
    ],
    null
   ],
@@ -1852,7 +2164,10 @@
    [
     "Análisis descendente",
     "Análisis ascendente",
-    "ANTLR"
+    "ANTLR",
+    "Análisis LL(1)",
+    "Análisis LR",
+    "Herramientas como Bison"
    ],
    null
   ],
@@ -1860,7 +2175,10 @@
    [
     "Definición de la máquina",
     "Tesis de Church-Turing",
-    "Problemas indecidibles"
+    "Problemas indecidibles",
+    "Variantes de máquinas de Turing",
+    "Problema de la parada",
+    "Clases P y NP"
    ],
    null
   ]
@@ -1870,7 +2188,10 @@
    [
     "Capas del modelo OSI",
     "Pila TCP/IP",
-    "Encapsulamiento"
+    "Encapsulamiento",
+    "Medios de transmisión",
+    "Dispositivos de red",
+    "Herramientas como Wireshark"
    ],
    null
   ],
@@ -1878,7 +2199,10 @@
    [
     "Direcciones MAC",
     "Conmutadores",
-    "VLAN"
+    "VLAN",
+    "Protocolo ARP",
+    "Spanning Tree",
+    "Redes inalámbricas Wi-Fi"
    ],
    null
   ],
@@ -1886,7 +2210,10 @@
    [
     "IPv4 y subredes",
     "IPv6",
-    "NAT"
+    "NAT",
+    "Subredes de longitud variable",
+    "Planificación de direcciones",
+    "ICMP y ping"
    ],
    null
   ],
@@ -1894,7 +2221,10 @@
    [
     "Rutas estáticas",
     "Protocolos de enrutamiento",
-    "Tablas de enrutamiento"
+    "Tablas de enrutamiento",
+    "OSPF",
+    "BGP",
+    "Enrutamiento entre VLAN"
    ],
    null
   ],
@@ -1902,7 +2232,10 @@
    [
     "Conexión TCP",
     "Control de flujo",
-    "Datagramas UDP"
+    "Datagramas UDP",
+    "Control de congestión",
+    "Puertos y sockets",
+    "QUIC"
    ],
    null
   ],
@@ -1910,7 +2243,10 @@
    [
     "DNS",
     "HTTP y HTTPS",
-    "DHCP"
+    "DHCP",
+    "Correo electrónico SMTP",
+    "Seguridad básica con firewalls",
+    "Redes definidas por software"
    ],
    null
   ]
@@ -1920,7 +2256,10 @@
    [
     "Cliente y servidor",
     "Solicitudes y respuestas",
-    "APIs REST"
+    "APIs REST",
+    "Protocolo HTTP",
+    "WebSockets",
+    "Arquitectura de una SPA"
    ],
    null
   ],
@@ -1928,7 +2267,10 @@
    [
     "React",
     "Vue",
-    "Angular"
+    "Angular",
+    "Componentes y estado",
+    "Enrutamiento en el cliente",
+    "Next.js y renderizado en servidor"
    ],
    null
   ],
@@ -1936,7 +2278,10 @@
    [
     "Node.js",
     "Django",
-    "Spring Boot"
+    "Spring Boot",
+    "Express y middlewares",
+    "Validación de datos",
+    "APIs con FastAPI"
    ],
    null
   ],
@@ -1944,7 +2289,10 @@
    [
     "Bases relacionales en la web",
     "ORM",
-    "Bases NoSQL"
+    "Bases NoSQL",
+    "PostgreSQL en producción",
+    "Migraciones",
+    "Caché con Redis"
    ],
    null
   ],
@@ -1952,7 +2300,10 @@
    [
     "Sesiones y cookies",
     "Tokens JWT",
-    "OAuth"
+    "OAuth",
+    "Autorización por roles",
+    "Protección contra OWASP Top 10",
+    "Inicio de sesión con proveedores"
    ],
    null
   ],
@@ -1960,7 +2311,10 @@
    [
     "Vercel y Render",
     "Variables de entorno",
-    "Dominios y HTTPS"
+    "Dominios y HTTPS",
+    "Contenedores con Docker",
+    "Integración y despliegue continuos",
+    "Monitoreo de la aplicación"
    ],
    null
   ]
@@ -1970,7 +2324,10 @@
    [
     "Transparencia",
     "Escalabilidad",
-    "Fallas parciales"
+    "Fallas parciales",
+    "Arquitecturas cliente-servidor y P2P",
+    "Modelos de fallo",
+    "Latencia y red"
    ],
    null
   ],
@@ -1978,7 +2335,10 @@
    [
     "Mensajes",
     "Llamadas a procedimientos remotos",
-    "gRPC"
+    "gRPC",
+    "Serialización con Protocol Buffers",
+    "Comunicación asíncrona",
+    "REST frente a gRPC"
    ],
    null
   ],
@@ -1986,7 +2346,10 @@
    [
     "Relojes lógicos de Lamport",
     "Relojes vectoriales",
-    "Sincronización"
+    "Sincronización",
+    "Relojes físicos y NTP",
+    "Orden de eventos",
+    "Exclusión mutua distribuida"
    ],
    null
   ],
@@ -1994,7 +2357,10 @@
    [
     "Replicación primaria",
     "Consistencia eventual",
-    "Teorema CAP"
+    "Teorema CAP",
+    "Replicación multiprimaria",
+    "Quórum",
+    "Bases distribuidas como Cassandra"
    ],
    null
   ],
@@ -2002,7 +2368,10 @@
    [
     "Detección de fallos",
     "Consenso con Raft",
-    "Tolerancia bizantina"
+    "Tolerancia bizantina",
+    "Consenso con Paxos",
+    "Elección de líder",
+    "Recuperación ante fallos"
    ],
    null
   ],
@@ -2010,7 +2379,10 @@
    [
     "Servicios web",
     "Colas de mensajes",
-    "Kafka y RabbitMQ"
+    "Kafka y RabbitMQ",
+    "Orquestación con Kubernetes",
+    "Malla de servicios",
+    "Observabilidad distribuida"
    ],
    null
   ]
@@ -2020,7 +2392,10 @@
    [
     "Arquitectura en capas",
     "Cliente-servidor",
-    "Orientada a eventos"
+    "Orientada a eventos",
+    "Microkernel",
+    "Arquitectura basada en espacios",
+    "Arquitectura sin servidor"
    ],
    null
   ],
@@ -2028,7 +2403,10 @@
    [
     "Rendimiento",
     "Seguridad",
-    "Escalabilidad"
+    "Escalabilidad",
+    "Disponibilidad",
+    "Mantenibilidad",
+    "Observabilidad"
    ],
    null
   ],
@@ -2036,7 +2414,10 @@
    [
     "MVC",
     "Arquitectura hexagonal",
-    "CQRS"
+    "CQRS",
+    "Inyección de dependencias",
+    "Event sourcing",
+    "Patrón saga"
    ],
    null
   ],
@@ -2044,7 +2425,10 @@
    [
     "Servicios independientes",
     "API Gateway",
-    "Contenedores"
+    "Contenedores",
+    "Descubrimiento de servicios",
+    "Comunicación síncrona y asíncrona",
+    "Malla de servicios"
    ],
    null
   ],
@@ -2052,7 +2436,10 @@
    [
     "Modelo C4",
     "Vistas 4+1",
-    "Registros de decisiones"
+    "Registros de decisiones",
+    "Diagramas de despliegue",
+    "Arquitectura como código",
+    "Documentación viva"
    ],
    null
   ],
@@ -2060,7 +2447,10 @@
    [
     "ATAM",
     "Escenarios de calidad",
-    "Compromisos de diseño"
+    "Compromisos de diseño",
+    "Deuda arquitectónica",
+    "Pruebas de arquitectura",
+    "Evolución de la arquitectura"
    ],
    null
   ]
@@ -2070,7 +2460,10 @@
    [
     "Android",
     "iOS",
-    "Tiendas de aplicaciones"
+    "Tiendas de aplicaciones",
+    "Arquitectura de Android",
+    "Ciclo de vida de una aplicación",
+    "Kotlin Multiplatform"
    ],
    null
   ],
@@ -2078,7 +2471,10 @@
    [
     "Jetpack Compose",
     "SwiftUI",
-    "Navegación"
+    "Navegación",
+    "Diseño adaptable",
+    "Material Design",
+    "Accesibilidad móvil"
    ],
    null
   ],
@@ -2086,7 +2482,10 @@
    [
     "Preferencias",
     "Bases locales",
-    "Sincronización"
+    "Sincronización",
+    "Room y Core Data",
+    "Almacenamiento seguro",
+    "Trabajo sin conexión"
    ],
    null
   ],
@@ -2094,7 +2493,10 @@
    [
     "Peticiones HTTP",
     "JSON",
-    "Manejo de errores de red"
+    "Manejo de errores de red",
+    "Retrofit y URLSession",
+    "Corrutinas y async/await",
+    "Paginación de datos"
    ],
    null
   ],
@@ -2102,7 +2504,10 @@
    [
     "Cámara",
     "Ubicación",
-    "Notificaciones"
+    "Notificaciones",
+    "Permisos del sistema",
+    "Tareas en segundo plano",
+    "Bluetooth"
    ],
    null
   ],
@@ -2110,7 +2515,10 @@
    [
     "Firma de aplicaciones",
     "Políticas de las tiendas",
-    "Versiones"
+    "Versiones",
+    "Pruebas en dispositivos",
+    "Analítica y reporte de fallos",
+    "Distribución de versiones beta"
    ],
    null
   ]
@@ -2120,7 +2528,10 @@
    [
     "JSON",
     "XML",
-    "CSV"
+    "CSV",
+    "Parquet y Avro",
+    "Validación con JSON Schema",
+    "Serialización"
    ],
    null
   ],
@@ -2128,7 +2539,10 @@
    [
     "APIs REST",
     "GraphQL",
-    "Autenticación de APIs"
+    "Autenticación de APIs",
+    "OpenAPI",
+    "Límites de uso de APIs",
+    "Webhooks"
    ],
    null
   ],
@@ -2136,7 +2550,10 @@
    [
     "Mapeo de esquemas",
     "Integración ETL",
-    "Calidad de la integración"
+    "Calidad de la integración",
+    "Integración ELT",
+    "Orquestación con Airflow",
+    "Integración en tiempo real"
    ],
    null
   ],
@@ -2144,7 +2561,10 @@
    [
     "Metadatos",
     "Dublin Core",
-    "Vocabularios comunes"
+    "Vocabularios comunes",
+    "Catálogos de datos",
+    "Linaje de datos",
+    "Ontologías"
    ],
    null
   ],
@@ -2152,7 +2572,10 @@
    [
     "Exactitud",
     "Completitud",
-    "Consistencia"
+    "Consistencia",
+    "Perfilado de datos",
+    "Limpieza de datos",
+    "Reglas de calidad"
    ],
    null
   ],
@@ -2160,7 +2583,10 @@
    [
     "Portales de datos abiertos",
     "Licencias abiertas",
-    "Reutilización"
+    "Reutilización",
+    "Estándares de datos abiertos",
+    "Datos abiertos del Ecuador",
+    "APIs de datos abiertos"
    ],
    null
   ]
@@ -2170,7 +2596,10 @@
    [
     "Concurrencia frente a paralelismo",
     "Tareas e hilos",
-    "Granularidad"
+    "Granularidad",
+    "Procesos frente a hilos",
+    "Modelos de programación paralela",
+    "Descomposición de problemas"
    ],
    null
   ],
@@ -2178,7 +2607,10 @@
    [
     "Memoria compartida",
     "Memoria distribuida",
-    "Taxonomía de Flynn"
+    "Taxonomía de Flynn",
+    "Arquitecturas híbridas",
+    "Clústeres",
+    "Computación en la nube para HPC"
    ],
    null
   ],
@@ -2186,7 +2618,10 @@
    [
     "OpenMP",
     "Condiciones de carrera",
-    "Sincronización"
+    "Sincronización",
+    "Regiones críticas",
+    "Variables atómicas",
+    "Balanceo de carga"
    ],
    null
   ],
@@ -2194,7 +2629,10 @@
    [
     "MPI",
     "Comunicación punto a punto",
-    "Comunicación colectiva"
+    "Comunicación colectiva",
+    "Topologías de comunicación",
+    "Comunicación no bloqueante",
+    "Patrones maestro-esclavo"
    ],
    null
   ],
@@ -2202,7 +2640,10 @@
    [
     "Arquitectura de una GPU",
     "CUDA",
-    "Cómputo para IA"
+    "Cómputo para IA",
+    "Memoria de la GPU",
+    "Hilos, bloques y mallas",
+    "Bibliotecas como cuBLAS y PyTorch"
    ],
    null
   ],
@@ -2210,7 +2651,10 @@
    [
     "Aceleración",
     "Ley de Amdahl",
-    "Ley de Gustafson"
+    "Ley de Gustafson",
+    "Medición del rendimiento",
+    "Perfilado de programas",
+    "Eficiencia energética"
    ],
    null
   ]
@@ -2220,7 +2664,10 @@
    [
     "Volumen, velocidad y variedad",
     "Casos de uso",
-    "Retos del Big Data"
+    "Retos del Big Data",
+    "Las cinco V del Big Data",
+    "Ecosistema Hadoop",
+    "Big Data en la nube"
    ],
    null
   ],
@@ -2228,7 +2675,10 @@
    [
     "HDFS",
     "Almacenamiento de objetos",
-    "Lagos de datos"
+    "Lagos de datos",
+    "Formatos Parquet y ORC",
+    "Particionamiento",
+    "Lakehouse"
    ],
    null
   ],
@@ -2236,7 +2686,10 @@
    [
     "Modelo MapReduce",
     "Apache Spark",
-    "Procesamiento en flujo"
+    "Procesamiento en flujo",
+    "DataFrames en Spark",
+    "Spark SQL",
+    "Spark Structured Streaming"
    ],
    null
   ],
@@ -2244,7 +2697,10 @@
    [
     "Columnares",
     "Documentos",
-    "Clave-valor"
+    "Clave-valor",
+    "Cassandra",
+    "MongoDB a gran escala",
+    "Grafos con Neo4j"
    ],
    null
   ],
@@ -2252,7 +2708,10 @@
    [
     "Mapas de calor",
     "Visualización geoespacial",
-    "Reducción de datos para graficar"
+    "Reducción de datos para graficar",
+    "Visualización de redes",
+    "Series de tiempo",
+    "Visualización con Python"
    ],
    null
   ],
@@ -2260,7 +2719,10 @@
    [
     "Filtros interactivos",
     "Actualización en tiempo real",
-    "Herramientas de tableros"
+    "Herramientas de tableros",
+    "Diseño de tableros",
+    "Tableros con Grafana",
+    "Narrativa con datos"
    ],
    null
   ]
@@ -2270,7 +2732,10 @@
    [
     "Inicio y planificación",
     "Ejecución y control",
-    "Cierre"
+    "Cierre",
+    "Grupos de procesos del PMBOK",
+    "Acta de constitución",
+    "Interesados"
    ],
    null
   ],
@@ -2278,7 +2743,10 @@
    [
     "Declaración del alcance",
     "EDT",
-    "Entregables"
+    "Entregables",
+    "Recopilación de requisitos",
+    "Diccionario de la EDT",
+    "Control del alcance"
    ],
    null
   ],
@@ -2286,7 +2754,10 @@
    [
     "Diagrama de Gantt",
     "Ruta crítica",
-    "Holguras"
+    "Holguras",
+    "Estimación de duraciones",
+    "Método PERT",
+    "Herramientas de cronograma"
    ],
    null
   ],
@@ -2294,7 +2765,10 @@
    [
     "Estimación de costos",
     "Línea base",
-    "Valor ganado"
+    "Valor ganado",
+    "Estimación análoga y paramétrica",
+    "Control de costos",
+    "Reservas de contingencia"
    ],
    null
   ],
@@ -2302,7 +2776,10 @@
    [
     "Identificación de riesgos",
     "Matriz de probabilidad e impacto",
-    "Planes de respuesta"
+    "Planes de respuesta",
+    "Análisis cualitativo",
+    "Análisis cuantitativo",
+    "Seguimiento de riesgos"
    ],
    null
   ],
@@ -2310,7 +2787,10 @@
    [
     "Roles de Scrum",
     "Sprints y eventos",
-    "Backlog"
+    "Backlog",
+    "Estimación ágil",
+    "Tableros Kanban",
+    "Métricas como velocidad"
    ],
    null
   ],
@@ -2318,7 +2798,10 @@
    [
     "Entrega formal",
     "Lecciones aprendidas",
-    "Archivo del proyecto"
+    "Archivo del proyecto",
+    "Informe final",
+    "Evaluación del desempeño",
+    "Transferencia del producto"
    ],
    null
   ]
@@ -2328,7 +2811,10 @@
    [
     "Cinco fases",
     "Lectura del ciclo",
-    "Casos de tecnologías"
+    "Casos de tecnologías",
+    "Gartner y sus críticas",
+    "Curva de adopción de Rogers",
+    "Evaluación de madurez tecnológica"
    ],
    null
   ],
@@ -2336,7 +2822,10 @@
    [
     "Modelos de lenguaje",
     "Generación de imágenes",
-    "RAG y agentes"
+    "RAG y agentes",
+    "Ingeniería de prompts",
+    "Ajuste fino",
+    "Riesgos de la IA generativa"
    ],
    null
   ],
@@ -2344,7 +2833,10 @@
    [
     "Sensores y actuadores",
     "Protocolos como MQTT",
-    "Plataformas IoT"
+    "Plataformas IoT",
+    "Edge IoT",
+    "Seguridad en IoT",
+    "Ciudades inteligentes"
    ],
    null
   ],
@@ -2352,7 +2844,10 @@
    [
     "Latencia y ancho de banda",
     "IA en el dispositivo",
-    "Casos de uso"
+    "Casos de uso",
+    "Computación en la niebla",
+    "Redes 5G",
+    "Arquitecturas híbridas"
    ],
    null
   ],
@@ -2360,7 +2855,10 @@
    [
     "Cadena de bloques",
     "Contratos inteligentes",
-    "Casos de uso reales"
+    "Casos de uso reales",
+    "Criptomonedas",
+    "Tokens no fungibles",
+    "Limitaciones de blockchain"
    ],
    null
   ],
@@ -2368,7 +2866,778 @@
    [
     "Realidad virtual",
     "Realidad aumentada",
-    "Realidad mixta"
+    "Realidad mixta",
+    "Computación cuántica",
+    "Robótica y automatización",
+    "Tecnologías verdes"
+   ],
+   null
+  ]
+ ],
+ "cys": [
+  [
+   [
+    "Máquinas mecánicas y primeras computadoras",
+    "Transistores y circuitos integrados",
+    "Computación personal e internet",
+    "Computación móvil e IA"
+   ],
+   null
+  ],
+  [
+   [
+    "Automatización del trabajo",
+    "Educación digital",
+    "Redes sociales y comunicación",
+    "Teletrabajo"
+   ],
+   null
+  ],
+  [
+   [
+    "Códigos de ética de ACM e IEEE",
+    "Responsabilidad con el usuario",
+    "Conflictos de interés",
+    "Casos de estudio"
+   ],
+   null
+  ],
+  [
+   [
+    "Datos personales y sensibles",
+    "Consentimiento",
+    "Derechos sobre los datos",
+    "Ley Orgánica de Protección de Datos Personales del Ecuador"
+   ],
+   null
+  ],
+  [
+   [
+    "Acceso a internet",
+    "Alfabetización digital",
+    "Brecha de género",
+    "Políticas de inclusión"
+   ],
+   null
+  ],
+  [
+   [
+    "Derechos de autor",
+    "Licencias de software libre",
+    "Licencias propietarias",
+    "Creative Commons"
+   ],
+   null
+  ]
+ ],
+ "huc": [
+  [
+   [
+    "Origen y misión de la universidad",
+    "Docencia, investigación y vinculación",
+    "Modelo educativo de la UTPL",
+    "Vida universitaria"
+   ],
+   null
+  ],
+  [
+   [
+    "Concepto de persona",
+    "Dignidad humana",
+    "Derechos y deberes",
+    "Humanismo cristiano"
+   ],
+   null
+  ],
+  [
+   [
+    "Identidad cultural",
+    "Interculturalidad",
+    "Patrimonio cultural del Ecuador",
+    "Respeto a la diversidad"
+   ],
+   null
+  ],
+  [
+   [
+    "Participación ciudadana",
+    "Voluntariado",
+    "Compromiso con la comunidad",
+    "Ética cívica"
+   ],
+   null
+  ],
+  [
+   [
+    "Gestión del tiempo",
+    "Técnicas de estudio",
+    "Autorregulación del aprendizaje",
+    "Uso responsable de la IA en el estudio"
+   ],
+   null
+  ]
+ ],
+ "ant": [
+  [
+   [
+    "Naturaleza humana",
+    "Racionalidad",
+    "Conciencia de sí",
+    "Trascendencia"
+   ],
+   null
+  ],
+  [
+   [
+    "Dimensión biológica",
+    "Dimensión psicológica",
+    "Dimensión social",
+    "Dimensión espiritual"
+   ],
+   null
+  ],
+  [
+   [
+    "Libertad y voluntad",
+    "Toma de decisiones",
+    "Responsabilidad moral",
+    "Consecuencias de los actos"
+   ],
+   null
+  ],
+  [
+   [
+    "Comunicación interpersonal",
+    "Familia y comunidad",
+    "Empatía",
+    "Resolución de conflictos"
+   ],
+   null
+  ],
+  [
+   [
+    "Sentido del trabajo",
+    "Vocación profesional",
+    "Proyecto de vida",
+    "Trabajo y bien común"
+   ],
+   null
+  ]
+ ],
+ "eym": [
+  [
+   [
+    "Moral como conjunto de normas",
+    "Ética como reflexión",
+    "Teorías éticas clásicas",
+    "Ética aplicada"
+   ],
+   null
+  ],
+  [
+   [
+    "Fundamento de la dignidad",
+    "Declaración Universal de los Derechos Humanos",
+    "Derechos digitales",
+    "Casos de vulneración"
+   ],
+   null
+  ],
+  [
+   [
+    "Valores en conflicto",
+    "Métodos de análisis de dilemas",
+    "Dilemas en tecnología",
+    "Toma de decisiones éticas"
+   ],
+   null
+  ],
+  [
+   [
+    "Códigos deontológicos",
+    "Secreto profesional",
+    "Honestidad intelectual",
+    "Ética en el desarrollo de software"
+   ],
+   null
+  ],
+  [
+   [
+    "Responsabilidad social universitaria",
+    "Responsabilidad social empresarial",
+    "Sostenibilidad",
+    "Tecnología para el bien común"
+   ],
+   null
+  ]
+ ],
+ "p11": [
+  [
+   [
+    "Reglamento de prácticas",
+    "Objetivos de aprendizaje",
+    "Asignación del tutor",
+    "Normas de la organización"
+   ],
+   null
+  ],
+  [
+   [
+    "Cronograma",
+    "Actividades y entregables",
+    "Responsables",
+    "Criterios de evaluación"
+   ],
+   null
+  ],
+  [
+   [
+    "Ejecución de tareas",
+    "Comunicación con el tutor",
+    "Resolución de problemas",
+    "Seguimiento semanal"
+   ],
+   null
+  ],
+  [
+   [
+    "Bitácora",
+    "Evidencias documentales",
+    "Repositorio de evidencias",
+    "Reflexión del aprendizaje"
+   ],
+   null
+  ],
+  [
+   [
+    "Estructura del informe",
+    "Redacción técnica",
+    "Conclusiones",
+    "Entrega y evaluación"
+   ],
+   null
+  ]
+ ],
+ "p12": [
+  [
+   [
+    "Cronograma",
+    "Entregables",
+    "Responsables",
+    "Criterios de evaluación"
+   ],
+   null
+  ],
+  [
+   [
+    "Tareas técnicas",
+    "Herramientas de trabajo",
+    "Seguimiento con el tutor",
+    "Calidad de los entregables"
+   ],
+   null
+  ],
+  [
+   [
+    "Roles del equipo",
+    "Comunicación efectiva",
+    "Gestión de conflictos",
+    "Herramientas colaborativas"
+   ],
+   null
+  ],
+  [
+   [
+    "Bitácora",
+    "Evidencias",
+    "Repositorio",
+    "Reflexión"
+   ],
+   null
+  ],
+  [
+   [
+    "Estructura del informe",
+    "Redacción técnica",
+    "Conclusiones",
+    "Entrega y evaluación"
+   ],
+   null
+  ]
+ ],
+ "p21": [
+  [
+   [
+    "Cronograma",
+    "Entregables",
+    "Responsables",
+    "Criterios de evaluación"
+   ],
+   null
+  ],
+  [
+   [
+    "Tareas técnicas",
+    "Herramientas de trabajo",
+    "Seguimiento con el tutor",
+    "Calidad de los entregables"
+   ],
+   null
+  ],
+  [
+   [
+    "Relación con las asignaturas cursadas",
+    "Solución de un problema real",
+    "Buenas prácticas de desarrollo",
+    "Aprendizaje de nuevas herramientas"
+   ],
+   null
+  ],
+  [
+   [
+    "Bitácora",
+    "Evidencias",
+    "Repositorio",
+    "Reflexión"
+   ],
+   null
+  ],
+  [
+   [
+    "Estructura del informe",
+    "Redacción técnica",
+    "Conclusiones",
+    "Entrega y evaluación"
+   ],
+   null
+  ]
+ ],
+ "p22": [
+  [
+   [
+    "Cronograma",
+    "Entregables",
+    "Responsables",
+    "Criterios de evaluación"
+   ],
+   null
+  ],
+  [
+   [
+    "Tareas técnicas",
+    "Herramientas de trabajo",
+    "Seguimiento con el tutor",
+    "Calidad de los entregables"
+   ],
+   null
+  ],
+  [
+   [
+    "Relación con las asignaturas cursadas",
+    "Solución de un problema real",
+    "Buenas prácticas de desarrollo",
+    "Aprendizaje de nuevas herramientas"
+   ],
+   null
+  ],
+  [
+   [
+    "Bitácora",
+    "Evidencias",
+    "Repositorio",
+    "Reflexión"
+   ],
+   null
+  ],
+  [
+   [
+    "Estructura del informe",
+    "Redacción técnica",
+    "Conclusiones",
+    "Entrega y evaluación"
+   ],
+   null
+  ]
+ ],
+ "p3": [
+  [
+   [
+    "Contacto con la comunidad",
+    "Identificación de necesidades",
+    "Priorización",
+    "Diagnóstico participativo"
+   ],
+   null
+  ],
+  [
+   [
+    "Objetivos del proyecto",
+    "Actividades y recursos",
+    "Cronograma",
+    "Indicadores"
+   ],
+   null
+  ],
+  [
+   [
+    "Trabajo con la comunidad",
+    "Capacitación",
+    "Implementación de la solución",
+    "Seguimiento"
+   ],
+   null
+  ],
+  [
+   [
+    "Indicadores de impacto",
+    "Encuestas de satisfacción",
+    "Lecciones aprendidas",
+    "Sostenibilidad"
+   ],
+   null
+  ],
+  [
+   [
+    "Estructura del informe",
+    "Evidencias",
+    "Conclusiones",
+    "Socialización con la comunidad"
+   ],
+   null
+  ]
+ ],
+ "p41": [
+  [
+   [
+    "Trabajo de integración curricular",
+    "Examen complexivo",
+    "Requisitos de cada modalidad",
+    "Elección informada"
+   ],
+   null
+  ],
+  [
+   [
+    "Identificación del problema",
+    "Delimitación",
+    "Pregunta de investigación",
+    "Estado del arte"
+   ],
+   null
+  ],
+  [
+   [
+    "Objetivo general",
+    "Objetivos específicos",
+    "Justificación",
+    "Alcance"
+   ],
+   null
+  ],
+  [
+   [
+    "Búsqueda bibliográfica",
+    "Conceptos clave",
+    "Trabajos relacionados",
+    "Citación APA"
+   ],
+   null
+  ],
+  [
+   [
+    "Tipo de investigación",
+    "Métodos y técnicas",
+    "Herramientas",
+    "Validación"
+   ],
+   null
+  ],
+  [
+   [
+    "Cronograma",
+    "Hitos",
+    "Riesgos",
+    "Aprobación del director"
+   ],
+   null
+  ]
+ ],
+ "p42": [
+  [
+   [
+    "Ejecución de la metodología",
+    "Desarrollo de la solución",
+    "Pruebas",
+    "Avances con el director"
+   ],
+   null
+  ],
+  [
+   [
+    "Presentación de resultados",
+    "Análisis",
+    "Comparación con trabajos relacionados",
+    "Discusión"
+   ],
+   null
+  ],
+  [
+   [
+    "Conclusiones",
+    "Recomendaciones",
+    "Trabajos futuros",
+    "Limitaciones"
+   ],
+   null
+  ],
+  [
+   [
+    "Formato institucional",
+    "Redacción académica",
+    "Revisión antiplagio",
+    "Correcciones"
+   ],
+   null
+  ],
+  [
+   [
+    "Diapositivas",
+    "Ensayo de la exposición",
+    "Preguntas frecuentes",
+    "Manejo del tiempo"
+   ],
+   null
+  ],
+  [
+   [
+    "Exposición",
+    "Respuestas al tribunal",
+    "Evaluación",
+    "Titulación"
+   ],
+   null
+  ]
+ ],
+ "emp": [
+  [
+   [
+    "Actitud emprendedora",
+    "Creatividad",
+    "Tolerancia al riesgo",
+    "Casos de emprendedores"
+   ],
+   null
+  ],
+  [
+   [
+    "Detección de problemas",
+    "Tendencias del mercado",
+    "Fuentes de ideas",
+    "Evaluación de oportunidades"
+   ],
+   null
+  ],
+  [
+   [
+    "Segmentos de clientes",
+    "Propuesta de valor",
+    "Canales y relaciones",
+    "Fuentes de ingresos y costos"
+   ],
+   null
+  ],
+  [
+   [
+    "Entrevistas de problema",
+    "Experimentos",
+    "Métricas de validación",
+    "Pivotar"
+   ],
+   null
+  ],
+  [
+   [
+    "Análisis de mercado",
+    "Plan operativo",
+    "Proyección financiera básica",
+    "Resumen ejecutivo"
+   ],
+   null
+  ],
+  [
+   [
+    "Capital propio",
+    "Inversionistas ángel",
+    "Créditos y fondos públicos",
+    "Concursos de emprendimiento"
+   ],
+   null
+  ]
+ ],
+ "ebt1": [
+  [
+   [
+    "Tecnologías habilitadoras",
+    "Lluvia de ideas",
+    "Ideas con IA",
+    "Selección de ideas"
+   ],
+   null
+  ],
+  [
+   [
+    "Hipótesis del problema",
+    "Entrevistas",
+    "Tamaño del mercado",
+    "Evidencia de demanda"
+   ],
+   null
+  ],
+  [
+   [
+    "Alcance mínimo",
+    "Prototipos sin código",
+    "Métricas de uso",
+    "Iteración"
+   ],
+   null
+  ],
+  [
+   [
+    "Patentes",
+    "Derechos de autor del software",
+    "Marcas",
+    "Licencias"
+   ],
+   null
+  ],
+  [
+   [
+    "Perfiles del equipo",
+    "Roles fundadores",
+    "Acuerdos entre socios",
+    "Cultura de equipo"
+   ],
+   null
+  ],
+  [
+   [
+    "Incubadoras",
+    "Aceleradoras",
+    "Inversionistas",
+    "Ecosistema emprendedor en Ecuador"
+   ],
+   null
+  ]
+ ],
+ "ebt2": [
+  [
+   [
+    "Modelos de suscripción",
+    "Plataformas y mercados",
+    "Economías de escala",
+    "Métricas de crecimiento"
+   ],
+   null
+  ],
+  [
+   [
+    "Ingresos y costos",
+    "Flujo de caja",
+    "Punto de equilibrio",
+    "Valoración"
+   ],
+   null
+  ],
+  [
+   [
+    "Propuesta de valor",
+    "Marketing digital",
+    "Embudo de conversión",
+    "Marca"
+   ],
+   null
+  ],
+  [
+   [
+    "Pruebas con usuarios",
+    "Métricas de retención",
+    "Retroalimentación",
+    "Mejora del producto"
+   ],
+   null
+  ],
+  [
+   [
+    "Estructura del pitch",
+    "Narrativa",
+    "Métricas clave",
+    "Preguntas de inversionistas"
+   ],
+   null
+  ],
+  [
+   [
+    "Formas societarias",
+    "Trámites en Ecuador",
+    "Obligaciones tributarias",
+    "Contratos básicos"
+   ],
+   null
+  ]
+ ],
+ "ctc": [
+  [
+   [
+    "Formato IMRyD",
+    "Tipos de artículos",
+    "Revistas y congresos",
+    "Revisión por pares"
+   ],
+   null
+  ],
+  [
+   [
+    "Bases de datos académicas",
+    "Google Scholar y Scopus",
+    "Criterios de calidad",
+    "Gestores de referencias"
+   ],
+   null
+  ],
+  [
+   [
+    "Citas en el texto",
+    "Lista de referencias",
+    "Citar fuentes digitales",
+    "Citar herramientas de IA"
+   ],
+   null
+  ],
+  [
+   [
+    "Estructura del resumen",
+    "Palabras clave",
+    "Planteamiento del problema",
+    "Contribución del trabajo"
+   ],
+   null
+  ],
+  [
+   [
+    "Descripción del método",
+    "Presentación de resultados",
+    "Tablas y figuras",
+    "Discusión"
+   ],
+   null
+  ],
+  [
+   [
+    "Coherencia y cohesión",
+    "Estilo académico",
+    "Revisión de pares",
+    "Corrección final"
    ],
    null
   ]
