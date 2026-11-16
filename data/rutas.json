@@ -1,0 +1,940 @@
+{
+ "fc": {
+  "tags": "ffffff",
+  "hoy": [
+   "Pensamiento computacional para descomponer problemas",
+   "Codificación UTF-8 y formatos de intercambio como JSON",
+   "Procesadores ARM y x86 en los equipos actuales"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Conversor de bases y codificaciones",
+   "pasos": [
+    "Convertir números entre binario, octal, decimal y hexadecimal.",
+    "Mostrar los bytes UTF-8 de un texto con tildes y emojis.",
+    "Explicar en pseudocódigo el algoritmo de conversión."
+   ]
+  }
+ },
+ "fm": {
+  "tags": "ffffff",
+  "hoy": [
+   "Lógica aplicada a condiciones y validaciones en programación",
+   "Funciones como base del análisis de algoritmos"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Generador de tablas de verdad",
+   "pasos": [
+    "Definir proposiciones con dos o tres variables.",
+    "Construir su tabla de verdad paso a paso.",
+    "Identificar tautologías y contradicciones."
+   ]
+  }
+ },
+ "ip": {
+  "tags": "ffffffv",
+  "hoy": [
+   "Python como lenguaje habitual para iniciarse",
+   "Depuradores integrados en editores como VS Code",
+   "Asistentes de código con IA, usados con criterio"
+  ],
+  "desuso": [
+   "Python 2, sin soporte desde 2020"
+  ],
+  "proyecto": {
+   "t": "Juego de adivinanza con estadísticas",
+   "pasos": [
+    "Generar un número aleatorio y pedir intentos con un ciclo.",
+    "Guardar los intentos en una lista.",
+    "Mostrar estadísticas al final usando funciones propias."
+   ]
+  }
+ },
+ "cys": {
+  "tags": "ffvvfv",
+  "hoy": [
+   "Ley Orgánica de Protección de Datos Personales del Ecuador (2021)",
+   "Debate sobre el uso responsable de la IA generativa",
+   "Licencias de código abierto en proyectos colaborativos"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Informe de impacto de una aplicación local",
+   "pasos": [
+    "Elegir una aplicación usada en Loja.",
+    "Identificar qué datos personales recoge y para qué.",
+    "Proponer tres mejoras de privacidad y accesibilidad."
+   ]
+  }
+ },
+ "esd": {
+  "tags": "ffffff",
+  "hoy": [
+   "Grafos en redes sociales, rutas y sistemas de recomendación",
+   "Lógica formal en la verificación de software"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Mapa de rutas del campus con grafos",
+   "pasos": [
+    "Modelar los edificios del campus como vértices y los caminos como aristas.",
+    "Encontrar caminos entre dos edificios.",
+    "Contar cuántas rutas distintas existen con combinatoria."
+   ]
+  }
+ },
+ "huc": {
+  "tags": "fffff",
+  "hoy": [
+   "Aprendizaje autónomo y continuo como competencia profesional"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Propuesta de voluntariado tecnológico",
+   "pasos": [
+    "Identificar una necesidad tecnológica en la comunidad.",
+    "Proponer una actividad de apoyo con estudiantes de Computación.",
+    "Definir cómo medir su aporte."
+   ]
+  }
+ },
+ "al": {
+  "tags": "ffffff",
+  "hoy": [
+   "Álgebra lineal en gráficos 3D y aprendizaje automático",
+   "Operaciones matriciales con NumPy"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Transformaciones geométricas con matrices",
+   "pasos": [
+    "Representar una figura como un conjunto de puntos.",
+    "Aplicar matrices de rotación, escala y traslación.",
+    "Visualizar el resultado con Python."
+   ]
+  }
+ },
+ "amu": {
+  "tags": "ffffff",
+  "hoy": [
+   "Derivadas en el entrenamiento de redes neuronales mediante descenso de gradiente"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Visualizador de derivadas y optimización",
+   "pasos": [
+    "Graficar una función y su recta tangente en un punto.",
+    "Encontrar máximos y mínimos.",
+    "Implementar unos pasos de descenso de gradiente."
+   ]
+  }
+ },
+ "fb": {
+  "tags": "ffffff",
+  "hoy": [
+   "Simulación física en videojuegos, robótica y animación"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Simulador de tiro parabólico",
+   "pasos": [
+    "Modelar posición y velocidad en cada instante.",
+    "Dibujar la trayectoria con distintos ángulos.",
+    "Comparar alcance y altura máxima."
+   ]
+  }
+ },
+ "edd": {
+  "tags": "ffffff",
+  "hoy": [
+   "Diccionarios, conjuntos y colas de prioridad de las bibliotecas estándar",
+   "Entrevistas técnicas basadas en estructuras de datos"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Buscador de asignaturas con tabla hash",
+   "pasos": [
+    "Cargar la lista de asignaturas de la malla.",
+    "Indexarlas en una tabla hash por nombre.",
+    "Comparar el tiempo de búsqueda con una lista recorrida en orden."
+   ]
+  }
+ },
+ "poo": {
+  "tags": "fffffff",
+  "hoy": [
+   "Java 21 y C# con records y coincidencia de patrones",
+   "Kotlin en el desarrollo para Android",
+   "Composición preferida sobre jerarquías de herencia profundas"
+  ],
+  "desuso": [
+   "Jerarquías de herencia profundas como diseño por defecto"
+  ],
+  "proyecto": {
+   "t": "Sistema de préstamos de biblioteca",
+   "pasos": [
+    "Diseñar clases para libros, usuarios y préstamos.",
+    "Usar interfaces y excepciones para las reglas del préstamo.",
+    "Documentar el diseño con un diagrama de clases."
+   ]
+  }
+ },
+ "edm": {
+  "tags": "fffffff",
+  "hoy": [
+   "Métodos numéricos con Python, NumPy y SciPy"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Modelo de crecimiento poblacional",
+   "pasos": [
+    "Plantear la ecuación diferencial del crecimiento.",
+    "Resolverla con el método de Euler.",
+    "Comparar la solución numérica con la exacta."
+   ]
+  }
+ },
+ "ld": {
+  "tags": "ffffff",
+  "hoy": [
+   "Diseño de hardware con FPGA y lenguajes como Verilog"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Contador digital en un simulador",
+   "pasos": [
+    "Diseñar un contador de 4 bits con flip-flops.",
+    "Simularlo en una herramienta como Logisim.",
+    "Mostrar la salida en un display de 7 segmentos."
+   ]
+  }
+ },
+ "fbd": {
+  "tags": "fffvvf",
+  "hoy": [
+   "PostgreSQL como base relacional de código abierto de amplio uso",
+   "SQL como una de las tecnologías más usadas por los desarrolladores"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Base de datos de un club estudiantil",
+   "pasos": [
+    "Diseñar el modelo entidad-relación.",
+    "Crear las tablas normalizadas en PostgreSQL.",
+    "Escribir diez consultas con uniones y agregaciones."
+   ]
+  }
+ },
+ "pfr": {
+  "tags": "ffffvv",
+  "hoy": [
+   "Métodos map, filter y reduce en JavaScript",
+   "Streams en Java y LINQ en C#",
+   "Flujos reactivos con RxJS"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Panel de datos en tiempo real",
+   "pasos": [
+    "Simular un flujo de lecturas de sensores.",
+    "Transformarlo con map, filter y reduce.",
+    "Actualizar un gráfico de forma reactiva."
+   ]
+  }
+ },
+ "ant": {
+  "tags": "fffff",
+  "hoy": [
+   "Reflexión sobre la persona en la era de la IA"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Ensayo: la persona frente a la tecnología",
+   "pasos": [
+    "Elegir una tecnología de uso diario.",
+    "Analizar cómo afecta la libertad y las relaciones.",
+    "Proponer criterios de uso responsable."
+   ]
+  }
+ },
+ "aoc": {
+  "tags": "ffffff",
+  "hoy": [
+   "Procesadores ARM en teléfonos y portátiles",
+   "Arquitectura abierta RISC-V"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Simulador de una CPU sencilla",
+   "pasos": [
+    "Definir un conjunto de cinco instrucciones.",
+    "Simular el ciclo de búsqueda, decodificación y ejecución.",
+    "Ejecutar un programa corto paso a paso."
+   ]
+  }
+ },
+ "pro": {
+  "tags": "fffvvf",
+  "hoy": [
+   "Figma como herramienta de prototipado colaborativo",
+   "Prototipos generados con IA a partir de descripciones"
+  ],
+  "desuso": [
+   "Adobe XD, en modo de mantenimiento desde 2023"
+  ],
+  "proyecto": {
+   "t": "Prototipo de una app para el campus",
+   "pasos": [
+    "Entrevistar a tres compañeros sobre una necesidad.",
+    "Diseñar un prototipo navegable en Figma.",
+    "Hacer una prueba de usabilidad y ajustar el diseño."
+   ]
+  }
+ },
+ "aa": {
+  "tags": "ffffff",
+  "hoy": [
+   "Análisis de complejidad en entrevistas técnicas",
+   "Programación dinámica en problemas de optimización"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Comparador de algoritmos de ordenamiento",
+   "pasos": [
+    "Implementar burbuja, mezcla y quicksort.",
+    "Medir sus tiempos con entradas de distinto tamaño.",
+    "Relacionar los resultados con su notación Big-O."
+   ]
+  }
+ },
+ "bda": {
+  "tags": "fffffv",
+  "hoy": [
+   "MongoDB y Redis como bases NoSQL comunes",
+   "Bases de datos vectoriales para búsqueda semántica y RAG"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Inventario con transacciones",
+   "pasos": [
+    "Modelar productos y movimientos.",
+    "Registrar ventas dentro de transacciones.",
+    "Probar qué ocurre ante una falla a mitad de la operación."
+   ]
+  }
+ },
+ "pa": {
+  "tags": "ffffvv",
+  "hoy": [
+   "Git y GitHub como estándar de control de versiones",
+   "Integración continua con GitHub Actions",
+   "Programación asíncrona con async y await"
+  ],
+  "desuso": [
+   "SVN y CVS en proyectos nuevos"
+  ],
+  "proyecto": {
+   "t": "Gestor de tareas con pruebas e integración continua",
+   "pasos": [
+    "Crear el proyecto en un repositorio de GitHub.",
+    "Escribir pruebas unitarias para cada función.",
+    "Configurar GitHub Actions para ejecutarlas en cada cambio."
+   ]
+  }
+ },
+ "fis": {
+  "tags": "ffvffvf",
+  "hoy": [
+   "Scrum y Kanban como marcos de trabajo más usados",
+   "DevOps y entrega continua",
+   "Asistentes de IA en el ciclo de desarrollo"
+  ],
+  "desuso": [
+   "Cascada estricta para productos con requisitos cambiantes"
+  ],
+  "proyecto": {
+   "t": "Plan ágil de un sistema de reservas",
+   "pasos": [
+    "Escribir el backlog con historias de usuario.",
+    "Planificar dos sprints.",
+    "Definir la estrategia de pruebas."
+   ]
+  }
+ },
+ "so": {
+  "tags": "ffffff",
+  "hoy": [
+   "Linux en servidores y en la nube",
+   "Contenedores con Docker, basados en funciones del núcleo"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Simulador de planificación de CPU",
+   "pasos": [
+    "Implementar los algoritmos FCFS, SJF y Round Robin.",
+    "Calcular el tiempo de espera promedio.",
+    "Comparar los resultados en un gráfico."
+   ]
+  }
+ },
+ "ibi": {
+  "tags": "ffvfvv",
+  "hoy": [
+   "Power BI y Looker Studio para tableros",
+   "Almacenes de datos en la nube como BigQuery y Snowflake"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Tablero de rendimiento académico",
+   "pasos": [
+    "Preparar un conjunto de datos simulado de calificaciones.",
+    "Construir un modelo en estrella.",
+    "Publicar un tablero con tres indicadores."
+   ]
+  }
+ },
+ "iw": {
+  "tags": "ffvvvv",
+  "hoy": [
+   "TypeScript en proyectos medianos y grandes",
+   "Frameworks como React y Next.js",
+   "Accesibilidad web según WCAG como requisito"
+  ],
+  "desuso": [
+   "jQuery en proyectos nuevos",
+   "AngularJS 1.x, sin soporte desde 2022",
+   "Maquetación con tablas"
+  ],
+  "proyecto": {
+   "t": "Sitio del club de programación",
+   "pasos": [
+    "Maquetar un sitio responsivo con HTML y CSS.",
+    "Consumir una API pública con JavaScript.",
+    "Publicarlo gratis en GitHub Pages."
+   ]
+  }
+ },
+ "eyp": {
+  "tags": "fffffff",
+  "hoy": [
+   "Análisis estadístico con Python y pandas",
+   "Pruebas A/B en productos digitales"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Encuesta sobre hábitos de estudio",
+   "pasos": [
+    "Diseñar una encuesta de diez preguntas.",
+    "Describir los resultados con estadística descriptiva.",
+    "Probar una hipótesis sobre horas de estudio y rendimiento."
+   ]
+  }
+ },
+ "eym": {
+  "tags": "fffff",
+  "hoy": [
+   "Ética de la inteligencia artificial y de los datos"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Análisis de un dilema ético de IA",
+   "pasos": [
+    "Elegir un caso real de uso de IA.",
+    "Identificar los valores en conflicto.",
+    "Proponer una decisión justificada."
+   ]
+  }
+ },
+ "gcs": {
+  "tags": "ffvfvv",
+  "hoy": [
+   "ISO/IEC 25010 como modelo de calidad del producto",
+   "Análisis estático automatizado, por ejemplo con SonarQube"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Auditoría de calidad de un proyecto propio",
+   "pasos": [
+    "Elegir un proyecto de un semestre anterior.",
+    "Medirlo con una herramienta de análisis estático.",
+    "Priorizar y corregir los tres problemas principales."
+   ]
+  }
+ },
+ "ir": {
+  "tags": "ffvfff",
+  "hoy": [
+   "Historias de usuario en equipos ágiles",
+   "Gestión de requisitos con herramientas como Jira"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Requisitos de una app para el comedor universitario",
+   "pasos": [
+    "Entrevistar a dos usuarios.",
+    "Redactar diez historias de usuario con criterios de aceptación.",
+    "Validarlas con los usuarios."
+   ]
+  }
+ },
+ "tac": {
+  "tags": "ffvffff",
+  "hoy": [
+   "Expresiones regulares en validación y búsqueda de texto",
+   "Generadores de analizadores como ANTLR"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Mini intérprete de expresiones aritméticas",
+   "pasos": [
+    "Escribir el analizador léxico.",
+    "Definir la gramática y el analizador sintáctico.",
+    "Evaluar expresiones con paréntesis y precedencia."
+   ]
+  }
+ },
+ "fr": {
+  "tags": "ffvffv",
+  "hoy": [
+   "Transición a IPv6",
+   "HTTP/3 sobre el protocolo QUIC"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Red de un laboratorio en simulador",
+   "pasos": [
+    "Diseñar el direccionamiento con subredes.",
+    "Configurar la red en Packet Tracer.",
+    "Verificar la conectividad entre todos los equipos."
+   ]
+  }
+ },
+ "i1web": {
+  "tags": "fvvfvv",
+  "hoy": [
+   "React, Vue o Angular en el frontend",
+   "Node.js, Django o Spring Boot en el backend",
+   "Despliegue en plataformas como Vercel o Render"
+  ],
+  "desuso": [
+   "jQuery en proyectos nuevos"
+  ],
+  "proyecto": {
+   "t": "Aplicación web de tareas con autenticación",
+   "pasos": [
+    "Construir el frontend con un framework de componentes.",
+    "Crear una API con inicio de sesión.",
+    "Desplegar la aplicación en la nube."
+   ]
+  }
+ },
+ "i2fad": {
+  "tags": "fvfvfv",
+  "hoy": [
+   "Python con pandas y cuadernos Jupyter",
+   "Visualización con Power BI o Matplotlib"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Análisis de datos abiertos del Ecuador",
+   "pasos": [
+    "Descargar un conjunto de datos abiertos públicos.",
+    "Limpiarlo y explorarlo con pandas.",
+    "Comunicar tres hallazgos con gráficos."
+   ]
+  }
+ },
+ "rsd": {
+  "tags": "fffffv",
+  "hoy": [
+   "Microservicios en contenedores orquestados con Kubernetes",
+   "Mensajería con Kafka o RabbitMQ"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Chat distribuido",
+   "pasos": [
+    "Crear un servidor de mensajes con WebSockets.",
+    "Ejecutar dos instancias que compartan mensajes.",
+    "Probar qué ocurre si una instancia falla."
+   ]
+  }
+ },
+ "fia": {
+  "tags": "fefvvvv",
+  "hoy": [
+   "Modelos de lenguaje y asistentes de código",
+   "Agentes de IA que planifican y ejecutan tareas",
+   "Generación aumentada por recuperación (RAG)"
+  ],
+  "desuso": [
+   "Sistemas expertos como enfoque principal de la IA, hoy de interés histórico"
+  ],
+  "proyecto": {
+   "t": "Clasificador de consultas estudiantiles",
+   "pasos": [
+    "Reunir cincuenta consultas de ejemplo y etiquetarlas.",
+    "Entrenar un clasificador sencillo y medir su exactitud.",
+    "Comparar el resultado con un modelo de lenguaje."
+   ]
+  }
+ },
+ "as": {
+  "tags": "fffvff",
+  "hoy": [
+   "Microservicios y arquitecturas orientadas a eventos",
+   "Modelo C4 para documentar arquitecturas"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Arquitectura de una plataforma de matrícula",
+   "pasos": [
+    "Identificar los atributos de calidad críticos.",
+    "Proponer la arquitectura con diagramas C4.",
+    "Justificar las decisiones en un registro de decisiones."
+   ]
+  }
+ },
+ "emp": {
+  "tags": "ffvvff",
+  "hoy": [
+   "Lean Startup y validación temprana con clientes"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Lienzo de una idea tecnológica",
+   "pasos": [
+    "Completar el lienzo Canvas de una idea.",
+    "Validarla con cinco entrevistas.",
+    "Ajustar la propuesta de valor."
+   ]
+  }
+ },
+ "i1mov": {
+  "tags": "vffvvv",
+  "hoy": [
+   "Kotlin y Jetpack Compose en Android",
+   "Swift y SwiftUI en iOS",
+   "Flutter y React Native para varias plataformas"
+  ],
+  "desuso": [
+   "Interfaces en XML para aplicaciones Android nuevas, reemplazadas por Jetpack Compose"
+  ],
+  "proyecto": {
+   "t": "App de horarios de clase",
+   "pasos": [
+    "Diseñar dos pantallas con navegación.",
+    "Guardar el horario en el dispositivo.",
+    "Agregar recordatorios con notificaciones."
+   ]
+  }
+ },
+ "i2int": {
+  "tags": "vvfffv",
+  "hoy": [
+   "APIs REST y GraphQL",
+   "Estándares y portales de datos abiertos"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Integración de dos fuentes de datos abiertos",
+   "pasos": [
+    "Elegir dos conjuntos de datos con formatos distintos.",
+    "Unificarlos con un esquema común.",
+    "Documentar los metadatos del resultado."
+   ]
+  }
+ },
+ "cpd": {
+  "tags": "ffffvf",
+  "hoy": [
+   "GPU y CUDA en el aprendizaje profundo",
+   "Procesamiento distribuido en la nube"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Paralelizar el cálculo de un fractal",
+   "pasos": [
+    "Calcular el conjunto de Mandelbrot de forma secuencial.",
+    "Paralelizarlo con hilos o procesos.",
+    "Medir la aceleración y compararla con la ley de Amdahl."
+   ]
+  }
+ },
+ "rac": {
+  "tags": "fvvfff",
+  "hoy": [
+   "Grafos de conocimiento combinados con modelos de lenguaje"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Ontología de la malla de Computación",
+   "pasos": [
+    "Modelar asignaturas, temas y prerrequisitos como una ontología.",
+    "Cargarla como grafo de conocimiento.",
+    "Responder consultas con reglas de inferencia."
+   ]
+  }
+ },
+ "ebt1": {
+  "tags": "ffvfff",
+  "hoy": [
+   "Producto mínimo viable con herramientas sin código o con IA"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Validación de una idea con usuarios",
+   "pasos": [
+    "Formular el problema y la hipótesis.",
+    "Hacer diez entrevistas.",
+    "Construir un producto mínimo viable y medir su uso."
+   ]
+  }
+ },
+ "ctc": {
+  "tags": "ffvfff",
+  "hoy": [
+   "Gestores de referencias como Zotero",
+   "LaTeX y Overleaf en la escritura científica"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Artículo corto sobre una tecnología emergente",
+   "pasos": [
+    "Buscar cinco fuentes académicas.",
+    "Redactar un artículo de cuatro páginas.",
+    "Citar con normas APA usando un gestor de referencias."
+   ]
+  }
+ },
+ "i1jue": {
+  "tags": "vfffff",
+  "hoy": [
+   "Motores como Unity, Unreal Engine y Godot"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Juego 2D de plataformas",
+   "pasos": [
+    "Implementar el bucle de juego y el movimiento.",
+    "Agregar colisiones y dos niveles.",
+    "Publicar una versión jugable en la web."
+   ]
+  }
+ },
+ "i2avg": {
+  "tags": "ffvvfv",
+  "hoy": [
+   "Apache Spark para el procesamiento distribuido",
+   "Almacenes y lagos de datos en la nube"
+  ],
+  "desuso": [
+   "Hadoop MapReduce para procesos nuevos, desplazado por Spark"
+  ],
+  "proyecto": {
+   "t": "Tablero de movilidad con datos masivos",
+   "pasos": [
+    "Generar un millón de registros de viajes simulados.",
+    "Procesarlos con Spark.",
+    "Publicar un tablero interactivo con los resultados."
+   ]
+  }
+ },
+ "gp": {
+  "tags": "fffffvf",
+  "hoy": [
+   "Marcos ágiles e híbridos de gestión",
+   "Herramientas como Jira y Trello"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Plan del trabajo de titulación",
+   "pasos": [
+    "Definir el alcance y la estructura de desglose del trabajo.",
+    "Construir el cronograma con su ruta crítica.",
+    "Identificar cinco riesgos y su respuesta."
+   ]
+  }
+ },
+ "si": {
+  "tags": "fvfvvf",
+  "hoy": [
+   "Autenticación multifactor y llaves de acceso (passkeys)",
+   "Modelo de confianza cero",
+   "Seguridad de la cadena de suministro del software"
+  ],
+  "desuso": [
+   "Contraseñas como único factor de autenticación",
+   "MD5 y SHA-1 para proteger datos"
+  ],
+  "proyecto": {
+   "t": "Análisis de riesgos de un sistema universitario",
+   "pasos": [
+    "Inventariar los activos de información.",
+    "Identificar amenazas y vulnerabilidades.",
+    "Proponer controles priorizados."
+   ]
+  }
+ },
+ "te": {
+  "tags": "fvveee",
+  "hoy": [
+   "Agentes de IA",
+   "IA en el dispositivo y en el borde de la red",
+   "Computación cuántica en etapa temprana"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Prueba de concepto de una tecnología emergente",
+   "pasos": [
+    "Investigar una tecnología y ubicarla en el ciclo de expectativas.",
+    "Proponer su aplicación a un problema de la región.",
+    "Construir y presentar una demostración pequeña."
+   ]
+  }
+ },
+ "ebt2": {
+  "tags": "ffffvf",
+  "hoy": [
+   "Presentaciones breves (pitch) ante inversionistas y concursos"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Pitch de tres minutos",
+   "pasos": [
+    "Resumir problema, solución y mercado.",
+    "Preparar un modelo financiero simple.",
+    "Presentarlo y recoger retroalimentación."
+   ]
+  }
+ },
+ "sin": {
+  "tags": "fffvvfv",
+  "hoy": [
+   "Modelos de lenguaje basados en transformers",
+   "MLOps para desplegar y monitorear modelos",
+   "Bibliotecas como PyTorch y scikit-learn"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Detector de mensajes no deseados",
+   "pasos": [
+    "Entrenar un clasificador con un conjunto público de datos.",
+    "Evaluarlo con precisión, exhaustividad y F1.",
+    "Desplegarlo como un servicio web sencillo."
+   ]
+  }
+ },
+ "p11": {
+  "tags": "fffff",
+  "hoy": [
+   "Portafolio de evidencias en repositorios como GitHub",
+   "Comunicación profesional con equipos y clientes"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Bitácora digital de la práctica",
+   "pasos": [
+    "Crear un repositorio o documento compartido para registrar cada semana.",
+    "Registrar actividades, evidencias y aprendizajes con fecha.",
+    "Cerrar con una reflexión sobre las competencias desarrolladas."
+   ]
+  }
+ },
+ "p12": {
+  "tags": "fffff",
+  "hoy": [
+   "Portafolio de evidencias en repositorios como GitHub",
+   "Comunicación profesional con equipos y clientes"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Bitácora digital de la práctica",
+   "pasos": [
+    "Crear un repositorio o documento compartido para registrar cada semana.",
+    "Registrar actividades, evidencias y aprendizajes con fecha.",
+    "Cerrar con una reflexión sobre las competencias desarrolladas."
+   ]
+  }
+ },
+ "p21": {
+  "tags": "fffff",
+  "hoy": [
+   "Portafolio de evidencias en repositorios como GitHub",
+   "Comunicación profesional con equipos y clientes"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Bitácora digital de la práctica",
+   "pasos": [
+    "Crear un repositorio o documento compartido para registrar cada semana.",
+    "Registrar actividades, evidencias y aprendizajes con fecha.",
+    "Cerrar con una reflexión sobre las competencias desarrolladas."
+   ]
+  }
+ },
+ "p22": {
+  "tags": "fffff",
+  "hoy": [
+   "Portafolio de evidencias en repositorios como GitHub",
+   "Comunicación profesional con equipos y clientes"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Bitácora digital de la práctica",
+   "pasos": [
+    "Crear un repositorio o documento compartido para registrar cada semana.",
+    "Registrar actividades, evidencias y aprendizajes con fecha.",
+    "Cerrar con una reflexión sobre las competencias desarrolladas."
+   ]
+  }
+ },
+ "p41": {
+  "tags": "ffffff",
+  "hoy": [
+   "Portafolio de evidencias en repositorios como GitHub",
+   "Comunicación profesional con equipos y clientes"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Bitácora digital de la práctica",
+   "pasos": [
+    "Crear un repositorio o documento compartido para registrar cada semana.",
+    "Registrar actividades, evidencias y aprendizajes con fecha.",
+    "Cerrar con una reflexión sobre las competencias desarrolladas."
+   ]
+  }
+ },
+ "p42": {
+  "tags": "ffffff",
+  "hoy": [
+   "Portafolio de evidencias en repositorios como GitHub",
+   "Comunicación profesional con equipos y clientes"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Bitácora digital de la práctica",
+   "pasos": [
+    "Crear un repositorio o documento compartido para registrar cada semana.",
+    "Registrar actividades, evidencias y aprendizajes con fecha.",
+    "Cerrar con una reflexión sobre las competencias desarrolladas."
+   ]
+  }
+ },
+ "p3": {
+  "tags": "fffff",
+  "hoy": [
+   "Proyectos tecnológicos con impacto social"
+  ],
+  "desuso": [],
+  "proyecto": {
+   "t": "Solución tecnológica para una organización comunitaria",
+   "pasos": [
+    "Diagnosticar una necesidad con la organización.",
+    "Desarrollar una solución sencilla con ella.",
+    "Medir el beneficio obtenido."
+   ]
+  }
+ }
+}

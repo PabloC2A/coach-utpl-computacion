@@ -1,45 +1,49 @@
 # Coach UTPL Computación
 
-Prototipo de asistente basado en **Generación Aumentada por Recuperación (RAG)** sobre la malla curricular de la Carrera de Computación de la Universidad Técnica Particular de Loja (UTPL), modalidad presencial.
+Prototipo de **rutas de conocimiento actualizadas** para las asignaturas de la Carrera de Computación de la Universidad Técnica Particular de Loja (UTPL), con un tutor basado en **Generación Aumentada por Recuperación (RAG)** y retos de práctica.
 
 Prueba de concepto del trabajo *RAG para entrenamiento activo de estudio acotado al temario universitario*, de la asignatura **Tecnologías Emergentes** (Unidad 5: Inteligencia Artificial).
 
-**Demostración:** se abre desde GitHub Pages (enlace en la descripción del repositorio) o descargando `index.html` y abriéndolo en el navegador.
+**Demostración:** https://pabloc2a.github.io/coach-utpl-computacion/
+
+## Problema
+
+El software cambia rápido. Entre 2024 y 2025, la proporción de desarrolladores que usan o planean usar herramientas de IA pasó del 76 % al 84 % (Stack Overflow, 2025). Una guía didáctica lineal que se actualiza por periodo académico no muestra qué temas son fundamentos que no caducan, qué se usa hoy en la industria y qué ya está en desuso.
 
 ## Funciones
 
 | Sección | Qué hace |
 |---|---|
-| Malla | Muestra los 9 ciclos, 54 asignaturas y 135 créditos. Al seleccionar una asignatura resalta su cadena completa de prerrequisitos y las asignaturas que habilita. |
-| Ruta de aprendizaje | Presenta los temas de cada asignatura como un camino. Cada tema se marca como en estudio, completado u omitido, y se muestra el avance por asignatura y en la carrera. |
-| Asistente RAG | Recupera fragmentos de la malla y del temario, responde con la fuente citada y declara cuando un dato no forma parte del material cargado. |
-| Retos | Preguntas de opción múltiple con vidas y puntos. Un error se explica con su fuente y genera una pregunta de refuerzo. Un tema se completa al aprobar su práctica con 4 de 5 aciertos. |
-| Cómo funciona | Describe el proceso de indexación, recuperación y generación fundamentada. |
+| Rutas | Muestra los temas de cada asignatura como un camino, al estilo de roadmap.sh. Cada tema se etiqueta como fundamento, vigente o emergente. La ruta incluye lo que se usa hoy en la industria, lo que está en desuso y un proyecto propuesto. |
+| Asignaturas | Catálogo de las asignaturas por ciclo, con el avance del estudiante en cada ruta. |
+| Tutor | Recupera fragmentos de las rutas, responde solo con ese material, cita la fuente y declara lo que está fuera de alcance. |
+| Retos | Preguntas con vidas y puntos, inspiradas en Duolingo. Un tema se completa al aprobar su práctica con 4 de 5 aciertos. Cada error se explica y genera una pregunta de refuerzo. |
+| Cómo funciona | Describe la indexación, la recuperación y la respuesta con fuente. |
 
 ## Funcionamiento
 
-1. **Indexación.** La malla y el temario se dividen en 413 fragmentos (asignaturas, ciclos, reglas y temas), cada uno con su etiqueta de origen.
-2. **Recuperación.** La consulta se normaliza (sin tildes, con raíces de palabra y ciclos en números romanos) y se puntúa con BM25 contra los fragmentos.
-3. **Generación fundamentada.** La respuesta se construye solo con los fragmentos recuperados y con la cadena de prerrequisitos calculada sobre el grafo de la malla, y cita su fuente.
+1. **Indexación.** 525 fragmentos: 343 temas y, por cada una de las 57 rutas, la industria actual, lo que está en desuso y el proyecto propuesto.
+2. **Recuperación.** La consulta se normaliza (sin tildes y con raíces de palabra) y se puntúa con BM25.
+3. **Respuesta con fuente.** Se construye solo con los fragmentos recuperados y cita su origen.
 
-Todo se ejecuta en el navegador, sin servidor. El avance del estudiante se guarda en el almacenamiento local del navegador.
+Como el conocimiento está en documentos, actualizar una ruta consiste en reemplazar su documento, sin reentrenar ningún modelo. Todo se ejecuta en el navegador; el avance se guarda en el almacenamiento local.
 
 ## Estructura
 
 ```
-index.html                       Aplicación completa (HTML, CSS y JavaScript)
-data/malla.json                  Malla estructurada: asignaturas, ciclos, créditos, prerrequisitos e itinerarios
-data/temario.json                Temario referencial: 343 temas en 57 asignaturas
+index.html                           Aplicación completa (HTML, CSS y JavaScript)
+data/malla.json                      Asignaturas de la malla, por ciclo e itinerario
+data/temario.json                    Temario referencial: 343 temas en 57 asignaturas
+data/rutas.json                      Etiquetas de vigencia, industria actual, tecnologías en desuso y proyecto por asignatura
 prompts/ai_studio_instrucciones.txt  Instrucciones de sistema usadas en Google AI Studio (Gemini)
 ```
 
-## Fuentes y alcance
+## Alcance
 
-- **Malla:** infografía institucional de la malla curricular de la Carrera de Computación, modalidad presencial (UTPL). Los datos se verificaron contra sus totales: 54 asignaturas, 135 créditos y 15 créditos por ciclo.
-- **Temario:** es **referencial**. Fue redactado para el prototipo porque la malla solo contiene los nombres de las asignaturas. En una implementación real se sustituye por las guías didácticas oficiales de cada asignatura.
-- El prototipo no reemplaza al tutor académico: la validación oficial de la matrícula corresponde a la universidad.
+- Las asignaturas provienen de la malla de la Carrera de Computación, modalidad presencial (UTPL).
+- El temario y las etiquetas de vigencia son **referenciales**, con revisión de noviembre de 2026. En una implementación real se sustituyen por las guías didácticas oficiales, revisadas cada semestre por los docentes.
 
 ## Herramientas de IA utilizadas
 
-- **Claude Code (Anthropic):** estructuración de la malla en datos, programación del índice de recuperación, del grafo de prerrequisitos y de la interfaz, y pruebas de cada función.
-- **Google AI Studio (Gemini):** prueba del asistente RAG sin programación, con la malla y el temario como contexto del sistema (ver `prompts/`).
+- **Claude Code (Anthropic):** estructuración de los datos, programación del índice de recuperación y de la interfaz, y pruebas de cada función.
+- **Google AI Studio (Gemini):** prueba del tutor RAG sin programación (ver `prompts/`).
