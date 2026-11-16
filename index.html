@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Prototipo de asistente RAG sobre la malla curricular de la Carrera de Computación de la UTPL: malla interactiva, rutas de aprendizaje, consultas con fuente y retos.">
+<title>Coach UTPL Computación</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Plan: paleta institucional (azul UTPL, amarillo de la malla), tipografía Space Grotesk + Inter.
+   Composición: banda azul con navegación; contenido en una columna ancha; la malla replica los colores del afiche oficial. */
+:root{
+  --bg:#F3F6FA; --surface:#FFFFFF; --surface2:#E9EFF6; --ink:#0F2236; --muted:#52657A; --line:#D3DCE7;
+  --navy:#0A3F6B; --navy-ink:#FFFFFF; --accent:#0B5CA8; --accent-ink:#FFFFFF; --gold:#F2B318;
+  --good:#1B7F4F; --bad:#B8362A; --warn:#8A5A00;
+  --a-ft:#F6C945; --a-px:#9A4A83; --a-em:#EE9A3A; --a-is:#79C6E8; --a-cl:#B9C4CC; --a-uic:#52B06E;
+  --r:10px; color-scheme:light;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0B1520; --surface:#122030; --surface2:#1A2C40; --ink:#E7EEF6; --muted:#9BAEC2; --line:#294057;
+  --navy:#0B3556; --navy-ink:#FFFFFF; --accent:#6CB4F5; --accent-ink:#06223D; --gold:#F2B318;
+  --good:#4CC38A; --bad:#F2857A; --warn:#E8B24A;
+  --a-ft:#C99B1E; --a-px:#B26A9C; --a-em:#D07F25; --a-is:#3F95BA; --a-cl:#6B7A86; --a-uic:#3B9B5A; color-scheme:dark; } }
+:root[data-theme="dark"]{
+  --bg:#0B1520; --surface:#122030; --surface2:#1A2C40; --ink:#E7EEF6; --muted:#9BAEC2; --line:#294057;
+  --navy:#0B3556; --navy-ink:#FFFFFF; --accent:#6CB4F5; --accent-ink:#06223D; --gold:#F2B318;
+  --good:#4CC38A; --bad:#F2857A; --warn:#E8B24A;
+  --a-ft:#C99B1E; --a-px:#B26A9C; --a-em:#D07F25; --a-is:#3F95BA; --a-cl:#6B7A86; --a-uic:#3B9B5A; color-scheme:dark; }
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1,h2,h3{font-family:"Space Grotesk",Inter,system-ui,sans-serif;margin:0;line-height:1.2;text-wrap:balance}
+p{margin:0 0 .6em}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.muted{color:var(--muted)}
+[hidden]{display:none!important}
+.ai-only,.ai-block{display:none!important}
+.has-ai .ai-only{display:inline-flex!important}
+.has-ai .ai-block{display:block!important}
+
+/* Banda superior */
+.top{background:var(--navy);color:var(--navy-ink)}
+.top-in{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;padding-top:18px}
+.brand{display:flex;gap:14px;align-items:center;padding-bottom:12px;min-width:0}
+.mark{flex:none;width:44px;height:44px;border-radius:8px;background:var(--gold);color:#0A2A48;display:grid;place-items:center;font:700 22px "Space Grotesk",sans-serif}
+.brand h1{font-size:clamp(20px,3.2vw,28px);font-weight:700}
+.brand p{margin:2px 0 0;color:#C7D9EA;font-size:13px}
+.tabs{display:flex;gap:2px;flex-wrap:wrap}
+.tab{background:none;border:0;border-bottom:3px solid transparent;color:#C7D9EA;padding:10px 14px;font-weight:500}
+.tab:hover{color:#fff}
+.tab[aria-selected="true"]{color:#fff;border-bottom-color:var(--gold)}
+
+main{padding-block:22px 40px}
+.view[hidden]{display:none}
+.lead{max-width:70ch;color:var(--muted);margin-bottom:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:8px 14px;font-weight:500}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.chip{display:inline-flex;align-items:center;text-align:left;border:1px solid var(--line);border-radius:14px;padding:4px 11px;font-size:13px;background:var(--surface);color:var(--ink)}
+button.chip:hover{border-color:var(--accent)}
+
+/* Malla */
+.malla-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:start}
+@media (min-width:1020px){.malla-layout{grid-template-columns:minmax(0,1fr) 330px}.detail{position:sticky;top:12px}}
+.controls{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-bottom:12px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.seg{max-width:100%}
+.seg button{border:0;background:none;padding:7px 12px;font-size:14px;white-space:normal;flex:1 1 auto}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.grid{display:flex;flex-direction:column;gap:6px}
+.row{display:grid;grid-template-columns:48px minmax(0,1fr);gap:8px;align-items:stretch}
+.cyc{display:flex;flex-direction:column;justify-content:center;align-items:center;background:var(--surface2);border-radius:8px;font:600 15px "Space Grotesk",sans-serif}
+.cyc small{font:500 10.5px Inter,sans-serif;color:var(--muted)}
+.chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:6px;hyphens:auto;-webkit-hyphens:auto}
+.sub{--c:var(--a-ft);text-align:left;border:2px solid transparent;border-radius:8px;padding:7px 8px;min-height:62px;background:color-mix(in srgb,var(--c) 42%,var(--surface));display:flex;flex-direction:column;justify-content:space-between;gap:4px;transition:opacity .15s,transform .15s}
+.sub b{font-weight:600;font-size:12px;line-height:1.25;overflow-wrap:break-word;word-break:normal}
+.sub span{font-size:11px;color:var(--muted)}
+.sub[hidden]{display:none}
+.sub.ft{--c:var(--a-ft)} .sub.px{--c:var(--a-px)} .sub.em{--c:var(--a-em)} .sub.is{--c:var(--a-is)} .sub.cl{--c:var(--a-cl)} .sub.uic{--c:var(--a-uic)}
+.grid.has-sel .sub{opacity:.34}
+.grid.has-sel .sub.anc,.grid.has-sel .sub.dep,.grid.has-sel .sub.sel{opacity:1}
+.sub.sel{border-color:var(--ink);transform:scale(1.03)}
+.sub.anc{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.sub.dep{border-style:dashed;border-color:var(--ink)}
+.key{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--muted);margin-top:10px}
+.key span::before{content:"";display:inline-block;width:14px;height:10px;border-radius:3px;margin-right:6px;border:2px solid var(--ink);vertical-align:-1px}
+.key .k-anc::before{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.key .k-dep::before{border-style:dashed}
+.detail h2{font-size:21px;margin-bottom:8px}
+.detail dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:10px 0;font-size:14px}
+.detail dt{color:var(--muted)}
+.detail dd{margin:0}
+.detail h3{font-size:14px;margin:14px 0 6px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.detail ol,.detail ul{margin:0;padding-left:18px;font-size:14px}
+.detail li{margin-bottom:3px}
+.linkbtn{display:inline-block;vertical-align:top;background:none;border:0;padding:0;color:var(--accent);text-decoration:underline;text-underline-offset:2px;text-align:left}
+.badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600;background:color-mix(in srgb,var(--c,var(--a-ft)) 45%,var(--surface));margin-right:6px}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+
+/* Avance y ruta de aprendizaje */
+.progcard{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-bottom:14px}
+.pc-txt{display:grid;gap:2px;flex:1 1 260px;min-width:0}
+.pc-txt span{font-size:13px}
+.pc-bar{flex:1 1 180px;height:10px;background:var(--surface2);border-radius:5px;overflow:hidden;min-width:120px}
+.pc-bar i{display:block;height:100%;background:var(--good);transition:width .3s}
+.sub{position:relative;overflow:hidden}
+.sub .pb{position:absolute;left:0;bottom:0;height:4px;background:var(--good);width:0}
+.rsel{display:inline-grid;gap:6px;font-weight:500;margin-bottom:14px;max-width:100%}
+.rsel select{border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--surface);color:var(--ink);font:inherit;max-width:100%}
+.rhead{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between;margin-bottom:18px}
+.rh-main{flex:1 1 380px;min-width:0}
+.rh-main h2{font-size:24px;margin-bottom:4px}
+.rh-main p{margin:2px 0}
+.rh-side{flex:0 1 260px;display:grid;gap:8px}
+.rh-num{display:flex;align-items:baseline;gap:10px}
+.rh-num b{font:700 30px "Space Grotesk",sans-serif;color:var(--good)}
+.ruta-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:start}
+@media (min-width:1020px){.ruta-layout{grid-template-columns:minmax(0,1fr) 360px}.drawer{position:sticky;top:12px}}
+.path{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px;padding:4px 0 10px}
+.path::before{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:3px dotted var(--accent);opacity:.55}
+.pstart,.pend{position:relative;border-radius:999px;padding:8px 18px;font:600 14px "Space Grotesk",sans-serif;text-align:center;max-width:100%}
+.pstart{background:var(--navy);color:var(--navy-ink)}
+.pend{background:var(--surface2);color:var(--muted)}
+.pend.ok{background:var(--good);color:var(--surface)}
+.pnode{position:relative;transform:translateX(var(--dx));width:min(340px,100%)}
+@media (max-width:600px){.pnode{transform:none}}
+.tnode{width:100%;display:grid;grid-template-columns:34px minmax(0,1fr);column-gap:10px;align-items:center;text-align:left;border:2px solid var(--ink);border-radius:12px;padding:10px 12px;background:color-mix(in srgb,var(--a-ft) 70%,var(--surface));color:var(--ink);box-shadow:0 3px 0 var(--ink);transition:transform .12s}
+.tnode:hover{transform:translateY(-1px)}
+.tnode .ico{grid-row:1 / 3;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:2px solid var(--ink);font:700 14px "Space Grotesk",sans-serif}
+.tnode .tt{font-weight:600;font-size:15px;line-height:1.25}
+.tnode .stl{font-size:12px;color:var(--muted)}
+.tnode.st-learning{background:color-mix(in srgb,var(--a-px) 32%,var(--surface))}
+.tnode.st-done{background:color-mix(in srgb,var(--good) 30%,var(--surface))}
+.tnode.st-done .ico{background:var(--good);color:var(--surface);border-color:var(--good)}
+.tnode.st-skip{background:var(--surface2);opacity:.75}
+.tnode.st-skip .tt{text-decoration:line-through}
+.tnode.next{outline:3px solid var(--gold);outline-offset:3px}
+.tnode.on{box-shadow:0 0 0 3px var(--accent)}
+.drawer .dtitle{font-size:21px;margin:2px 0 8px}
+.small{font-size:12.5px}
+.stseg{margin:6px 0 4px}
+.navrow{display:flex;justify-content:space-between;gap:8px;margin-top:14px}
+.steps{padding-left:18px;margin:6px 0 12px}
+.q-ctx{font-size:13px;color:var(--muted);margin-bottom:8px}
+
+/* Asistente */
+.ask{display:flex;gap:8px;flex-wrap:wrap}
+.ask input[type=text]{flex:1 1 280px;min-width:0;border:1px solid var(--line);border-radius:8px;padding:11px 12px;background:var(--surface);color:var(--ink);font:inherit}
+.ex{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.switch{display:flex;gap:10px;align-items:flex-start;margin:12px 0;font-size:14px}
+.switch input{margin-top:4px}
+.qa{display:flex;flex-direction:column;gap:16px;margin-top:18px}
+.qa-card{display:grid;gap:12px}
+.qa-q{font:600 17px "Space Grotesk",sans-serif}
+.stage{border-top:1px solid var(--line);padding-top:10px}
+.stage h3{font-size:12.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:8px}
+.stage h3 em{font-style:normal;color:var(--accent);margin-right:6px}
+.hit{display:grid;grid-template-columns:70px minmax(0,1fr);gap:10px;align-items:start;margin-bottom:8px;font-size:13.5px}
+.bar{height:8px;border-radius:4px;background:var(--surface2);margin-top:7px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent)}
+.hit b{display:block}
+.hit span{color:var(--muted)}
+.answer p{margin-bottom:.5em}
+.answer ul,.answer ol{margin:0 0 .5em;padding-left:20px}
+.answer li{margin-bottom:3px}
+.oos{border-left:4px solid var(--warn);padding:8px 12px;background:var(--surface2);border-radius:0 8px 8px 0}
+.src{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px;color:var(--muted)}
+.ai-out{white-space:pre-wrap;background:var(--surface2);border-radius:8px;padding:10px 12px;font-size:14.5px}
+details.prompt summary{cursor:pointer;color:var(--muted);font-size:13px}
+details.prompt pre{white-space:pre-wrap;font:12px/1.5 ui-monospace,Consolas,monospace;background:var(--surface2);padding:10px;border-radius:8px;max-height:260px;overflow:auto}
+.pipeline-note{font-size:13px;color:var(--muted)}
+
+/* Retos */
+.quiz-wrap{max-width:760px}
+.setup{display:grid;gap:14px}
+.setup label{display:grid;gap:6px;font-weight:500}
+.setup select{border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--surface);color:var(--ink);font:inherit}
+.hud{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between;margin-bottom:12px;font-weight:600}
+.hud .hearts{color:var(--bad);letter-spacing:2px;font-size:18px}
+.hud .hearts .off{color:var(--line)}
+.prog{height:8px;background:var(--surface2);border-radius:4px;overflow:hidden;margin-bottom:16px}
+.prog i{display:block;height:100%;background:var(--gold);transition:width .3s}
+.q-text{font:600 20px/1.3 "Space Grotesk",sans-serif;margin-bottom:14px}
+.q-tag{display:inline-block;font-size:12px;font-weight:600;color:var(--warn);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:12px;align-items:center;text-align:left;border:2px solid var(--line);border-radius:10px;background:var(--surface);padding:12px 14px;font-size:15.5px}
+.opt:hover:not([disabled]){border-color:var(--accent)}
+.opt kbd{flex:none;display:grid;place-items:center;width:26px;height:26px;border-radius:6px;background:var(--surface2);font:600 13px Inter,sans-serif}
+.opt.good{border-color:var(--good);background:color-mix(in srgb,var(--good) 14%,var(--surface))}
+.opt.bad{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 14%,var(--surface))}
+.fb{margin-top:14px;padding:12px 14px;border-radius:10px;background:var(--surface2)}
+.fb strong.ok{color:var(--good)} .fb strong.ko{color:var(--bad)}
+.end h2{font-size:26px;margin-bottom:6px}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin:14px 0}
+.stat{flex:1 1 120px;background:var(--surface2);border-radius:10px;padding:10px 14px}
+.stat b{display:block;font:700 26px "Space Grotesk",sans-serif}
+
+/* Cómo funciona */
+.pipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-bottom:18px}
+.pipe .card h3{font-size:18px;margin:6px 0 8px}
+.pipe .n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font:700 14px "Space Grotesk",sans-serif}
+.big{font:700 28px "Space Grotesk",sans-serif;color:var(--accent);margin-bottom:4px}
+pre.sample{white-space:pre-wrap;font:12.5px/1.55 ui-monospace,Consolas,monospace;background:var(--surface2);padding:12px;border-radius:8px;overflow-x:auto}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.two ul{margin:0;padding-left:18px}
+.two li{margin-bottom:5px}
+footer{border-top:1px solid var(--line);padding-block:18px;color:var(--muted);font-size:13px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-in">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">U</div>
+      <div>
+        <h1>Coach UTPL Computación</h1>
+        <p>Asistente RAG sobre la malla curricular, modalidad presencial · prototipo de Tecnologías Emergentes</p>
+      </div>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Secciones" id="tabs"></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="view" id="v-malla" aria-label="Malla interactiva"></section>
+  <section class="view" id="v-ruta" aria-label="Ruta de aprendizaje" hidden></section>
+  <section class="view" id="v-asistente" aria-label="Asistente RAG" hidden></section>
+  <section class="view" id="v-retos" aria-label="Retos" hidden></section>
+  <section class="view" id="v-como" aria-label="Cómo funciona" hidden></section>
+</main>
+<footer>
+  <div class="wrap">Prototipo académico. Los datos provienen de la infografía institucional de la malla de la Carrera de Computación (UTPL, modalidad presencial). La validación oficial de matrícula corresponde al tutor académico y a secretaría.</div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+const D = {"carrera": "Computación", "universidad": "Universidad Técnica Particular de Loja (UTPL)", "modalidad": "Presencial", "creditos_total": 135, "asignaturas_total": 54, "creditos_por_ciclo": 15, "requisitos_titulacion": ["Demostrar suficiencia en el manejo de una lengua extranjera en el nivel B1 del Marco Común Europeo.", "Cursar y aprobar uno de los dos itinerarios ofertados por la carrera.", "La malla curricular está organizada con prerrequisitos."], "itinerarios": {"I": "Itinerario I: Desarrollo basado en plataformas", "II": "Itinerario II: Ciencias de datos para la gestión inteligente del territorio"}, "asignaturas": [{"id": "fc", "nombre": "Fundamentos Computacionales", "ciclo": "I", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": []}, {"id": "fm", "nombre": "Fundamentos Matemáticos", "ciclo": "I", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": []}, {"id": "ip", "nombre": "Introducción a la Programación", "ciclo": "I", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": []}, {"id": "cys", "nombre": "Computación y Sociedad", "ciclo": "I", "creditos": 2, "horas": 96, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": []}, {"id": "esd", "nombre": "Estructuras Discretas", "ciclo": "I", "creditos": 2, "horas": 96, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": []}, {"id": "huc", "nombre": "Humanismo, Universidad y Cultura", "ciclo": "I", "creditos": 2, "horas": 96, "area": "Integración de saberes, contextos y cultura", "itinerario": null, "prerrequisitos": []}, {"id": "al", "nombre": "Álgebra Lineal", "ciclo": "II", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["fm"]}, {"id": "amu", "nombre": "Análisis Matemático Univariado", "ciclo": "II", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["fm"]}, {"id": "fb", "nombre": "Física Básica", "ciclo": "II", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": []}, {"id": "edd", "nombre": "Estructuras de Datos", "ciclo": "II", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["fc", "esd", "ip"]}, {"id": "poo", "nombre": "Programación Orientada a Objetos", "ciclo": "II", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["fc", "ip"]}, {"id": "edm", "nombre": "Ecuaciones Diferenciales y Métodos Numéricos", "ciclo": "III", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["amu"]}, {"id": "ld", "nombre": "Lógica Digital", "ciclo": "III", "creditos": 2, "horas": 96, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": []}, {"id": "fbd", "nombre": "Fundamentos de Base de Datos", "ciclo": "III", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["edd"]}, {"id": "pfr", "nombre": "Programación Funcional y Reactiva", "ciclo": "III", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["poo"]}, {"id": "ant", "nombre": "Antropología Básica", "ciclo": "III", "creditos": 2, "horas": 96, "area": "Integración de saberes, contextos y cultura", "itinerario": null, "prerrequisitos": ["huc"]}, {"id": "p11", "nombre": "Prácticum 1.1", "ciclo": "III", "creditos": 2, "horas": 96, "area": "Praxis profesional", "itinerario": null, "prerrequisitos": []}, {"id": "aoc", "nombre": "Arquitectura y Organización de Computadores", "ciclo": "IV", "creditos": 2, "horas": 96, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["ld"]}, {"id": "pro", "nombre": "Prototipado", "ciclo": "IV", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["pfr"]}, {"id": "aa", "nombre": "Análisis de Algoritmos", "ciclo": "IV", "creditos": 2, "horas": 96, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["pfr"]}, {"id": "bda", "nombre": "Base de Datos Avanzada", "ciclo": "IV", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["fbd"]}, {"id": "pa", "nombre": "Programación Avanzada", "ciclo": "IV", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["pfr"]}, {"id": "p12", "nombre": "Prácticum 1.2", "ciclo": "IV", "creditos": 2, "horas": 96, "area": "Praxis profesional", "itinerario": null, "prerrequisitos": ["p11"]}, {"id": "fis", "nombre": "Fundamentos de Ingeniería de Software", "ciclo": "V", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["pa", "bda"]}, {"id": "so", "nombre": "Sistemas Operativos", "ciclo": "V", "creditos": 2, "horas": 96, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["aoc"]}, {"id": "ibi", "nombre": "Introducción a la Inteligencia de Negocios", "ciclo": "V", "creditos": 2, "horas": 96, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["bda"]}, {"id": "iw", "nombre": "Ingeniería Web", "ciclo": "V", "creditos": 2, "horas": 96, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["pa"]}, {"id": "eyp", "nombre": "Estadística y Probabilidad", "ciclo": "V", "creditos": 2, "horas": 96, "area": "Epistemología y metodología de la investigación", "itinerario": null, "prerrequisitos": ["fm"]}, {"id": "eym", "nombre": "Ética y Moral", "ciclo": "V", "creditos": 2, "horas": 96, "area": "Integración de saberes, contextos y cultura", "itinerario": null, "prerrequisitos": ["ant"]}, {"id": "p21", "nombre": "Prácticum 2.1", "ciclo": "V", "creditos": 2, "horas": 96, "area": "Praxis profesional", "itinerario": null, "prerrequisitos": ["p12"]}, {"id": "gcs", "nombre": "Gestión de la Calidad de Software", "ciclo": "VI", "creditos": 2, "horas": 96, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["fis"]}, {"id": "ir", "nombre": "Ingeniería de Requisitos", "ciclo": "VI", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["fis"]}, {"id": "tac", "nombre": "Teoría de Autómatas y Compiladores", "ciclo": "VI", "creditos": 2, "horas": 96, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["edd"]}, {"id": "fr", "nombre": "Fundamentos de Redes", "ciclo": "VI", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["so"]}, {"id": "p22", "nombre": "Prácticum 2.2", "ciclo": "VI", "creditos": 2, "horas": 96, "area": "Praxis profesional", "itinerario": null, "prerrequisitos": ["p21"]}, {"id": "i1web", "nombre": "Plataformas Web", "ciclo": "VI", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": "I", "prerrequisitos": ["iw"]}, {"id": "i2fad", "nombre": "Fundamentos de Análisis de Datos", "ciclo": "VI", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": "II", "prerrequisitos": ["ibi"]}, {"id": "rsd", "nombre": "Redes y Sistemas Distribuidos", "ciclo": "VII", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["fr"]}, {"id": "fia", "nombre": "Fundamentos de Inteligencia Artificial", "ciclo": "VII", "creditos": 2, "horas": 96, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["ibi"]}, {"id": "as", "nombre": "Arquitectura de Software", "ciclo": "VII", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["ir"]}, {"id": "emp", "nombre": "Emprendimiento", "ciclo": "VII", "creditos": 2, "horas": 96, "area": "Integración de saberes, contextos y cultura", "itinerario": null, "prerrequisitos": ["pro"]}, {"id": "p3", "nombre": "Prácticum 3: Servicio Comunitario", "ciclo": "VII", "creditos": 2, "horas": 96, "area": "Praxis profesional", "itinerario": null, "prerrequisitos": ["p22"]}, {"id": "i1mov", "nombre": "Plataformas Móviles", "ciclo": "VII", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": "I", "prerrequisitos": ["i1web"]}, {"id": "i2int", "nombre": "Interoperabilidad y Explotación de Datos en Ecosistemas Heterogéneos", "ciclo": "VII", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": "II", "prerrequisitos": ["i2fad"]}, {"id": "cpd", "nombre": "Computación Paralela y Distribuida", "ciclo": "VIII", "creditos": 2, "horas": 96, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["rsd"]}, {"id": "rac", "nombre": "Representación Avanzada del Conocimiento y Razonamiento", "ciclo": "VIII", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["fia"]}, {"id": "ebt1", "nombre": "Emprendimiento de Base Tecnológica I", "ciclo": "VIII", "creditos": 2, "horas": 96, "area": "Integración de saberes, contextos y cultura", "itinerario": null, "prerrequisitos": ["emp"]}, {"id": "ctc", "nombre": "Composición de Textos Científicos", "ciclo": "VIII", "creditos": 2, "horas": 96, "area": "Comunicación y lenguajes", "itinerario": null, "prerrequisitos": []}, {"id": "p41", "nombre": "Prácticum 4.1: Trabajo de Integración Curricular / Examen Complexivo", "ciclo": "VIII", "creditos": 3, "horas": 144, "area": "Unidad de Integración Curricular", "itinerario": null, "prerrequisitos": ["p3"]}, {"id": "i1jue", "nombre": "Plataformas para Juegos", "ciclo": "VIII", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": "I", "prerrequisitos": ["i1mov"]}, {"id": "i2avg", "nombre": "Análisis y Visualización de Grandes Volúmenes de Datos", "ciclo": "VIII", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": "II", "prerrequisitos": ["i2int"]}, {"id": "gp", "nombre": "Gestión de Proyectos", "ciclo": "IX", "creditos": 2, "horas": 96, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["ir"]}, {"id": "si", "nombre": "Seguridad de la Información", "ciclo": "IX", "creditos": 2, "horas": 96, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["rsd"]}, {"id": "te", "nombre": "Tecnologías Emergentes", "ciclo": "IX", "creditos": 2, "horas": 96, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": []}, {"id": "ebt2", "nombre": "Emprendimiento de Base Tecnológica II", "ciclo": "IX", "creditos": 2, "horas": 96, "area": "Integración de saberes, contextos y cultura", "itinerario": null, "prerrequisitos": ["ebt1"]}, {"id": "sin", "nombre": "Sistemas Inteligentes", "ciclo": "IX", "creditos": 3, "horas": 144, "area": "Fundamentos teóricos", "itinerario": null, "prerrequisitos": ["rac"]}, {"id": "p42", "nombre": "Prácticum 4.2: Trabajo de Integración Curricular / Examen Complexivo", "ciclo": "IX", "creditos": 4, "horas": 192, "area": "Unidad de Integración Curricular", "itinerario": null, "prerrequisitos": ["p41"]}]};
+const TM = {"fc": [["Introducción a la computación", "Disciplina que estudia el procesamiento automático de la información mediante sistemas de cómputo."], ["Sistemas de numeración", "Representación de números en binario, octal y hexadecimal y conversión entre bases."], ["Representación de la información", "Codificación de texto, imágenes y sonido como secuencias de bits."], ["Algoritmos y pseudocódigo", "Descripción ordenada de pasos para resolver un problema, independiente del lenguaje de programación."], ["Componentes de una computadora", "Función del procesador, la memoria, el almacenamiento y los dispositivos de entrada y salida."], ["Software y sistema operativo", "Diferencia entre software de sistema y de aplicación, y funciones básicas del sistema operativo."]], "fm": [["Lógica proposicional", "Proposiciones, conectivos lógicos y tablas de verdad."], ["Conjuntos y relaciones", "Operaciones entre conjuntos y propiedades de las relaciones."], ["Números reales y desigualdades", "Propiedades de los reales y resolución de ecuaciones e inecuaciones."], ["Funciones", "Dominio, rango, gráfica y composición de funciones."], ["Trigonometría", "Razones trigonométricas, identidades y resolución de triángulos."], ["Sucesiones y series", "Progresiones aritméticas y geométricas y cálculo de su suma."]], "ip": [["Variables y tipos de datos", "Almacenamiento de valores en memoria y tipos básicos como enteros, decimales, texto y booleanos."], ["Operadores y expresiones", "Combinación de valores con operadores aritméticos, relacionales y lógicos."], ["Estructuras condicionales", "Ejecución de instrucciones según una condición mediante if y else."], ["Estructuras repetitivas", "Repetición de instrucciones con ciclos for y while."], ["Funciones", "Bloques de código reutilizables con parámetros y valor de retorno."], ["Arreglos y listas", "Colecciones ordenadas de valores accesibles por índice."], ["Depuración de errores", "Identificación y corrección de errores de sintaxis y de lógica."]], "cys": [["Historia de la computación", "Evolución de las computadoras desde las máquinas mecánicas hasta los dispositivos actuales."], ["Impacto social de la tecnología", "Efectos de la computación en el trabajo, la educación y la vida cotidiana."], ["Ética profesional en computación", "Responsabilidades del profesional frente a los usuarios y la sociedad."], ["Privacidad y protección de datos", "Derechos sobre los datos personales y buenas prácticas para protegerlos."], ["Brecha digital", "Desigualdad en el acceso a la tecnología y estrategias para reducirla."], ["Propiedad intelectual y licencias", "Derechos de autor y tipos de licencias de software, libres y propietarias."]], "esd": [["Lógica y demostraciones", "Razonamiento formal y técnicas de demostración como inducción y contradicción."], ["Teoría de conjuntos", "Operaciones, cardinalidad y propiedades de los conjuntos."], ["Relaciones y funciones", "Relaciones de equivalencia y de orden, y funciones inyectivas y sobreyectivas."], ["Combinatoria", "Conteo mediante permutaciones, combinaciones y el principio del palomar."], ["Grafos", "Estructuras de vértices y aristas, y conceptos de caminos y conectividad."], ["Árboles", "Grafos conexos sin ciclos y sus propiedades."]], "huc": [["Misión de la universidad", "Sentido de la formación universitaria y compromiso con la sociedad."], ["Persona y dignidad humana", "Valor de la persona como fundamento de la convivencia y la formación."], ["Cultura y diversidad", "Expresiones culturales y respeto por la diversidad."], ["Ciudadanía y responsabilidad social", "Participación responsable y compromiso con la comunidad."], ["Aprendizaje autónomo", "Estrategias para organizar el estudio y aprender de forma independiente."]], "al": [["Sistemas de ecuaciones lineales", "Resolución de sistemas por eliminación gaussiana y análisis de sus soluciones."], ["Matrices y operaciones", "Suma, producto, transpuesta e inversa de matrices."], ["Determinantes", "Cálculo e interpretación del determinante de una matriz cuadrada."], ["Espacios vectoriales", "Vectores, independencia lineal, base y dimensión."], ["Transformaciones lineales", "Funciones entre espacios vectoriales que conservan la suma y el producto por escalares."], ["Valores y vectores propios", "Direcciones que una matriz conserva y los factores por los que las escala."]], "amu": [["Límites", "Valor al que se aproxima una función cuando la variable tiende a un punto."], ["Continuidad", "Condiciones para que una función no presente saltos ni interrupciones."], ["Derivadas", "Razón de cambio instantánea de una función y reglas de derivación."], ["Aplicaciones de la derivada", "Máximos, mínimos, monotonía y optimización."], ["Integral definida", "Cálculo de áreas bajo una curva y teorema fundamental del cálculo."], ["Técnicas de integración", "Sustitución, integración por partes y fracciones parciales."]], "fb": [["Magnitudes y vectores", "Unidades de medida y operaciones con cantidades vectoriales."], ["Cinemática", "Descripción del movimiento mediante posición, velocidad y aceleración."], ["Dinámica", "Relación entre fuerzas y movimiento según las leyes de Newton."], ["Trabajo y energía", "Conservación de la energía y su relación con el trabajo de una fuerza."], ["Electrostática", "Carga eléctrica, campo eléctrico y potencial."], ["Circuitos eléctricos", "Corriente, resistencia y ley de Ohm en circuitos simples."]], "edd": [["Arreglos y listas enlazadas", "Estructuras lineales que difieren en el acceso por índice y en la inserción de elementos."], ["Pilas y colas", "Estructuras con orden de acceso LIFO y FIFO, y sus aplicaciones."], ["Árboles binarios y de búsqueda", "Estructuras jerárquicas que permiten buscar, insertar y eliminar en tiempo logarítmico promedio."], ["Montículos", "Árboles completos que mantienen el mínimo o el máximo en la raíz y sirven para colas de prioridad."], ["Tablas hash", "Acceso a datos por clave mediante una función hash y manejo de colisiones."], ["Grafos y recorridos", "Representación de grafos y recorridos en anchura y en profundidad."]], "poo": [["Clases y objetos", "Modelado de entidades con atributos y métodos."], ["Encapsulamiento", "Ocultar el estado interno de un objeto y exponer solo su interfaz."], ["Herencia", "Reutilización y especialización de clases a partir de una clase base."], ["Polimorfismo", "Uso de una misma interfaz para objetos de distintas clases."], ["Interfaces y clases abstractas", "Contratos de comportamiento que las clases concretas implementan."], ["Manejo de excepciones", "Captura y tratamiento de errores durante la ejecución."], ["Diagramas de clases UML", "Representación gráfica de clases y sus relaciones."]], "edm": [["Ecuaciones diferenciales de primer orden", "Modelos de cambio con una derivada y métodos como variables separables."], ["Ecuaciones de orden superior", "Ecuaciones lineales de segundo orden con coeficientes constantes."], ["Errores y aritmética de punto flotante", "Fuentes de error numérico y representación de reales en la computadora."], ["Raíces de ecuaciones", "Métodos de bisección y de Newton-Raphson para aproximar soluciones."], ["Interpolación", "Construcción de polinomios que pasan por un conjunto de puntos."], ["Integración numérica", "Aproximación de integrales con la regla del trapecio y de Simpson."], ["Métodos para ecuaciones diferenciales", "Solución numérica de ecuaciones diferenciales con el método de Euler."]], "ld": [["Álgebra booleana y compuertas", "Operaciones AND, OR y NOT y su implementación con compuertas lógicas."], ["Simplificación con mapas de Karnaugh", "Reducción de funciones lógicas para obtener circuitos más simples."], ["Circuitos combinacionales", "Circuitos cuya salida depende solo de las entradas, como sumadores y decodificadores."], ["Flip-flops", "Elementos de memoria de un bit que almacenan un estado."], ["Circuitos secuenciales", "Circuitos cuya salida depende de las entradas y del estado almacenado."], ["Registros y contadores", "Conjuntos de flip-flops que almacenan y cuentan valores."]], "fbd": [["Modelo relacional", "Organización de datos en tablas con claves primarias y foráneas."], ["Modelo entidad-relación", "Diseño conceptual de una base de datos con entidades y relaciones."], ["Álgebra relacional", "Operaciones formales sobre relaciones, como selección, proyección y unión."], ["SQL: consultas básicas", "Recuperación de datos con SELECT, WHERE y ORDER BY."], ["SQL: uniones y agregaciones", "Combinación de tablas con JOIN y resumen de datos con GROUP BY."], ["Normalización", "Eliminación de redundancia mediante las formas normales."]], "pfr": [["Funciones puras e inmutabilidad", "Funciones sin efectos secundarios y datos que no se modifican."], ["Funciones de orden superior", "Funciones que reciben o devuelven otras funciones."], ["Recursión", "Resolución de problemas mediante funciones que se invocan a sí mismas."], ["Expresiones lambda", "Funciones anónimas definidas en línea."], ["Map, filter y reduce", "Operaciones sobre colecciones para transformar, seleccionar y combinar elementos."], ["Programación reactiva", "Programación con flujos de datos asíncronos que propagan cambios."]], "ant": [["El ser humano como persona", "Rasgos que distinguen a la persona y fundamentan su dignidad."], ["Dimensiones de la persona", "Dimensiones biológica, psicológica, social y espiritual del ser humano."], ["Libertad y responsabilidad", "Capacidad de elegir y asumir las consecuencias de las decisiones."], ["Relaciones interpersonales y sociedad", "La persona como ser social y la vida en comunidad."], ["Trabajo y vocación", "Sentido del trabajo y de la profesión en el proyecto de vida."]], "p11": [["Inducción y objetivos de la práctica", "Presentación de los objetivos y las reglas de la práctica preprofesional."], ["Plan de trabajo", "Definición de actividades, responsables y tiempos."], ["Ejecución de actividades", "Desarrollo de las tareas planificadas en la organización o proyecto."], ["Registro de evidencias", "Documentación de las actividades realizadas y de sus resultados."], ["Informe final", "Redacción y entrega del informe de la práctica."]], "aoc": [["Arquitectura de von Neumann", "Modelo en el que programas y datos comparten la misma memoria."], ["Conjunto de instrucciones", "Operaciones que el procesador puede ejecutar y sus formatos."], ["Unidad de control y ALU", "Partes del procesador que coordinan la ejecución y realizan operaciones aritméticas y lógicas."], ["Jerarquía de memoria", "Niveles de memoria, desde registros y caché hasta almacenamiento, y su relación entre velocidad y capacidad."], ["Entrada y salida", "Comunicación del procesador con los dispositivos periféricos."], ["Segmentación (pipeline)", "Ejecución solapada de instrucciones para aumentar el rendimiento."]], "pro": [["Diseño centrado en el usuario", "Enfoque que parte de las necesidades y el contexto de los usuarios."], ["Bocetos y wireframes", "Representaciones iniciales de la estructura de una interfaz."], ["Prototipos de baja y alta fidelidad", "Maquetas que van desde esquemas simples hasta simulaciones interactivas."], ["Herramientas de prototipado", "Aplicaciones para diseñar y compartir prototipos de interfaces."], ["Pruebas de usabilidad", "Observación de usuarios reales para detectar problemas de uso."], ["Iteración y retroalimentación", "Mejora del diseño a partir de los resultados de las pruebas."]], "aa": [["Notación Big-O", "Notación para describir el crecimiento del tiempo y de la memoria de un algoritmo."], ["Análisis de casos", "Estudio del mejor, el peor y el caso promedio de un algoritmo."], ["Algoritmos de ordenamiento", "Comparación de métodos como burbuja, mezcla y quicksort."], ["Divide y vencerás", "Resolución de un problema dividiéndolo en subproblemas más pequeños."], ["Programación dinámica", "Resolución de problemas con subproblemas repetidos mediante almacenamiento de resultados."], ["Algoritmos voraces", "Estrategia que elige la mejor opción local en cada paso."]], "bda": [["Índices y diseño físico", "Estructuras que aceleran las consultas y organización del almacenamiento."], ["Procedimientos y disparadores", "Lógica almacenada en la base de datos que se ejecuta ante eventos."], ["Transacciones y propiedades ACID", "Unidades de trabajo que garantizan atomicidad, consistencia, aislamiento y durabilidad."], ["Control de concurrencia", "Mecanismos para que varios usuarios accedan a los datos sin conflictos."], ["Recuperación ante fallos", "Técnicas para restaurar la base de datos tras una falla."], ["Bases de datos NoSQL", "Modelos no relacionales, como documentos, clave-valor y grafos."]], "pa": [["Patrones de diseño", "Soluciones reutilizables a problemas comunes de diseño de software."], ["Genéricos y colecciones", "Estructuras reutilizables que funcionan con distintos tipos de datos."], ["Hilos y concurrencia", "Ejecución simultánea de tareas dentro de un programa."], ["Archivos y serialización", "Lectura y escritura de datos en archivos y conversión de objetos a formatos de intercambio."], ["Pruebas unitarias", "Verificación automática del comportamiento de las unidades de código."], ["Control de versiones", "Registro y gestión de los cambios del código con herramientas como Git."]], "p12": [["Plan de trabajo", "Definición de actividades, responsables y tiempos de la práctica."], ["Desarrollo de actividades", "Ejecución de las tareas asignadas en el entorno de práctica."], ["Trabajo en equipo", "Colaboración y comunicación con el equipo de trabajo."], ["Registro de evidencias", "Documentación de las actividades y de sus resultados."], ["Informe final", "Redacción y entrega del informe de la práctica."]], "fis": [["Ciclo de vida del software", "Etapas por las que pasa un producto de software, desde su concepción hasta su retiro."], ["Modelos de proceso", "Enfoques como cascada, incremental y espiral para organizar el desarrollo."], ["Metodologías ágiles", "Enfoques iterativos como Scrum y Kanban basados en entregas frecuentes."], ["Requisitos y análisis", "Identificación y descripción de lo que el software debe hacer."], ["Diseño de software", "Definición de la estructura y los componentes de la solución."], ["Pruebas de software", "Actividades para detectar defectos y verificar el comportamiento esperado."], ["Mantenimiento", "Corrección y evolución del software después de su entrega."]], "so": [["Procesos e hilos", "Programas en ejecución y unidades de ejecución dentro de un proceso."], ["Planificación de la CPU", "Algoritmos que deciden qué proceso usa el procesador."], ["Sincronización", "Mecanismos como semáforos y monitores para coordinar procesos concurrentes."], ["Gestión de memoria", "Asignación de memoria a los procesos, paginación y memoria virtual."], ["Sistemas de archivos", "Organización y almacenamiento de archivos y directorios."], ["Entrada y salida", "Gestión de los dispositivos mediante controladores."]], "ibi": [["Inteligencia de negocios y analítica", "Uso de datos para apoyar las decisiones de una organización."], ["Almacén de datos", "Repositorio integrado y orientado al análisis de datos históricos."], ["Procesos ETL", "Extracción, transformación y carga de datos hacia el almacén."], ["Modelado dimensional", "Diseño con tablas de hechos y dimensiones, como el esquema en estrella."], ["Indicadores clave (KPI)", "Medidas que reflejan el desempeño frente a los objetivos."], ["Visualización y tableros", "Presentación gráfica de los datos para facilitar su interpretación."]], "iw": [["Protocolo HTTP", "Comunicación entre el navegador y el servidor mediante solicitudes y respuestas."], ["HTML y CSS", "Estructura y estilo de las páginas web."], ["JavaScript en el navegador", "Interactividad en el cliente y manipulación del DOM."], ["Diseño responsivo", "Adaptación de las páginas a distintos tamaños de pantalla."], ["APIs REST", "Servicios web que exponen recursos mediante HTTP y formatos como JSON."], ["Seguridad web básica", "Protección frente a ataques comunes como XSS e inyección SQL."]], "eyp": [["Estadística descriptiva", "Resumen de datos con medidas de tendencia central y de dispersión."], ["Probabilidad básica", "Cálculo de la posibilidad de eventos con reglas de suma y producto."], ["Variables aleatorias", "Funciones que asignan valores numéricos a los resultados de un experimento."], ["Distribuciones de probabilidad", "Modelos como la binomial y la normal."], ["Muestreo e inferencia", "Estimación de parámetros de una población a partir de una muestra."], ["Pruebas de hipótesis", "Procedimiento para decidir entre dos afirmaciones sobre una población."], ["Regresión lineal", "Modelo que relaciona una variable con otra mediante una recta."]], "eym": [["Ética y moral", "Diferencia entre moral como conjunto de normas y ética como reflexión sobre ellas."], ["Dignidad y derechos humanos", "Fundamentos de los derechos de toda persona."], ["Dilemas éticos", "Análisis de situaciones en las que entran en conflicto distintos valores."], ["Ética profesional", "Principios y deberes del ejercicio de una profesión."], ["Responsabilidad social", "Compromiso del profesional con el bien común."]], "p21": [["Plan de trabajo", "Definición de actividades, responsables y tiempos de la práctica."], ["Desarrollo de actividades", "Ejecución de las tareas asignadas en el entorno de práctica."], ["Aplicación de conocimientos", "Uso de lo aprendido en la carrera en situaciones reales."], ["Registro de evidencias", "Documentación de las actividades y de sus resultados."], ["Informe final", "Redacción y entrega del informe de la práctica."]], "gcs": [["Conceptos de calidad", "Definición de calidad del software desde la perspectiva del producto y del proceso."], ["Modelos de calidad del producto", "Características como funcionalidad, fiabilidad, usabilidad y mantenibilidad."], ["Métricas de software", "Medidas para evaluar el tamaño, la complejidad y la calidad del software."], ["Revisiones e inspecciones", "Verificación del código y de los documentos por parte de pares."], ["Aseguramiento de la calidad", "Actividades planificadas para garantizar que el proceso cumple los estándares."], ["Mejora de procesos", "Evaluación y optimización de las prácticas de desarrollo."]], "ir": [["Tipos de requisitos", "Diferencia entre requisitos funcionales y no funcionales."], ["Elicitación", "Técnicas para obtener los requisitos, como entrevistas y observación."], ["Casos de uso e historias de usuario", "Formas de especificar lo que el sistema debe hacer."], ["Validación de requisitos", "Comprobación de que los requisitos reflejan la necesidad real."], ["Gestión de cambios", "Control de las modificaciones de los requisitos durante el proyecto."], ["Trazabilidad", "Vínculo entre los requisitos y los demás productos del desarrollo."]], "tac": [["Alfabetos y lenguajes", "Conjuntos de símbolos y cadenas que forman los lenguajes formales."], ["Autómatas finitos", "Modelos de cómputo con un número finito de estados."], ["Expresiones regulares", "Notación para describir patrones de texto y lenguajes regulares."], ["Gramáticas libres de contexto", "Reglas de producción que definen la sintaxis de un lenguaje."], ["Análisis léxico", "Fase del compilador que convierte el texto en una secuencia de tokens."], ["Análisis sintáctico", "Fase del compilador que verifica la estructura de los tokens según una gramática."], ["Máquinas de Turing", "Modelo abstracto de cómputo que define lo que es calculable."]], "fr": [["Modelos OSI y TCP/IP", "Arquitecturas por capas que organizan las funciones de una red."], ["Capa de enlace y Ethernet", "Transmisión de tramas entre dispositivos conectados directamente."], ["Direccionamiento IP", "Asignación de direcciones a los dispositivos y división en subredes."], ["Enrutamiento", "Selección de rutas para que los paquetes lleguen a su destino."], ["TCP y UDP", "Protocolos de transporte con y sin entrega confiable."], ["Servicios de aplicación", "Protocolos como DNS y HTTP que usan las aplicaciones de red."]], "p22": [["Plan de trabajo", "Definición de actividades, responsables y tiempos de la práctica."], ["Desarrollo de actividades", "Ejecución de las tareas asignadas en el entorno de práctica."], ["Aplicación de conocimientos", "Uso de lo aprendido en la carrera en situaciones reales."], ["Registro de evidencias", "Documentación de las actividades y de sus resultados."], ["Informe final", "Redacción y entrega del informe de la práctica."]], "i1web": [["Arquitectura cliente-servidor", "Separación entre la interfaz que usa el usuario y la lógica que atiende las solicitudes."], ["Frameworks de frontend", "Bibliotecas para construir interfaces con componentes reutilizables."], ["Frameworks de backend", "Herramientas para construir la lógica del servidor y sus APIs."], ["Bases de datos para la web", "Persistencia de los datos de una aplicación web."], ["Autenticación y sesiones", "Verificación de la identidad del usuario y control de su acceso."], ["Despliegue", "Publicación de la aplicación en un servidor accesible desde internet."]], "i2fad": [["Ciclo del análisis de datos", "Etapas desde la definición del problema hasta la comunicación de resultados."], ["Limpieza y preparación de datos", "Tratamiento de valores faltantes, duplicados y errores."], ["Análisis exploratorio", "Revisión inicial de los datos para identificar patrones y anomalías."], ["Visualización de datos", "Gráficos que comunican patrones y relaciones."], ["Estadística aplicada", "Uso de métodos estadísticos para interpretar los datos."], ["Herramientas de análisis", "Uso de lenguajes como Python y R para analizar datos."]], "rsd": [["Modelos de sistemas distribuidos", "Características de los sistemas formados por varios nodos que cooperan."], ["Comunicación entre procesos", "Intercambio de mensajes y llamadas a procedimientos remotos."], ["Relojes y sincronización", "Ordenamiento de eventos en sistemas sin reloj global."], ["Replicación y consistencia", "Copias de los datos y modelos que definen cuán actualizadas están."], ["Tolerancia a fallos", "Capacidad del sistema de seguir funcionando ante la falla de algunos nodos."], ["Servicios web y middleware", "Capas de software que facilitan la comunicación entre aplicaciones distribuidas."]], "fia": [["Qué es la inteligencia artificial", "Campo que estudia sistemas capaces de realizar tareas que requieren inteligencia humana."], ["Agentes inteligentes", "Entidades que perciben su entorno y actúan para alcanzar sus objetivos."], ["Búsqueda y resolución de problemas", "Exploración de estados mediante algoritmos como búsqueda en anchura y A estrella."], ["Aprendizaje automático", "Métodos que aprenden patrones a partir de datos para hacer predicciones."], ["Redes neuronales", "Modelos inspirados en el cerebro formados por capas de neuronas artificiales."], ["IA generativa", "Modelos que crean contenido nuevo, como texto, imágenes y código."], ["Ética de la inteligencia artificial", "Sesgo, privacidad y responsabilidad en el uso de sistemas de IA."]], "as": [["Estilos arquitectónicos", "Organizaciones generales de un sistema, como capas, cliente-servidor y eventos."], ["Atributos de calidad", "Propiedades como rendimiento, seguridad y escalabilidad que condicionan el diseño."], ["Patrones arquitectónicos", "Soluciones probadas, como MVC y arquitectura hexagonal."], ["Microservicios", "Sistemas formados por servicios pequeños e independientes."], ["Documentación de la arquitectura", "Vistas y modelos, como el modelo C4, para comunicar el diseño."], ["Evaluación de arquitecturas", "Análisis de si una arquitectura cumple los atributos de calidad requeridos."]], "emp": [["Mentalidad emprendedora", "Actitudes y habilidades para identificar y aprovechar oportunidades."], ["Identificación de oportunidades", "Detección de problemas o necesidades que pueden convertirse en un negocio."], ["Modelo de negocio Canvas", "Herramienta para describir cómo una organización crea y captura valor."], ["Validación con clientes", "Comprobación de la demanda mediante entrevistas y pruebas."], ["Plan de negocio básico", "Documento que describe el mercado, la operación y las finanzas de una idea."], ["Financiamiento", "Fuentes de recursos para iniciar y hacer crecer un negocio."]], "p3": [["Diagnóstico comunitario", "Identificación de las necesidades de la comunidad."], ["Planificación del proyecto", "Definición de objetivos, actividades y recursos del proyecto."], ["Ejecución", "Desarrollo de las actividades con la comunidad."], ["Evaluación del impacto", "Análisis de los resultados y de los beneficios obtenidos."], ["Informe del servicio comunitario", "Redacción y entrega del informe del proyecto."]], "i1mov": [["Ecosistemas Android e iOS", "Plataformas móviles dominantes y sus herramientas de desarrollo."], ["Interfaz y navegación", "Diseño de pantallas y flujos de navegación en una aplicación móvil."], ["Almacenamiento local", "Persistencia de datos en el dispositivo."], ["Consumo de APIs", "Conexión de la aplicación con servicios remotos."], ["Sensores y servicios del dispositivo", "Uso de la cámara, la ubicación y otros recursos del teléfono."], ["Publicación de aplicaciones", "Proceso para distribuir una aplicación en las tiendas oficiales."]], "i2int": [["Formatos de intercambio", "Estructuras como JSON, XML y CSV para compartir datos."], ["APIs y servicios web", "Interfaces para acceder a datos de otros sistemas."], ["Integración de fuentes heterogéneas", "Combinación de datos con distintos formatos y estructuras."], ["Metadatos y estándares", "Descripción de los datos mediante estándares que facilitan su reutilización."], ["Calidad de datos", "Exactitud, completitud y consistencia de los datos."], ["Datos abiertos", "Datos publicados con licencias que permiten su uso y redistribución."]], "cpd": [["Paralelismo y concurrencia", "Diferencia entre ejecutar tareas simultáneamente y alternarlas en el tiempo."], ["Arquitecturas paralelas", "Organización de procesadores con memoria compartida y distribuida."], ["Programación con memoria compartida", "Uso de hilos y sincronización para dividir el trabajo en un mismo equipo."], ["Paso de mensajes", "Comunicación entre procesos mediante mensajes, como en MPI."], ["Programación en GPU", "Uso de procesadores gráficos para cómputo de propósito general."], ["Rendimiento y escalabilidad", "Medición de aceleración y límites descritos por la ley de Amdahl."]], "rac": [["Lógica de primer orden", "Lenguaje formal con cuantificadores para representar conocimiento."], ["Ontologías y web semántica", "Descripciones formales de conceptos y relaciones de un dominio."], ["Grafos de conocimiento", "Redes de entidades y relaciones que organizan el conocimiento."], ["Sistemas basados en reglas", "Razonamiento mediante reglas de tipo si-entonces."], ["Razonamiento probabilístico", "Razonamiento con incertidumbre mediante probabilidades y redes bayesianas."], ["Motores de inferencia", "Componentes que derivan nuevas conclusiones a partir del conocimiento representado."]], "ebt1": [["Ideación tecnológica", "Generación de ideas de negocio basadas en tecnología."], ["Validación del problema", "Comprobación de que el problema existe y es relevante para los clientes."], ["Producto mínimo viable", "Versión inicial de un producto para aprender de los usuarios con poco costo."], ["Propiedad intelectual", "Protección de las invenciones y del software."], ["Equipo y roles", "Conformación de un equipo con habilidades complementarias."], ["Ecosistema de startups", "Actores que apoyan a las empresas de base tecnológica, como aceleradoras e inversionistas."]], "ctc": [["Estructura de un artículo científico", "Secciones habituales: introducción, métodos, resultados y discusión."], ["Búsqueda y selección de fuentes", "Localización de fuentes confiables en bases de datos académicas."], ["Citación y normas APA", "Formato de citas y referencias según la norma APA."], ["Resumen e introducción", "Redacción de las secciones que presentan el problema y el aporte del trabajo."], ["Metodología y resultados", "Descripción de cómo se hizo el estudio y de lo que se encontró."], ["Revisión y edición", "Corrección del estilo, la coherencia y el formato del texto."]], "p41": [["Selección de la modalidad", "Elección entre trabajo de integración curricular y examen complexivo."], ["Planteamiento del problema", "Definición del problema o tema que se va a abordar."], ["Objetivos y justificación", "Formulación de lo que se pretende lograr y de su relevancia."], ["Marco teórico", "Revisión de los conceptos y estudios que sustentan el trabajo."], ["Metodología", "Descripción del método y de las actividades que se seguirán."], ["Plan de trabajo", "Cronograma de las actividades hasta la titulación."]], "i1jue": [["Motores de videojuegos", "Plataformas como Unity y Godot que integran las herramientas de desarrollo."], ["Bucle de juego", "Ciclo que procesa la entrada, actualiza el estado y dibuja cada cuadro."], ["Física y colisiones", "Simulación del movimiento y detección de choques entre objetos."], ["Gráficos 2D y 3D", "Representación de imágenes, modelos y animaciones."], ["Audio y entrada del usuario", "Sonido y manejo de teclado, ratón y controles."], ["Diseño de niveles", "Planificación de la estructura y la dificultad de un juego."]], "i2avg": [["Big Data y sus características", "Volumen, velocidad y variedad de los datos masivos."], ["Almacenamiento distribuido", "Sistemas que reparten los datos entre varios nodos, como HDFS."], ["MapReduce y Spark", "Modelos de procesamiento paralelo de grandes conjuntos de datos."], ["Bases de datos NoSQL", "Almacenes de datos para grandes volúmenes con esquemas flexibles."], ["Visualización avanzada", "Técnicas gráficas para explorar conjuntos de datos grandes."], ["Tableros interactivos", "Paneles que permiten filtrar y explorar los datos."]], "gp": [["Ciclo de vida del proyecto", "Fases desde el inicio hasta el cierre de un proyecto."], ["Alcance y EDT", "Definición del trabajo del proyecto y su descomposición en una estructura de desglose."], ["Cronograma y ruta crítica", "Planificación de tiempos e identificación de las actividades que determinan la duración."], ["Costos y presupuesto", "Estimación y control de los recursos económicos."], ["Gestión de riesgos", "Identificación, análisis y respuesta a los eventos inciertos."], ["Gestión ágil con Scrum", "Marco de trabajo con iteraciones cortas, roles y ceremonias definidas."], ["Cierre y lecciones aprendidas", "Entrega formal del proyecto y registro del aprendizaje obtenido."]], "si": [["Principios de la seguridad de la información", "Confidencialidad, integridad y disponibilidad como objetivos de protección."], ["Amenazas y vulnerabilidades", "Tipos de ataques y debilidades que los hacen posibles."], ["Criptografía", "Cifrado simétrico y asimétrico, funciones hash y firmas digitales."], ["Autenticación y control de acceso", "Verificación de la identidad y asignación de permisos."], ["Seguridad en redes", "Protección del tráfico con cortafuegos y redes privadas virtuales."], ["Gestión de riesgos y normas", "Evaluación de riesgos y estándares como ISO 27001."]], "te": [["Ciclo de expectativas", "Modelo de Gartner con cinco fases por las que pasa una tecnología emergente."], ["IA generativa", "Modelos que crean texto, imágenes, audio y código a partir de patrones aprendidos."], ["Internet de las cosas", "Objetos cotidianos conectados que recogen y transmiten datos."], ["Computación en el borde", "Procesamiento de datos cerca de donde se generan, para reducir la latencia."], ["Blockchain", "Registro distribuido e inmutable de transacciones."], ["Realidad extendida", "Realidad virtual, aumentada y mixta."]], "ebt2": [["Modelo de negocio escalable", "Diseño de un negocio que puede crecer sin aumentar los costos en la misma proporción."], ["Plan financiero", "Proyección de ingresos, costos y flujo de caja."], ["Propuesta de valor y marketing", "Comunicación del beneficio que recibe el cliente."], ["Pruebas del prototipo con clientes", "Validación del producto con usuarios reales."], ["Presentación a inversionistas", "Estructura de un pitch para conseguir financiamiento."], ["Constitución de la empresa", "Trámites y formas legales para formalizar un emprendimiento."]], "sin": [["Aprendizaje supervisado", "Entrenamiento con ejemplos etiquetados para clasificar o predecir."], ["Aprendizaje no supervisado", "Descubrimiento de estructura en datos sin etiquetas, como el agrupamiento."], ["Aprendizaje por refuerzo", "Aprendizaje de una política de acciones a partir de recompensas."], ["Redes neuronales profundas", "Modelos con muchas capas que aprenden representaciones complejas."], ["Procesamiento de lenguaje natural", "Técnicas para que las computadoras analicen y generen lenguaje humano."], ["Evaluación de modelos", "Métricas y validación para medir el desempeño de un modelo."], ["Despliegue de sistemas inteligentes", "Puesta en producción y monitoreo de modelos."]], "p42": [["Desarrollo del trabajo", "Ejecución del plan del trabajo de integración curricular o preparación del examen."], ["Resultados", "Presentación y análisis de lo obtenido."], ["Conclusiones", "Síntesis de los hallazgos y de las recomendaciones."], ["Redacción del informe", "Elaboración del documento final según el formato requerido."], ["Preparación de la defensa", "Organización de la presentación y práctica de la exposición."], ["Defensa", "Exposición del trabajo ante el tribunal."]]};
+
+//#CORE-START
+const S = D.asignaturas;
+const byId = {}; S.forEach(s => byId[s.id] = s);
+const CIC = ["I","II","III","IV","V","VI","VII","VIII","IX"];
+const ROM = ["","i","ii","iii","iv","v","vi","vii","viii","ix"];
+const ci = c => CIC.indexOf(c);
+const deps = {}; S.forEach(s => deps[s.id] = []);
+S.forEach(s => s.prerrequisitos.forEach(p => deps[p].push(s.id)));
+const AREA_CLS = {"Fundamentos teóricos":"ft","Praxis profesional":"px","Epistemología y metodología de la investigación":"em","Integración de saberes, contextos y cultura":"is","Comunicación y lenguajes":"cl","Unidad de Integración Curricular":"uic"};
+const byOrder = (a,b) => ci(a.ciclo) - ci(b.ciclo) || a.nombre.localeCompare(b.nombre,"es");
+function closure(id, rel){ const seen = new Set(), st = [id]; while(st.length){ const x = st.pop(); for(const y of rel(x)){ if(!seen.has(y)){ seen.add(y); st.push(y); } } } return seen; }
+const ancIds = id => closure(id, x => byId[x].prerrequisitos);
+const descIds = id => closure(id, x => deps[x]);
+const ancList = id => [...ancIds(id)].map(i => byId[i]).sort(byOrder);
+const descList = id => [...descIds(id)].map(i => byId[i]).sort(byOrder);
+const isPractica = s => /^Prácticum/.test(s.nombre);
+const norm = t => String(t).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+const STOP = new Set("de la el los las y en a que para con un una del al por se es mi me lo le su sus o u e como cual cuales cuanto cuantos cuanta cuantas tiene tienen tengo debo necesito hay son soy si no mas muy aprobar llegar cursar antes puedo quiero saber dime dame dentro entre sobre este esta estos estas ese esa asignatura asignaturas materia materias".split(/\s+/));
+function stem(t){ t = t.replace(/s$/,""); if(t.length > 5) t = t.replace(/e$/,""); return t; }
+function normQuery(q){ return norm(q).replace(/ciclo\s+(\d{1,2})/g,(m,d) => "ciclo " + (ROM[+d] || d)); }
+function toks(text){ return norm(text).split(/[^a-z0-9]+/).filter(w => w && !STOP.has(w)).map(stem); }
+
+function sentence(s){
+  const pre = s.prerrequisitos.map(p => byId[p].nombre);
+  return `${s.nombre}. Asignatura del ciclo ${s.ciclo}. ${s.creditos} créditos, ${s.horas} horas. Área: ${s.area}.` +
+    (s.itinerario ? ` Pertenece al ${D.itinerarios[s.itinerario]}.` : "") +
+    (pre.length ? ` Prerrequisitos: ${pre.join(", ")}.` : " No tiene prerrequisitos.");
+}
+const chunks = [];
+S.forEach(s => chunks.push({id:"A:"+s.id, kind:"asignatura", subj:s.id, label:`Ciclo ${s.ciclo} · ${s.nombre}`, text:sentence(s)}));
+CIC.forEach(c => {
+  const list = S.filter(s => s.ciclo === c), base = list.filter(s => !s.itinerario), it = list.filter(s => s.itinerario);
+  let t = `Ciclo ${c}. Suma 15 créditos. Asignaturas: ${base.map(s => `${s.nombre} (${s.creditos} créditos)`).join("; ")}.`;
+  if(it.length) t += ` Asignatura de itinerario (3 créditos, se elige una de dos): ${it.map(s => `${s.nombre} [Itinerario ${s.itinerario}]`).join(" o ")}.`;
+  chunks.push({id:"C:"+c, kind:"ciclo", cycle:c, label:`Resumen del ciclo ${c}`, text:t});
+});
+chunks.push({id:"R:titulacion", kind:"regla", label:"Requisitos de titulación y reglas generales", text:"Requisitos de titulación. " + D.requisitos_titulacion.join(" ")});
+chunks.push({id:"R:totales", kind:"regla", label:"Totales de la carrera", text:`Carrera de ${D.carrera}, modalidad ${D.modalidad.toLowerCase()}, ${D.universidad}. Total de créditos: ${D.creditos_total}. Total de asignaturas: ${D.asignaturas_total}. Nueve ciclos de ${D.creditos_por_ciclo} créditos. Cada crédito equivale a 48 horas.`});
+["I","II"].forEach(k => chunks.push({id:"R:it"+k, kind:"regla", label:D.itinerarios[k], text:`${D.itinerarios[k]}. Asignaturas: ${S.filter(s => s.itinerario === k).map(s => `${s.nombre} (ciclo ${s.ciclo})`).join(", ")}. El estudiante debe cursar y aprobar uno de los dos itinerarios.`}));
+const topics = [];
+S.forEach(s => (TM[s.id] || []).forEach((tp, i) => topics.push({key:s.id + ":" + i, sid:s.id, i, n:TM[s.id].length, t:tp[0], d:tp[1]})));
+const topicByKey = {}; topics.forEach(t => topicByKey[t.key] = t);
+const topicsOf = id => topics.filter(t => t.sid === id);
+topics.forEach(t => { const s = byId[t.sid]; chunks.push({id:"T:" + t.key, kind:"tema", subj:t.sid, topic:t.key, label:`Temario referencial · ${s.nombre} · ${t.t}`, text:`${t.t}. Tema ${t.i + 1} de ${t.n} de ${s.nombre} (ciclo ${s.ciclo}). ${t.d}`}); });
+const chunkById = {}; chunks.forEach(c => chunkById[c.id] = c);
+
+const docs = chunks.map(c => toks(c.label + " " + c.text));
+const N = docs.length, avg = docs.reduce((a,d) => a + d.length, 0) / N;
+const df = new Map(); docs.forEach(d => new Set(d).forEach(t => df.set(t, (df.get(t) || 0) + 1)));
+const tfs = docs.map(d => { const m = new Map(); d.forEach(t => m.set(t, (m.get(t) || 0) + 1)); return m; });
+function retrieve(q, k){
+  const qt = [...new Set(toks(normQuery(q)))], res = [];
+  chunks.forEach((c,i) => {
+    let sc = 0;
+    for(const t of qt){
+      const f = tfs[i].get(t) || 0; if(!f) continue;
+      const idf = Math.log(1 + (N - df.get(t) + 0.5) / (df.get(t) + 0.5));
+      sc += idf * (f * 2.5) / (f + 1.5 * (0.25 + 0.75 * docs[i].length / avg));
+    }
+    if(sc > 0) res.push({c, score:sc});
+  });
+  res.sort((a,b) => b.score - a.score);
+  return res.slice(0, k || 4);
+}
+
+const nameToks = S.map(s => ({s, t:[...new Set(toks(s.nombre))].filter(x => !/^\d+$/.test(x))}));
+const ALIAS = [[/\bia\b|inteligencia artificial/,"fia"],[/\bpoo\b/,"poo"],[/\bpfr\b/,"pfr"]];
+function findSubject(q){
+  const n = normQuery(q); let best = null;
+  for(const s of S){ const nn = norm(s.nombre); if(n.includes(nn) && (!best || nn.length > best.len)) best = {s, len:nn.length}; }
+  if(best) return best.s;
+  for(const [rx,id] of ALIAS) if(rx.test(n)) return byId[id];
+  const qt = new Set(toks(n)); let top = null;
+  for(const {s,t} of nameToks){
+    if(!t.length) continue;
+    const r = t.filter(x => qt.has(x)).length / t.length;
+    if(r >= 0.66 && (!top || r > top.r || (r === top.r && t.length > top.n))) top = {s, r, n:t.length};
+  }
+  return top ? top.s : null;
+}
+
+const topicToks = topics.map(t => ({t, k:[...new Set(toks(t.t))]}));
+function findTopic(q, s){
+  const qt = new Set(toks(normQuery(q))), sn = s ? new Set(toks(s.nombre)) : null; let best = null;
+  for(const {t,k} of topicToks){
+    if(!k.length) continue;
+    if(sn && k.every(x => sn.has(x))) continue;
+    const m = k.filter(x => qt.has(x)).length;
+    if(m === k.length){ const score = m + (s && t.sid === s.id ? 1 : 0); if(!best || score > best.score) best = {t, score}; }
+  }
+  return best ? best.t : null;
+}
+const P = v => ({t:"p", v}), UL = v => ({t:"ul", v}), OL = v => ({t:"ol", v}), OOS = v => ({t:"oos", v});
+const REF_NOTE = "Este contenido proviene del temario referencial del prototipo. La guía didáctica oficial de la asignatura prevalece sobre él.";
+function topicAnswer(t){ const s = byId[t.sid]; return {intent:"tema", subject:s, topic:t, sources:["T:" + t.key, "A:" + s.id], blocks:[P(`«${t.t}» es el tema ${t.i + 1} de ${t.n} de la ruta de ${s.nombre} (ciclo ${s.ciclo}). ${t.d}`), P(REF_NOTE)]}; }
+function topicsListAnswer(s){
+  const list = topicsOf(s.id);
+  return {intent:"temas", subject:s, sources:["A:" + s.id, ...list.slice(0,3).map(t => "T:" + t.key)], blocks:[P(`La ruta de ${s.nombre} (ciclo ${s.ciclo}) tiene ${list.length} temas en el temario referencial:`), OL(list.map(t => `${t.t}: ${t.d}`)), P(REF_NOTE)]};
+}
+const OOS_TEXT = "Este dato no forma parte de la malla oficial cargada. Confírmalo con tu tutor académico o en secretaría.";
+const names = list => list.map(s => s.nombre);
+function groupByCycle(list){ const m = new Map(); list.forEach(s => { if(!m.has(s.ciclo)) m.set(s.ciclo, []); m.get(s.ciclo).push(s.nombre); }); return [...m].map(([c,n]) => `Ciclo ${c}: ${n.join(", ")}`); }
+function chainAnswer(s){
+  const anc = ancList(s.id), direct = s.prerrequisitos.map(p => byId[p]);
+  if(!anc.length) return {intent:"cadena", subject:s, sources:["A:"+s.id], blocks:[P(`${s.nombre} (ciclo ${s.ciclo}) no tiene prerrequisitos en la malla.`)]};
+  return {intent:"cadena", subject:s, sources:["A:"+s.id, ...s.prerrequisitos.map(p => "A:"+p)], blocks:[
+    P(`${s.nombre} se cursa en el ciclo ${s.ciclo}. Su prerrequisito directo ${direct.length > 1 ? "son" : "es"} ${names(direct).join(" y ")}.`),
+    P(`La ruta completa incluye ${anc.length} ${anc.length === 1 ? "asignatura previa" : "asignaturas previas"}, ordenadas por ciclo:`),
+    UL(groupByCycle(anc))]};
+}
+function depAnswer(s){
+  const dir = deps[s.id].map(i => byId[i]).sort(byOrder), all = descList(s.id);
+  if(!dir.length) return {intent:"desbloquea", subject:s, sources:["A:"+s.id], blocks:[P(`${s.nombre} no es prerrequisito de ninguna otra asignatura de la malla.`)]};
+  return {intent:"desbloquea", subject:s, sources:["A:"+s.id, ...dir.map(x => "A:"+x.id)], blocks:[
+    P(`Aprobar ${s.nombre} (ciclo ${s.ciclo}) habilita directamente: ${names(dir).join(", ")}.`),
+    P(`En total, ${all.length} ${all.length === 1 ? "asignatura depende" : "asignaturas dependen"} de ella a lo largo de la malla.`)]};
+}
+function creditsAnswer(s){ return {intent:"creditos", subject:s, sources:["A:"+s.id], blocks:[P(`${s.nombre} tiene ${s.creditos} créditos, equivalentes a ${s.horas} horas.`)]}; }
+function cicloOf(s){ return {intent:"ciclo", subject:s, sources:["A:"+s.id], blocks:[P(`${s.nombre} se cursa en el ciclo ${s.ciclo}.`)]}; }
+function summary(s){
+  const pre = s.prerrequisitos.map(p => byId[p].nombre);
+  return {intent:"resumen", subject:s, sources:["A:"+s.id], blocks:[
+    P(`${s.nombre} se cursa en el ciclo ${s.ciclo}, tiene ${s.creditos} créditos (${s.horas} horas) y pertenece al área de ${s.area.toLowerCase()}.` + (s.itinerario ? ` Forma parte del ${D.itinerarios[s.itinerario]}.` : "")),
+    P(pre.length ? `Prerrequisitos directos: ${pre.join(", ")}.` : "No tiene prerrequisitos.")]};
+}
+function cycleAnswer(c){
+  const list = S.filter(s => s.ciclo === c), base = list.filter(s => !s.itinerario), it = list.filter(s => s.itinerario);
+  const blocks = [P(`El ciclo ${c} suma 15 créditos. Sus asignaturas son:`), UL(base.map(s => `${s.nombre} (${s.creditos} créditos)`))];
+  if(it.length) blocks.push(P(`Además incluye una asignatura de itinerario de 3 créditos: ${it.map(s => `${s.nombre} (Itinerario ${s.itinerario})`).join(" o ")}.`));
+  return {intent:"ciclo-lista", cycle:c, sources:["C:"+c], blocks};
+}
+function itinAnswer(){
+  return {intent:"itinerario", sources:["R:itI","R:itII"], blocks:[
+    P("El estudiante cursa y aprueba uno de los dos itinerarios:"),
+    UL(["I","II"].map(k => `${D.itinerarios[k]}: ${S.filter(s => s.itinerario === k).map(s => `${s.nombre} (ciclo ${s.ciclo})`).join(", ")}.`))]};
+}
+function titulacionAnswer(){ return {intent:"titulacion", sources:["R:titulacion"], blocks:[P("Reglas generales y requisitos de titulación de la carrera:"), UL(D.requisitos_titulacion)]}; }
+function totalsAnswer(){ return {intent:"totales", sources:["R:totales"], blocks:[P(`La carrera de ${D.carrera} (modalidad ${D.modalidad.toLowerCase()}) tiene ${D.asignaturas_total} asignaturas y ${D.creditos_total} créditos, distribuidos en 9 ciclos de ${D.creditos_por_ciclo} créditos. Cada crédito equivale a 48 horas.`)]}; }
+function plainOf(blocks){ return blocks.map(b => Array.isArray(b.v) ? b.v.map(x => "- " + x).join("\n") : b.v).join("\n"); }
+
+function answerLocal(q, hits){
+  const n = normQuery(q), s = findSubject(q), cm = n.match(/ciclo\s+(ix|viii|vii|vi|iv|v|iii|ii|i)\b/), cyc = cm ? cm[1].toUpperCase() : null;
+  const has = rx => rx.test(n);
+  if(has(/titul|gradu|egres|\bb1\b|idioma|lengua|ingles/) && !s) return titulacionAnswer();
+  if(has(/cuantas asignaturas|cuantos ciclos|total de|duracion|cuantos credito(s)? (tiene|en total|son)? ?(la )?carrera|creditos totales/)) return totalsAnswer();
+  if(has(/itinerario/) && !s) return itinAnswer();
+  const tp = has(/explic|que es|que son|consiste|defin|concepto|como funciona|ejemplo|resum/) ? findTopic(q, s) : null;
+  if(tp) return topicAnswer(tp);
+  if(s && has(/\btemas?\b|temario|contenidos?|que se estudia|que estudio|ruta de aprendizaje|aprender|estudiar/)) return topicsListAnswer(s);
+  if(s && has(/depend|desbloque|habilit|sirve para|que sigue|despues de|posterior|\babre\b/)) return depAnswer(s);
+  if(s && has(/prerrequisit|requisit|necesit|aprobar|antes|llegar|ruta|cadena|camino|previ|que debo|que tengo/)) return chainAnswer(s);
+  if(s && has(/en que ciclo|que ciclo|se cursa|cuando/)) return cicloOf(s);
+  if(s && has(/credit|hora/)) return creditsAnswer(s);
+  if(cyc && !s) return cycleAnswer(cyc);
+  if(s) return summary(s);
+  if(hits.length && hits[0].score >= 1.2) return {intent:"recuperacion", sources:hits.slice(0,2).map(h => h.c.id), blocks:[P("Fragmentos más relacionados con la consulta, tomados de la malla y del temario referencial:"), UL(hits.slice(0,2).map(h => h.c.text))]};
+  return {intent:"fuera", sources:[], blocks:[OOS(OOS_TEXT)]};
+}
+//#CORE-END
+
+const $ = sel => document.querySelector(sel);
+function h(tag, props, ...kids){
+  const el = document.createElement(tag);
+  for(const [k,v] of Object.entries(props || {})){
+    if(v == null || v === false) continue;
+    if(k === "class") el.className = v;
+    else if(k.startsWith("on")) el.addEventListener(k.slice(2).toLowerCase(), v);
+    else el.setAttribute(k, v === true ? "" : v);
+  }
+  for(const kid of kids.flat(Infinity)){ if(kid == null || kid === false) continue; el.append(kid.nodeType ? kid : document.createTextNode(String(kid))); }
+  return el;
+}
+const state = {it:"II", sel:"sin", sample:null, quizFocus:"", route:"fia", topic:null};
+
+/* ---------- Avance del estudiante (solo en este navegador) ---------- */
+let PR = {st:{}, xp:0};
+try{ const raw = localStorage.getItem("coach-progress-v1"); if(raw){ const o = JSON.parse(raw); if(o && typeof o.st === "object") PR = {st:o.st, xp:+o.xp || 0}; } }catch(e){}
+function savePR(){ try{ localStorage.setItem("coach-progress-v1", JSON.stringify(PR)); }catch(e){} }
+const stOf = k => PR.st[k] || "todo";
+function setSt(k, v){ if(v === "todo") delete PR.st[k]; else PR.st[k] = v; savePR(); }
+function subjProg(id){ const list = topicsOf(id); return {done:list.filter(t => stOf(t.key) === "done").length, n:list.length}; }
+function totalProg(){ let d = 0, n = 0; S.forEach(s => { if(s.itinerario && s.itinerario !== state.it) return; const p = subjProg(s.id); d += p.done; n += p.n; }); return {d, n}; }
+function addXP(x){ PR.xp += x; savePR(); }
+
+/* ---------- Navegación ---------- */
+const TABS = [["malla","Malla"],["ruta","Ruta de aprendizaje"],["asistente","Asistente RAG"],["retos","Retos"],["como","Cómo funciona"]];
+function show(name){
+  if(!TABS.some(t => t[0] === name)) name = "malla";
+  TABS.forEach(([k]) => { $("#v-"+k).hidden = k !== name; });
+  document.querySelectorAll(".tab").forEach(b => b.setAttribute("aria-selected", String(b.dataset.k === name)));
+  if(location.hash.slice(1) !== name){ try{ history.replaceState(null, "", "#" + name); }catch(e){} }
+}
+function go(name){ if(name === "ruta") paintRuta(); if(name === "malla") paintMalla(); show(name); window.scrollTo({top:0}); }
+function openRoute(id, key){ state.route = id; state.topic = key || null; go("ruta"); }
+$("#tabs").append(...TABS.map(([k,l]) => h("button", {class:"tab", role:"tab", "data-k":k, onclick:() => go(k)}, l)));
+window.addEventListener("hashchange", () => { const k = location.hash.slice(1); if(k === "ruta") paintRuta(); if(k === "malla") paintMalla(); show(k); });
+
+/* ---------- Malla ---------- */
+const mallaRoot = $("#v-malla"); let gridEl, detailEl, progEl; const chipEls = {};
+function buildMalla(){
+  const seg = h("div", {class:"seg", role:"group", "aria-label":"Itinerario"},
+    ["I","II"].map(k => h("button", {"aria-pressed":String(state.it === k), "data-it":k, onclick:() => { state.it = k; paintMalla(); }}, k === "I" ? "Itinerario I · Plataformas" : "Itinerario II · Ciencia de datos")));
+  const legend = h("div", {class:"legend"}, [["ft","Fundamentos teóricos"],["px","Praxis profesional"],["em","Epistemología e investigación"],["is","Saberes, contextos y cultura"],["cl","Comunicación y lenguajes"],["uic","Integración curricular"]].map(([c,l]) => h("span", {}, h("i", {style:`--c:var(--a-${c})`}), l)));
+  gridEl = h("div", {class:"grid"});
+  CIC.forEach(c => {
+    const chipsEl = h("div", {class:"chips", lang:"es"});
+    S.filter(s => s.ciclo === c).forEach(s => {
+      const el = h("button", {class:"sub " + AREA_CLS[s.area], "data-id":s.id, onclick:() => { state.sel = s.id; paintMalla(); }}, h("b", {}, s.nombre), h("span", {class:"meta"}, `${s.creditos} cr` + (s.itinerario ? ` · It. ${s.itinerario}` : "")), h("i", {class:"pb", "aria-hidden":"true"}));
+      chipEls[s.id] = el; chipsEl.append(el);
+    });
+    gridEl.append(h("div", {class:"row"}, h("div", {class:"cyc"}, c, h("small", {}, "15 cr")), chipsEl));
+  });
+  detailEl = h("aside", {class:"card detail", "aria-live":"polite"});
+  progEl = h("div", {class:"card progcard"});
+  mallaRoot.replaceChildren(
+    h("p", {class:"lead"}, "Selecciona una asignatura para ver su ruta de prerrequisitos y las asignaturas que habilita. La malla corresponde a la Carrera de Computación, modalidad presencial: 9 ciclos, 54 asignaturas y 135 créditos."),
+    progEl,
+    h("div", {class:"controls"}, seg, legend),
+    h("div", {class:"malla-layout"}, h("div", {}, gridEl, h("div", {class:"key"}, h("span", {}, "Seleccionada"), h("span", {class:"k-anc"}, "Prerrequisito (directo o indirecto)"), h("span", {class:"k-dep"}, "Depende de la seleccionada"))), detailEl));
+  paintMalla();
+}
+function paintMalla(){
+  if(byId[state.sel] && byId[state.sel].itinerario && byId[state.sel].itinerario !== state.it) state.sel = null;
+  mallaRoot.querySelectorAll(".seg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.it === state.it)));
+  S.forEach(s => { chipEls[s.id].hidden = !!(s.itinerario && s.itinerario !== state.it); });
+  const sel = byId[state.sel], anc = sel ? ancIds(sel.id) : new Set(), dep = sel ? descIds(sel.id) : new Set();
+  gridEl.classList.toggle("has-sel", !!sel);
+  S.forEach(s => { const c = chipEls[s.id].classList; c.toggle("sel", !!sel && s.id === sel.id); c.toggle("anc", anc.has(s.id)); c.toggle("dep", dep.has(s.id)); chipEls[s.id].setAttribute("aria-pressed", String(!!sel && s.id === sel.id));
+    const p = subjProg(s.id); chipEls[s.id].querySelector(".pb").style.width = p.n ? Math.round(p.done / p.n * 100) + "%" : "0"; });
+  const tp = totalProg(), pct = tp.n ? Math.round(tp.d / tp.n * 100) : 0;
+  progEl.replaceChildren(
+    h("div", {class:"pc-txt"}, h("b", {}, "Tu avance en la carrera"), h("span", {class:"muted"}, `${tp.d} de ${tp.n} temas completados · ${PR.xp} XP · se guarda en este navegador`)),
+    h("div", {class:"pc-bar", role:"progressbar", "aria-valuenow":pct, "aria-valuemin":0, "aria-valuemax":100}, h("i", {style:`width:${pct}%`})),
+    h("button", {class:"btn", onclick:() => openRoute(state.route)}, "Continuar mi ruta"));
+  paintDetail(sel);
+}
+function subBtn(s){ return h("button", {class:"linkbtn", onclick:() => { state.sel = s.id; if(s.itinerario) state.it = s.itinerario; paintMalla(); }}, s.nombre); }
+function paintDetail(s){
+  if(!s){ detailEl.replaceChildren(h("h2", {}, "Detalle"), h("p", {class:"muted"}, "Selecciona una asignatura de la malla.")); return; }
+  const anc = ancList(s.id), dir = s.prerrequisitos.map(p => byId[p]), dd = deps[s.id].map(i => byId[i]).sort(byOrder), all = descList(s.id);
+  detailEl.replaceChildren(
+    h("h2", {}, s.nombre),
+    h("div", {}, h("span", {class:"badge", style:`--c:var(--a-${AREA_CLS[s.area]})`}, s.area), s.itinerario ? h("span", {class:"badge"}, "Itinerario " + s.itinerario) : null),
+    h("dl", {}, h("dt", {}, "Ciclo"), h("dd", {}, s.ciclo), h("dt", {}, "Créditos"), h("dd", {}, `${s.creditos} (${s.horas} horas)`), h("dt", {}, "Impacto"), h("dd", {}, all.length ? `${all.length} asignaturas dependen de ella` : "Ninguna asignatura depende de ella"), h("dt", {}, "Tu avance"), h("dd", {}, `${subjProg(s.id).done} de ${subjProg(s.id).n} temas`)),
+    h("h3", {}, "Prerrequisitos directos"),
+    dir.length ? h("ul", {}, dir.map(p => h("li", {}, subBtn(p)))) : h("p", {class:"muted"}, "Ninguno."),
+    ...(anc.length > dir.length ? [h("h3", {}, `Ruta completa (${anc.length})`), h("ul", {}, groupByCycle(anc).map(t => h("li", {}, t)))] : []),
+    h("h3", {}, "Habilita directamente"),
+    dd.length ? h("ul", {}, dd.map(p => h("li", {}, subBtn(p)))) : h("p", {class:"muted"}, "Ninguna."),
+    h("div", {class:"actions"},
+      h("button", {class:"btn primary", onclick:() => openRoute(s.id)}, "Abrir ruta de aprendizaje"),
+      h("button", {class:"btn", onclick:() => { $("#q").value = `¿Qué debo aprobar para llegar a ${s.nombre}?`; go("asistente"); ask($("#q").value); }}, "Preguntar al asistente"),
+      h("button", {class:"btn", onclick:() => { state.quizFocus = s.id; buildQuizSetup(); go("retos"); }}, "Retarme con esta asignatura")));
+}
+
+/* ---------- Ruta de aprendizaje ---------- */
+const rutaRoot = $("#v-ruta");
+const DX = [0, 44, 66, 44, 0, -44, -66, -44];
+const ST_LABEL = {todo:"Pendiente", learning:"Aprendiendo", done:"Hecho", skip:"Omitido"};
+function buildRuta(){
+  const sel = h("select", {id:"rsel"}, CIC.map(c => h("optgroup", {label:"Ciclo " + c}, S.filter(s => s.ciclo === c).map(s => h("option", {value:s.id}, s.nombre + (s.itinerario ? ` (Itinerario ${s.itinerario})` : ""))))));
+  sel.addEventListener("change", () => { state.route = sel.value; state.topic = null; paintRuta(); });
+  rutaRoot.replaceChildren(
+    h("p", {class:"lead"}, "Cada asignatura tiene un camino de temas. Marca tu avance, practica cada tema con retos cortos y consulta al tutor RAG cuando tengas dudas. Al aprobar la práctica de un tema, este queda completado."),
+    h("label", {class:"rsel"}, h("span", {}, "Asignatura"), sel),
+    h("div", {id:"rhead"}),
+    h("div", {class:"ruta-layout"}, h("div", {class:"path", id:"path"}), h("aside", {class:"card drawer", id:"drawer", "aria-live":"polite"})));
+}
+function paintRuta(){
+  const s = byId[state.route]; if(!s) return;
+  $("#rsel").value = s.id;
+  const list = topicsOf(s.id), pg = subjProg(s.id), pct = pg.n ? Math.round(pg.done / pg.n * 100) : 0;
+  const nextIdx = list.findIndex(t => stOf(t.key) !== "done" && stOf(t.key) !== "skip");
+  if(state.topic && (!topicByKey[state.topic] || topicByKey[state.topic].sid !== s.id)) state.topic = null;
+  const pre = s.prerrequisitos.map(p => byId[p]);
+  $("#rhead").replaceChildren(h("div", {class:"card rhead"},
+    h("div", {class:"rh-main"},
+      h("h2", {}, s.nombre),
+      h("p", {class:"muted"}, `Ciclo ${s.ciclo} · ${s.creditos} créditos · ${list.length} temas · ${s.area}`),
+      pre.length ? h("p", {class:"muted"}, "Antes de esta ruta: ", pre.map((p,i) => [i ? ", " : "", h("button", {class:"linkbtn", onclick:() => { state.route = p.id; state.topic = null; paintRuta(); }}, p.nombre), ` (${subjProg(p.id).done}/${subjProg(p.id).n} temas)`])) : h("p", {class:"muted"}, "Esta asignatura no tiene prerrequisitos.")),
+    h("div", {class:"rh-side"},
+      h("div", {class:"rh-num"}, h("b", {}, `${pct}%`), h("span", {class:"muted"}, `${pg.done} de ${pg.n} temas`)),
+      h("div", {class:"pc-bar"}, h("i", {style:`width:${pct}%`})),
+      h("button", {class:"btn", onclick:() => startSubjectQuiz(s.id)}, "Repaso de toda la ruta"))));
+  $("#path").replaceChildren(
+    h("div", {class:"pstart"}, "Inicio · " + s.nombre),
+    ...list.map((t,i) => { const st = stOf(t.key); return h("div", {class:"pnode", style:`--dx:${DX[i % DX.length]}px`},
+      h("button", {class:`tnode st-${st}` + (state.topic === t.key ? " on" : "") + (i === nextIdx ? " next" : ""), "aria-pressed":String(state.topic === t.key), onclick:() => { state.topic = t.key; paintRuta(); }},
+        h("span", {class:"ico", "aria-hidden":"true"}, st === "done" ? "✓" : st === "skip" ? "–" : String(i + 1)),
+        h("span", {class:"tt"}, t.t),
+        h("span", {class:"stl"}, i === nextIdx ? "Siguiente tema" : ST_LABEL[st]))); }),
+    h("div", {class:"pend" + (pg.n && pg.done === pg.n ? " ok" : "")}, pg.n && pg.done === pg.n ? "Ruta completada" : "Meta: completar todos los temas"));
+  paintDrawer(s, list, nextIdx);
+}
+function paintDrawer(s, list, nextIdx){
+  const dr = $("#drawer"), t = state.topic ? topicByKey[state.topic] : null;
+  if(!t){
+    const nx = list[nextIdx >= 0 ? nextIdx : 0];
+    dr.replaceChildren(...[h("h3", {class:"dtitle"}, "Cómo avanzar"),
+      h("ol", {class:"steps"}, h("li", {}, "Elige un tema del camino."), h("li", {}, "Estúdialo y márcalo como «Aprendiendo»."), h("li", {}, "Aprueba su práctica con 4 de 5 aciertos para completarlo y ganar XP.")),
+      nx ? h("button", {class:"btn primary", onclick:() => { state.topic = nx.key; paintRuta(); }}, "Empezar por: " + nx.t) : null,
+      h("p", {class:"muted small"}, REF_NOTE)].filter(Boolean));
+    return;
+  }
+  const st = stOf(t.key), aiHost = h("div", {}), prev = list[t.i - 1], next = list[t.i + 1];
+  dr.replaceChildren(
+    h("p", {class:"muted small"}, `Tema ${t.i + 1} de ${t.n} · ${s.nombre}`),
+    h("h3", {class:"dtitle"}, t.t),
+    h("p", {}, t.d),
+    h("div", {class:"seg stseg", role:"group", "aria-label":"Estado del tema"}, [["learning","Aprendiendo"],["done","Hecho"],["skip","Omitir"]].map(([v,l]) => h("button", {"aria-pressed":String(st === v), onclick:() => { setSt(t.key, st === v ? "todo" : v); paintRuta(); }}, l))),
+    h("div", {class:"actions"},
+      h("button", {class:"btn primary", onclick:() => startTopicQuiz(t)}, "Practicar este tema"),
+      h("button", {class:"btn", onclick:() => { $("#q").value = `Explícame ${t.t} de ${s.nombre}`; go("asistente"); ask($("#q").value); }}, "Preguntar al tutor"),
+      h("button", {class:"btn ai-only", onclick:e => { e.currentTarget.disabled = true; explainTopic(aiHost, t); }}, "Explicar con Claude")),
+    aiHost,
+    h("div", {class:"navrow"},
+      h("button", {class:"btn", disabled:!prev, onclick:() => { if(prev){ state.topic = prev.key; paintRuta(); } }}, "← Anterior"),
+      h("button", {class:"btn", disabled:!next, onclick:() => { if(next){ state.topic = next.key; paintRuta(); } }}, "Siguiente →")),
+    h("p", {class:"muted small"}, REF_NOTE));
+}
+async function explainTopic(host, t){
+  const s = byId[t.sid];
+  const prompt = `Eres el tutor del Coach Académico UTPL Computación. Explica el tema «${t.t}» de la asignatura ${s.nombre} (ciclo ${s.ciclo}) a un estudiante universitario, en español formal, en un máximo de 150 palabras y con un ejemplo breve.
+Reglas: no te salgas del tema ni introduzcas contenidos de otras asignaturas. Parte de la descripción del temario referencial: "${t.d}". Termina con una pregunta corta de comprobación, sin dar la respuesta.`;
+  const out = h("div", {class:"ai-out"}, "Consultando al modelo…");
+  host.replaceChildren(out, h("details", {class:"prompt"}, h("summary", {}, "Ver el prompt enviado al modelo"), h("pre", {}, prompt)));
+  try{ await state.sample(prompt, {modelTier:"quick", onText:({text}) => { out.textContent = text; }}); }
+  catch(e){ const c = e && e.code; out.textContent = (c === "not_granted" || c === "sampling_disabled") ? "El modelo no está disponible en esta vista." : c === "rate_limited" ? "Se alcanzó el límite de consultas al modelo. Inténtalo más tarde." : ((e && e.text) || "No se pudo generar la explicación."); }
+}
+
+/* ---------- Asistente ---------- */
+const asRoot = $("#v-asistente"); let qaList;
+const EXAMPLES = ["¿Qué necesito aprobar para llegar a Sistemas Inteligentes?","¿Qué prerrequisitos tiene Tecnologías Emergentes?","¿Qué asignaturas dependen de Programación Funcional y Reactiva?","¿Cuántos créditos tiene el ciclo VII?","¿Qué asignaturas forman el Itinerario II?","¿Qué requisitos hay para titularme?","¿Quién ganó el Mundial 2022?"];
+function buildAsistente(){
+  const input = h("input", {type:"text", id:"q", placeholder:"Escribe tu consulta sobre la malla…", "aria-label":"Consulta", autocomplete:"off"});
+  const form = h("form", {class:"ask", onsubmit:e => { e.preventDefault(); const v = input.value.trim(); if(v) ask(v); }}, input, h("button", {class:"btn primary", type:"submit"}, "Consultar"));
+  qaList = h("div", {class:"qa"});
+  asRoot.replaceChildren(
+    h("p", {class:"lead"}, "Cada consulta recupera fragmentos de la malla oficial, calcula la cadena de prerrequisitos con el grafo de la carrera y construye una respuesta con sus fuentes. Si el dato no está en la malla, el asistente lo declara."),
+    form,
+    h("div", {class:"ex"}, EXAMPLES.map(t => h("button", {class:"chip", type:"button", onclick:() => { input.value = t; ask(t); }}, t))),
+    h("label", {class:"switch ai-block"}, h("input", {type:"checkbox", id:"useai"}), h("span", {}, h("b", {}, "Respuesta generativa con Claude. "), "Envía los fragmentos recuperados al modelo y muestra el prompt utilizado. Consume el uso de tu cuenta de Claude y requiere tu autorización la primera vez.")),
+    qaList);
+}
+function renderBlocks(blocks){
+  return blocks.map(b => b.t === "p" ? h("p", {}, b.v) : b.t === "ul" ? h("ul", {}, b.v.map(x => h("li", {}, x))) : b.t === "ol" ? h("ol", {}, b.v.map(x => h("li", {}, x))) : h("p", {class:"oos"}, b.v));
+}
+function ask(q){
+  const t0 = performance.now(), hits = retrieve(q, 4), ans = answerLocal(q, hits), ms = performance.now() - t0, max = hits.length ? hits[0].score : 1;
+  const srcIds = ans.sources.length ? ans.sources : [];
+  const card = h("article", {class:"card qa-card"});
+  card.append(h("div", {class:"qa-q"}, q));
+  card.append(h("div", {class:"stage"}, h("h3", {}, h("em", {}, "1"), `Recuperación · ${hits.length} fragmentos · ${Math.max(ms,0.1).toFixed(1)} ms`),
+    hits.length ? hits.map(x => h("div", {class:"hit"}, h("div", {}, h("div", {class:"bar"}, h("i", {style:`width:${Math.round(x.score / max * 100)}%`}))), h("div", {}, h("b", {}, x.c.label), h("span", {}, x.c.text.length > 150 ? x.c.text.slice(0,150) + "…" : x.c.text)))) : h("p", {class:"muted"}, "Ningún fragmento de la malla coincide con la consulta.")));
+  const ansEl = h("div", {class:"answer"}, renderBlocks(ans.blocks));
+  const srcEl = srcIds.length ? h("div", {class:"src"}, "Fuente:", srcIds.map(id => { const c = chunkById[id];
+    if(c.topic) return h("button", {class:"chip", onclick:() => openRoute(c.subj, c.topic)}, c.label);
+    return c.subj ? h("button", {class:"chip", onclick:() => { state.sel = c.subj; const s = byId[c.subj]; if(s.itinerario) state.it = s.itinerario; go("malla"); }}, c.label) : h("span", {class:"chip"}, c.label); })) : null;
+  card.append(h("div", {class:"stage"}, h("h3", {}, h("em", {}, "2"), "Respuesta fundamentada"), ansEl, srcEl));
+  const aiOut = h("div", {class:"ai-block"});
+  card.append(aiOut);
+  qaList.prepend(card);
+  if(state.sample && $("#useai") && $("#useai").checked) askClaude(aiOut, q, hits, ans);
+  else if(state.sample) aiOut.append(h("button", {class:"btn", onclick:e => { e.currentTarget.remove(); askClaude(aiOut, q, hits, ans); }}, "Generar respuesta con Claude"));
+}
+async function askClaude(host, q, hits, ans){
+  const ctx = hits.map((x,i) => `[F${i+1}] ${x.c.label}: ${x.c.text}`).join("\n");
+  const calc = ans.intent === "fuera" ? "(sin datos calculados)" : plainOf(ans.blocks);
+  const prompt = `Eres el Coach Académico UTPL Computación, un asistente RAG para estudiantes de la Carrera de Computación (modalidad presencial). Responde en español, con tono formal y un máximo de 120 palabras.
+Reglas: usa ÚNICAMENTE los fragmentos y los datos calculados de abajo. No uses conocimiento externo sobre la carrera. Si la respuesta no está en ellos, responde exactamente: "${OOS_TEXT}". Cierra con una línea "Fuente:" que nombre los fragmentos usados. No decidas la matrícula: la validación oficial corresponde al tutor académico.
+
+FRAGMENTOS RECUPERADOS:
+${ctx || "(ninguno)"}
+
+DATOS CALCULADOS POR EL GRAFO DE PRERREQUISITOS:
+${calc}
+
+PREGUNTA DEL ESTUDIANTE:
+${q}`;
+  const out = h("div", {class:"ai-out"}, "Consultando al modelo…");
+  host.append(h("div", {class:"stage"}, h("h3", {}, h("em", {}, "3"), "Generación con Claude"), out, h("details", {class:"prompt"}, h("summary", {}, "Ver el prompt enviado al modelo"), h("pre", {}, prompt))));
+  try{
+    await state.sample(prompt, {modelTier:"quick", onText:({text}) => { out.textContent = text; }});
+  }catch(e){
+    const code = e && e.code;
+    if(code === "not_granted" || code === "sampling_disabled" || code === "not_declared" || code === "capability_disabled"){ out.textContent = "El modelo no está disponible en esta vista. La respuesta fundamentada de arriba sigue siendo válida."; document.body.classList.remove("has-ai"); }
+    else if(code === "rate_limited") out.textContent = "Se alcanzó el límite de consultas al modelo. Inténtalo más tarde.";
+    else out.textContent = (e && e.text) ? e.text : "No se pudo generar la respuesta con el modelo. Inténtalo de nuevo.";
+  }
+}
+
+/* ---------- Retos ---------- */
+const quizRoot = $("#v-retos"); let Q = null;
+const AREAS = Object.keys(AREA_CLS);
+const pick = a => a[Math.floor(Math.random() * a.length)];
+const shuffle = a => { a = a.slice(); for(let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const sampleN = (a,n) => shuffle(a).slice(0,n);
+const cite = s => `Ciclo ${s.ciclo} · ${s.nombre}`;
+const TYPES = {
+  ciclo:{ok:() => true, make:s => {
+    const near = CIC.filter(c => c !== s.ciclo).sort((a,b) => Math.abs(ci(a) - ci(s.ciclo)) - Math.abs(ci(b) - ci(s.ciclo))).slice(0,4);
+    const o = [s.ciclo, ...sampleN(near,2)].sort((a,b) => ci(a) - ci(b));
+    return {q:`¿En qué ciclo se cursa ${s.nombre}?`, opts:o.map(c => "Ciclo " + c), ans:o.indexOf(s.ciclo), why:`${s.nombre} se cursa en el ciclo ${s.ciclo}.`};}},
+  creditos:{ok:() => true, make:s => {
+    const o = [...new Set([s.creditos, 2, 3, 4])].sort(); const opts = o.length > 3 ? sampleN(o.filter(x => x !== s.creditos),2).concat(s.creditos).sort() : o;
+    return {q:`¿Cuántos créditos tiene ${s.nombre}?`, opts:opts.map(x => x + " créditos"), ans:opts.indexOf(s.creditos), why:`${s.nombre} tiene ${s.creditos} créditos (${s.horas} horas).`};}},
+  prereq:{ok:s => s.prerrequisitos.length > 0, make:s => {
+    const anc = ancIds(s.id), right = byId[pick(s.prerrequisitos)];
+    let cand = S.filter(x => x.id !== s.id && !anc.has(x.id) && ci(x.ciclo) <= ci(s.ciclo) && (!x.itinerario || x.itinerario === s.itinerario));
+    if(cand.length < 2) cand = S.filter(x => x.id !== s.id && !anc.has(x.id));
+    const o = shuffle([right, ...sampleN(cand,2)]);
+    return {q:`¿Cuál de estas asignaturas es prerrequisito directo de ${s.nombre}?`, opts:o.map(x => x.nombre), ans:o.indexOf(right), why:`Los prerrequisitos directos de ${s.nombre} son: ${names(s.prerrequisitos.map(p => byId[p])).join(", ")}.`};}},
+  desbloquea:{ok:s => deps[s.id].length > 0, make:s => {
+    const right = byId[pick(deps[s.id])], dsc = descIds(s.id);
+    let cand = S.filter(x => x.id !== s.id && !dsc.has(x.id) && ci(x.ciclo) >= ci(s.ciclo) && (!x.itinerario || x.itinerario === right.itinerario || !right.itinerario));
+    if(cand.length < 2) cand = S.filter(x => x.id !== s.id && !dsc.has(x.id));
+    const o = shuffle([right, ...sampleN(cand,2)]);
+    return {q:`Al aprobar ${s.nombre}, ¿cuál de estas asignaturas queda habilitada directamente?`, opts:o.map(x => x.nombre), ans:o.indexOf(right), why:`${s.nombre} es prerrequisito directo de: ${names(deps[s.id].map(i => byId[i])).join(", ")}.`};}},
+  itinerario:{ok:s => !!s.itinerario, make:s => {
+    const o = [D.itinerarios.I, D.itinerarios.II, "Ninguno: es una asignatura común a toda la carrera"];
+    return {q:`¿A qué itinerario pertenece ${s.nombre}?`, opts:o, ans:s.itinerario === "I" ? 0 : 1, why:`${s.nombre} pertenece al ${D.itinerarios[s.itinerario]}.`};}},
+  area:{ok:() => true, make:s => {
+    const o = shuffle([s.area, ...sampleN(AREAS.filter(a => a !== s.area), 2)]);
+    return {q:`¿A qué área de la malla pertenece ${s.nombre}?`, opts:o, ans:o.indexOf(s.area), why:`${s.nombre} pertenece al área de ${s.area.toLowerCase()}.`};}}
+};
+function makeQ(s, type){ const t = type || pick(Object.keys(TYPES).filter(k => TYPES[k].ok(s))); return Object.assign({s, t}, TYPES[t].make(s)); }
+function buildRound(focus){
+  const f = focus && byId[focus];
+  const pool = f ? [f, ...f.prerrequisitos.map(p => byId[p]), ...deps[f.id].map(i => byId[i])] : S.filter(s => !isPractica(s));
+  const qs = [], used = new Set(); let g = 0;
+  while(qs.length < 8 && g++ < 300){
+    const s = pick(pool), types = Object.keys(TYPES).filter(k => TYPES[k].ok(s)), t = pick(types), key = s.id + t;
+    if(used.has(key)) continue; used.add(key); qs.push(makeQ(s, t));
+  }
+  return qs;
+}
+function tq(x, kind){
+  const sx = byId[x.sid], cite = `Temario referencial · ${sx.nombre}`, base = {s:sx, t:"tema", tk:x.key, kind, cite};
+  const others = topics.filter(y => y.key !== x.key && y.t !== x.t);
+  const near = shuffle(others.filter(y => y.sid === x.sid)).concat(shuffle(others.filter(y => y.sid !== x.sid)));
+  if(kind === "desc"){ const o = shuffle([x.d, ...near.slice(0,2).map(y => y.d)]); return Object.assign(base, {q:`¿Cuál de estas descripciones corresponde al tema «${x.t}» de ${sx.nombre}?`, opts:o, ans:o.indexOf(x.d), why:`${x.t}: ${x.d}`}); }
+  if(kind === "title"){ const o = shuffle([x.t, ...near.slice(0,2).map(y => y.t)]); return Object.assign(base, {q:`¿Qué tema de ${sx.nombre} se describe así? «${x.d}»`, opts:o, ans:o.indexOf(x.t), why:`La descripción corresponde a «${x.t}».`}); }
+  const subs = shuffle(S.filter(z => z.id !== x.sid && !topicsOf(z.id).some(y => y.t === x.t))).slice(0,2), o = shuffle([sx, ...subs]);
+  return Object.assign(base, {q:`¿En qué asignatura de la malla se estudia el tema «${x.t}»?`, opts:o.map(z => z.nombre), ans:o.indexOf(sx), why:`«${x.t}» es el tema ${x.i + 1} de ${sx.nombre} (ciclo ${sx.ciclo}).`});
+}
+function startTopicQuiz(t){
+  const nb = shuffle(topicsOf(t.sid).filter(y => y.key !== t.key)).slice(0,2);
+  const qs = [tq(t,"desc"), tq(t,"title"), tq(t,"subj")];
+  if(nb[0]) qs.push(tq(nb[0],"desc")); if(nb[1]) qs.push(tq(nb[1],"title"));
+  if(stOf(t.key) === "todo") setSt(t.key, "learning");
+  Q = {qs, i:0, lives:3, xp:0, ok:0, streak:0, wrong:[], wrongT:[], answered:false, ctx:{key:t.key, need:Math.min(4, qs.length)}};
+  go("retos"); paintQuiz();
+}
+function startSubjectQuiz(id){
+  const qs = shuffle(topicsOf(id)).slice(0,8).map((x,i) => tq(x, i % 2 ? "title" : "desc"));
+  Q = {qs, i:0, lives:3, xp:0, ok:0, streak:0, wrong:[], wrongT:[], answered:false, ctx:{route:id}};
+  go("retos"); paintQuiz();
+}
+function buildQuizSetup(){
+  Q = null;
+  const sel = h("select", {id:"focus"}, h("option", {value:""}, "Toda la malla"), CIC.map(c => h("optgroup", {label:"Ciclo " + c}, S.filter(s => s.ciclo === c && !isPractica(s)).map(s => h("option", {value:s.id, selected:s.id === state.quizFocus}, s.nombre)))));
+  quizRoot.replaceChildren(h("div", {class:"quiz-wrap"},
+    h("p", {class:"lead"}, "Retos cortos sobre la malla de Computación, con vidas y puntos. Cada acierto suma 10 XP. Cada error resta una vida, explica la respuesta citando la malla y plantea una pregunta de refuerzo sobre la misma asignatura."),
+    h("div", {class:"card setup"},
+      h("label", {}, "Asignatura de enfoque", sel),
+      h("label", {class:"switch ai-block"}, h("input", {type:"checkbox", id:"quizai"}), h("span", {}, "Incluir una pregunta de caso generada por Claude a partir de los fragmentos de la malla (consume el uso de tu cuenta de Claude).")),
+      h("div", {}, h("button", {class:"btn primary", onclick:() => startQuiz(sel.value)}, "Comenzar reto"))),
+    h("p", {class:"muted", style:"margin-top:10px"}, "Mejor puntaje en este navegador: " + bestXP() + " XP")));
+}
+function bestXP(){ try{ return localStorage.getItem("coach-best") || "0"; }catch(e){ return "0"; } }
+function saveBest(x){ try{ if(x > +bestXP()) localStorage.setItem("coach-best", String(x)); }catch(e){} }
+async function startQuiz(focus){
+  state.quizFocus = focus;
+  Q = {qs:buildRound(focus), i:0, lives:3, xp:0, ok:0, streak:0, wrong:[], wrongT:[], answered:false, ctx:null};
+  const useAI = state.sample && $("#quizai") && $("#quizai").checked;
+  if(useAI){
+    quizRoot.replaceChildren(h("div", {class:"quiz-wrap card"}, "Generando una pregunta de caso con Claude…"));
+    try{ const aq = await aiQuestion(focus); if(aq) Q.qs.splice(Math.min(3, Q.qs.length), 0, aq); }catch(e){}
+  }
+  paintQuiz();
+}
+async function aiQuestion(focus){
+  const s = byId[focus] || pick(S.filter(x => !isPractica(x)));
+  const ctx = [s, ...s.prerrequisitos.map(p => byId[p]), ...deps[s.id].map(i => byId[i])].map(x => `- ${sentence(x)}`).join("\n");
+  const r = await state.sample.json(`Eres un generador de preguntas para estudiantes de Computación de la UTPL. Usa ÚNICAMENTE estos fragmentos de la malla curricular:\n${ctx}\n\nCrea UNA pregunta de opción múltiple de caso práctico (por ejemplo, un estudiante que quiere cursar ${s.nombre} y debe saber qué le falta). Responde solo con un objeto JSON con esta forma: {"pregunta": string, "opciones": [string, string, string], "correcta": 0, "explicacion": string}. "correcta" es el índice (0, 1 o 2) de la opción correcta. La explicación cita la asignatura y el ciclo.`, {modelTier:"quick"});
+  if(!r || typeof r.pregunta !== "string" || !Array.isArray(r.opciones) || r.opciones.length !== 3 || ![0,1,2].includes(r.correcta) || typeof r.explicacion !== "string") return null;
+  return {s, t:"ia", q:r.pregunta, opts:r.opciones.map(String), ans:r.correcta, why:r.explicacion, ia:true};
+}
+function paintQuiz(){
+  if(!Q) return buildQuizSetup();
+  if(Q.i >= Q.qs.length || Q.lives <= 0) return paintEnd();
+  const q = Q.qs[Q.i], total = Q.qs.length;
+  const hearts = h("span", {class:"hearts", "aria-label":Q.lives + " vidas"}, [0,1,2].map(i => h("span", {class:i < Q.lives ? "" : "off"}, "♥")));
+  const fb = h("div", {class:"fb", hidden:true, "aria-live":"polite"});
+  const opts = h("div", {class:"opts"}, q.opts.map((o,i) => h("button", {class:"opt", "data-i":i, onclick:() => answer(i)}, h("kbd", {}, i + 1), h("span", {}, o))));
+  Q.answered = false;
+  const ctxLabel = Q.ctx && Q.ctx.key ? `Práctica del tema «${topicByKey[Q.ctx.key].t}» · ${byId[topicByKey[Q.ctx.key].sid].nombre}` : Q.ctx && Q.ctx.route ? `Repaso de la ruta de ${byId[Q.ctx.route].nombre}` : null;
+  quizRoot.replaceChildren(h("div", {class:"quiz-wrap card"},
+    ctxLabel ? h("div", {class:"q-ctx"}, ctxLabel) : null,
+    h("div", {class:"hud"}, hearts, h("span", {class:"xp"}, `${Q.xp} XP`), h("span", {}, Q.streak > 1 ? `Racha de ${Q.streak}` : ""), h("span", {class:"muted"}, `Pregunta ${Math.min(Q.i + 1, total)} de ${total}`)),
+    h("div", {class:"prog"}, h("i", {style:`width:${Math.round(Q.i / total * 100)}%`})),
+    q.refuerzo ? h("div", {class:"q-tag"}, "Refuerzo") : q.ia ? h("div", {class:"q-tag"}, "Caso generado con Claude") : null,
+    h("div", {class:"q-text"}, q.q), opts, fb));
+  function answer(i){
+    if(Q.answered) return; Q.answered = true;
+    const good = i === q.ans;
+    opts.querySelectorAll(".opt").forEach((b,k) => { b.disabled = true; if(k === q.ans) b.classList.add("good"); else if(k === i) b.classList.add("bad"); });
+    if(good){ Q.xp += 10; Q.ok++; Q.streak++; }
+    else {
+      Q.lives--; Q.streak = 0; if(!Q.wrong.includes(q.s)) Q.wrong.push(q.s); if(q.tk && !Q.wrongT.includes(q.tk)) Q.wrongT.push(q.tk);
+      if(!q.refuerzo && Q.lives > 0){
+        let r = null;
+        if(q.tk) r = tq(topicByKey[q.tk], pick(["desc","title","subj"].filter(k => k !== q.kind)));
+        else { const types = Object.keys(TYPES).filter(k => TYPES[k].ok(q.s) && k !== q.t); if(types.length) r = makeQ(q.s, pick(types)); }
+        if(r){ r.refuerzo = true; Q.qs.splice(Q.i + 1, 0, r); }
+      }
+    }
+    fb.hidden = false;
+    fb.replaceChildren(h("p", {}, h("strong", {class:good ? "ok" : "ko"}, good ? "Correcto. +10 XP. " : "Incorrecto. −1 vida. "), q.why), h("p", {class:"muted"}, "Fuente: " + (q.cite || cite(q.s))),
+      h("button", {class:"btn primary", id:"next", onclick:() => { Q.i++; paintQuiz(); }}, Q.lives <= 0 || Q.i + 1 >= Q.qs.length ? "Ver resultados" : "Continuar"));
+    const nx = $("#next"); if(nx) nx.focus();
+    hearts.replaceChildren(...[0,1,2].map(k => h("span", {class:k < Q.lives ? "" : "off"}, "♥")));
+    const xpEl = quizRoot.querySelector(".hud .xp"); if(xpEl) xpEl.textContent = `${Q.xp} XP`;
+  }
+  Q.answer = answer;
+}
+function paintEnd(){
+  saveBest(Q.xp);
+  const total = Q.qs.length, lost = Q.lives <= 0;
+  if(!Q.closed){
+    Q.closed = true; addXP(Q.xp);
+    if(Q.ctx && Q.ctx.key){ Q.passed = !lost && Q.ok >= Q.ctx.need; if(Q.passed){ setSt(Q.ctx.key, "done"); addXP(20); } }
+  }
+  if(Q.ctx && (Q.ctx.key || Q.ctx.route)){
+    const t = Q.ctx.key ? topicByKey[Q.ctx.key] : null, sid = t ? t.sid : Q.ctx.route, list = topicsOf(sid);
+    const nextT = t ? list.find(x => x.i > t.i && stOf(x.key) !== "done") : null;
+    quizRoot.replaceChildren(h("div", {class:"quiz-wrap card end"},
+      h("h2", {}, t ? (Q.passed ? "Tema completado" : "Aún no completas el tema") : "Repaso terminado"),
+      h("p", {class:"muted"}, t ? (Q.passed ? `«${t.t}» quedó marcado como hecho. Ganaste ${Q.xp} XP y un bono de 20 XP.` : `Necesitas ${Q.ctx.need} aciertos sin perder todas las vidas. Repasa la descripción del tema e inténtalo de nuevo.`) : `Ganaste ${Q.xp} XP en el repaso de ${byId[sid].nombre}.`),
+      h("div", {class:"stats"}, h("div", {class:"stat"}, h("b", {}, Q.xp + (Q.passed ? 20 : 0)), "XP"), h("div", {class:"stat"}, h("b", {}, `${Q.ok}/${Math.min(Q.i, total)}`), "Aciertos"), h("div", {class:"stat"}, h("b", {}, Q.lives), "Vidas restantes")),
+      Q.wrongT.length ? [h("h3", {}, "Temas para repasar"), h("ul", {}, Q.wrongT.map(k => h("li", {}, h("button", {class:"linkbtn", onclick:() => openRoute(topicByKey[k].sid, k)}, topicByKey[k].t))))] : null,
+      h("div", {class:"actions"},
+        t && Q.passed && nextT ? h("button", {class:"btn primary", onclick:() => openRoute(sid, nextT.key)}, "Siguiente tema: " + nextT.t) : null,
+        h("button", {class:"btn" + (t && Q.passed && nextT ? "" : " primary"), onclick:() => openRoute(sid, t ? t.key : null)}, "Volver a la ruta"),
+        h("button", {class:"btn", onclick:() => t ? startTopicQuiz(t) : startSubjectQuiz(sid)}, "Practicar de nuevo"))));
+    return;
+  }
+  quizRoot.replaceChildren(h("div", {class:"quiz-wrap card end"},
+    h("h2", {}, lost ? "Te quedaste sin vidas" : "Reto completado"),
+    h("p", {class:"muted"}, lost ? "Repasa las asignaturas indicadas abajo e inténtalo de nuevo." : "Estos son tus resultados."),
+    h("div", {class:"stats"}, h("div", {class:"stat"}, h("b", {}, Q.xp), "XP"), h("div", {class:"stat"}, h("b", {}, `${Q.ok}/${Math.min(Q.i, total)}`), "Aciertos"), h("div", {class:"stat"}, h("b", {}, Q.lives), "Vidas restantes")),
+    Q.wrong.length ? [h("h3", {}, "Para repasar en la malla"), h("ul", {}, Q.wrong.map(s => h("li", {}, h("button", {class:"linkbtn", onclick:() => { state.sel = s.id; if(s.itinerario) state.it = s.itinerario; paintMalla(); go("malla"); }}, cite(s)))))] : null,
+    h("div", {class:"actions"}, h("button", {class:"btn primary", onclick:() => startQuiz(state.quizFocus)}, "Jugar de nuevo"), h("button", {class:"btn", onclick:buildQuizSetup}, "Cambiar asignatura"))));
+}
+document.addEventListener("keydown", e => {
+  if($("#v-retos").hidden || !Q || e.target.closest("input,select,textarea")) return;
+  if(["1","2","3"].includes(e.key) && !Q.answered && Q.answer) Q.answer(+e.key - 1);
+  else if(e.key === "Enter" && Q.answered){ const nx = $("#next"); if(nx && document.activeElement !== nx) nx.click(); }
+});
+
+/* ---------- Cómo funciona ---------- */
+function buildComo(){
+  const sample = chunkById["A:sin"], sample2 = chunkById["T:fia:5"];
+  $("#v-como").replaceChildren(
+    h("p", {class:"lead"}, "El asistente aplica Generación Aumentada por Recuperación (RAG) sobre la malla oficial: primero busca en el documento y solo después redacta la respuesta, citando de dónde la tomó."),
+    h("div", {class:"pipe"},
+      h("div", {class:"card"}, h("span", {class:"n"}, "1"), h("h3", {}, "Indexación"), h("div", {class:"big"}, chunks.length), h("p", {}, `fragmentos y ${df.size} términos distintos. Cada asignatura, ciclo y regla de la malla, y cada uno de los ${topics.length} temas del temario referencial, es un fragmento con su etiqueta de origen.`)),
+      h("div", {class:"card"}, h("span", {class:"n"}, "2"), h("h3", {}, "Recuperación"), h("div", {class:"big"}, "BM25"), h("p", {}, "La consulta se normaliza (sin tildes, con raíces de palabra y ciclos en números romanos) y se puntúa contra los fragmentos. Los mejores pasan al paso siguiente.")),
+      h("div", {class:"card"}, h("span", {class:"n"}, "3"), h("h3", {}, "Generación fundamentada"), h("div", {class:"big"}, "Con fuente"), h("p", {}, "La respuesta se construye solo con los fragmentos y con la cadena de prerrequisitos calculada sobre el grafo. Si el dato no está en la malla, se declara."))),
+    h("div", {class:"two"},
+      h("div", {class:"card"}, h("h3", {style:"margin-bottom:8px"}, "Ejemplo de fragmentos indexados"), h("pre", {class:"sample"}, `[${sample.id}] ${sample.label}\n${sample.text}\n\n[${sample2.id}] ${sample2.label}\n${sample2.text}`)),
+      h("div", {class:"card"}, h("h3", {style:"margin-bottom:8px"}, "Alcance y límites del prototipo"), h("ul", {},
+        h("li", {}, "Fuente única: la malla de Computación, modalidad presencial (54 asignaturas, 135 créditos)."),
+        h("li", {}, "Los prerrequisitos se calculan con un grafo, por lo que la cadena completa es exacta."),
+        h("li", {}, `El temario de cada asignatura (${topics.length} temas) es referencial: un borrador del prototipo que se sustituye por la guía didáctica oficial.`),
+        h("li", {}, "El avance, los estados de cada tema y los puntos se guardan solo en este navegador."),
+        h("li", {}, "El modo local responde con reglas sobre la malla. El modo generativo (si está disponible) usa Claude con los mismos fragmentos."),
+        h("li", {}, "No reemplaza al tutor académico: la matrícula se valida con la universidad.")))));
+}
+
+/* ---------- Arranque ---------- */
+buildMalla(); buildRuta(); buildAsistente(); buildQuizSetup(); buildComo(); paintRuta();
+show(location.hash.slice(1) || "malla");
+(async () => {
+  try{
+    const s = (window.claude && typeof window.claude.use === "function") ? await window.claude.use("sample") : null;
+    if(s){ state.sample = s; document.body.classList.add("has-ai"); }
+  }catch(e){}
+})();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,685 @@
+{
+ "carrera": "Computación",
+ "universidad": "Universidad Técnica Particular de Loja (UTPL)",
+ "modalidad": "Presencial",
+ "creditos_total": 135,
+ "asignaturas_total": 54,
+ "creditos_por_ciclo": 15,
+ "requisitos_titulacion": [
+  "Demostrar suficiencia en el manejo de una lengua extranjera en el nivel B1 del Marco Común Europeo.",
+  "Cursar y aprobar uno de los dos itinerarios ofertados por la carrera.",
+  "La malla curricular está organizada con prerrequisitos."
+ ],
+ "itinerarios": {
+  "I": "Itinerario I: Desarrollo basado en plataformas",
+  "II": "Itinerario II: Ciencias de datos para la gestión inteligente del territorio"
+ },
+ "asignaturas": [
+  {
+   "id": "fc",
+   "nombre": "Fundamentos Computacionales",
+   "ciclo": "I",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": []
+  },
+  {
+   "id": "fm",
+   "nombre": "Fundamentos Matemáticos",
+   "ciclo": "I",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": []
+  },
+  {
+   "id": "ip",
+   "nombre": "Introducción a la Programación",
+   "ciclo": "I",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": []
+  },
+  {
+   "id": "cys",
+   "nombre": "Computación y Sociedad",
+   "ciclo": "I",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": []
+  },
+  {
+   "id": "esd",
+   "nombre": "Estructuras Discretas",
+   "ciclo": "I",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": []
+  },
+  {
+   "id": "huc",
+   "nombre": "Humanismo, Universidad y Cultura",
+   "ciclo": "I",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Integración de saberes, contextos y cultura",
+   "itinerario": null,
+   "prerrequisitos": []
+  },
+  {
+   "id": "al",
+   "nombre": "Álgebra Lineal",
+   "ciclo": "II",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "fm"
+   ]
+  },
+  {
+   "id": "amu",
+   "nombre": "Análisis Matemático Univariado",
+   "ciclo": "II",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "fm"
+   ]
+  },
+  {
+   "id": "fb",
+   "nombre": "Física Básica",
+   "ciclo": "II",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": []
+  },
+  {
+   "id": "edd",
+   "nombre": "Estructuras de Datos",
+   "ciclo": "II",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "fc",
+    "esd",
+    "ip"
+   ]
+  },
+  {
+   "id": "poo",
+   "nombre": "Programación Orientada a Objetos",
+   "ciclo": "II",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "fc",
+    "ip"
+   ]
+  },
+  {
+   "id": "edm",
+   "nombre": "Ecuaciones Diferenciales y Métodos Numéricos",
+   "ciclo": "III",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "amu"
+   ]
+  },
+  {
+   "id": "ld",
+   "nombre": "Lógica Digital",
+   "ciclo": "III",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": []
+  },
+  {
+   "id": "fbd",
+   "nombre": "Fundamentos de Base de Datos",
+   "ciclo": "III",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "edd"
+   ]
+  },
+  {
+   "id": "pfr",
+   "nombre": "Programación Funcional y Reactiva",
+   "ciclo": "III",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "poo"
+   ]
+  },
+  {
+   "id": "ant",
+   "nombre": "Antropología Básica",
+   "ciclo": "III",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Integración de saberes, contextos y cultura",
+   "itinerario": null,
+   "prerrequisitos": [
+    "huc"
+   ]
+  },
+  {
+   "id": "p11",
+   "nombre": "Prácticum 1.1",
+   "ciclo": "III",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Praxis profesional",
+   "itinerario": null,
+   "prerrequisitos": []
+  },
+  {
+   "id": "aoc",
+   "nombre": "Arquitectura y Organización de Computadores",
+   "ciclo": "IV",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "ld"
+   ]
+  },
+  {
+   "id": "pro",
+   "nombre": "Prototipado",
+   "ciclo": "IV",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "pfr"
+   ]
+  },
+  {
+   "id": "aa",
+   "nombre": "Análisis de Algoritmos",
+   "ciclo": "IV",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "pfr"
+   ]
+  },
+  {
+   "id": "bda",
+   "nombre": "Base de Datos Avanzada",
+   "ciclo": "IV",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "fbd"
+   ]
+  },
+  {
+   "id": "pa",
+   "nombre": "Programación Avanzada",
+   "ciclo": "IV",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "pfr"
+   ]
+  },
+  {
+   "id": "p12",
+   "nombre": "Prácticum 1.2",
+   "ciclo": "IV",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Praxis profesional",
+   "itinerario": null,
+   "prerrequisitos": [
+    "p11"
+   ]
+  },
+  {
+   "id": "fis",
+   "nombre": "Fundamentos de Ingeniería de Software",
+   "ciclo": "V",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "pa",
+    "bda"
+   ]
+  },
+  {
+   "id": "so",
+   "nombre": "Sistemas Operativos",
+   "ciclo": "V",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "aoc"
+   ]
+  },
+  {
+   "id": "ibi",
+   "nombre": "Introducción a la Inteligencia de Negocios",
+   "ciclo": "V",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "bda"
+   ]
+  },
+  {
+   "id": "iw",
+   "nombre": "Ingeniería Web",
+   "ciclo": "V",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "pa"
+   ]
+  },
+  {
+   "id": "eyp",
+   "nombre": "Estadística y Probabilidad",
+   "ciclo": "V",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Epistemología y metodología de la investigación",
+   "itinerario": null,
+   "prerrequisitos": [
+    "fm"
+   ]
+  },
+  {
+   "id": "eym",
+   "nombre": "Ética y Moral",
+   "ciclo": "V",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Integración de saberes, contextos y cultura",
+   "itinerario": null,
+   "prerrequisitos": [
+    "ant"
+   ]
+  },
+  {
+   "id": "p21",
+   "nombre": "Prácticum 2.1",
+   "ciclo": "V",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Praxis profesional",
+   "itinerario": null,
+   "prerrequisitos": [
+    "p12"
+   ]
+  },
+  {
+   "id": "gcs",
+   "nombre": "Gestión de la Calidad de Software",
+   "ciclo": "VI",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "fis"
+   ]
+  },
+  {
+   "id": "ir",
+   "nombre": "Ingeniería de Requisitos",
+   "ciclo": "VI",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "fis"
+   ]
+  },
+  {
+   "id": "tac",
+   "nombre": "Teoría de Autómatas y Compiladores",
+   "ciclo": "VI",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "edd"
+   ]
+  },
+  {
+   "id": "fr",
+   "nombre": "Fundamentos de Redes",
+   "ciclo": "VI",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "so"
+   ]
+  },
+  {
+   "id": "p22",
+   "nombre": "Prácticum 2.2",
+   "ciclo": "VI",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Praxis profesional",
+   "itinerario": null,
+   "prerrequisitos": [
+    "p21"
+   ]
+  },
+  {
+   "id": "i1web",
+   "nombre": "Plataformas Web",
+   "ciclo": "VI",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": "I",
+   "prerrequisitos": [
+    "iw"
+   ]
+  },
+  {
+   "id": "i2fad",
+   "nombre": "Fundamentos de Análisis de Datos",
+   "ciclo": "VI",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": "II",
+   "prerrequisitos": [
+    "ibi"
+   ]
+  },
+  {
+   "id": "rsd",
+   "nombre": "Redes y Sistemas Distribuidos",
+   "ciclo": "VII",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "fr"
+   ]
+  },
+  {
+   "id": "fia",
+   "nombre": "Fundamentos de Inteligencia Artificial",
+   "ciclo": "VII",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "ibi"
+   ]
+  },
+  {
+   "id": "as",
+   "nombre": "Arquitectura de Software",
+   "ciclo": "VII",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "ir"
+   ]
+  },
+  {
+   "id": "emp",
+   "nombre": "Emprendimiento",
+   "ciclo": "VII",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Integración de saberes, contextos y cultura",
+   "itinerario": null,
+   "prerrequisitos": [
+    "pro"
+   ]
+  },
+  {
+   "id": "p3",
+   "nombre": "Prácticum 3: Servicio Comunitario",
+   "ciclo": "VII",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Praxis profesional",
+   "itinerario": null,
+   "prerrequisitos": [
+    "p22"
+   ]
+  },
+  {
+   "id": "i1mov",
+   "nombre": "Plataformas Móviles",
+   "ciclo": "VII",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": "I",
+   "prerrequisitos": [
+    "i1web"
+   ]
+  },
+  {
+   "id": "i2int",
+   "nombre": "Interoperabilidad y Explotación de Datos en Ecosistemas Heterogéneos",
+   "ciclo": "VII",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": "II",
+   "prerrequisitos": [
+    "i2fad"
+   ]
+  },
+  {
+   "id": "cpd",
+   "nombre": "Computación Paralela y Distribuida",
+   "ciclo": "VIII",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "rsd"
+   ]
+  },
+  {
+   "id": "rac",
+   "nombre": "Representación Avanzada del Conocimiento y Razonamiento",
+   "ciclo": "VIII",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "fia"
+   ]
+  },
+  {
+   "id": "ebt1",
+   "nombre": "Emprendimiento de Base Tecnológica I",
+   "ciclo": "VIII",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Integración de saberes, contextos y cultura",
+   "itinerario": null,
+   "prerrequisitos": [
+    "emp"
+   ]
+  },
+  {
+   "id": "ctc",
+   "nombre": "Composición de Textos Científicos",
+   "ciclo": "VIII",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Comunicación y lenguajes",
+   "itinerario": null,
+   "prerrequisitos": []
+  },
+  {
+   "id": "p41",
+   "nombre": "Prácticum 4.1: Trabajo de Integración Curricular / Examen Complexivo",
+   "ciclo": "VIII",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Unidad de Integración Curricular",
+   "itinerario": null,
+   "prerrequisitos": [
+    "p3"
+   ]
+  },
+  {
+   "id": "i1jue",
+   "nombre": "Plataformas para Juegos",
+   "ciclo": "VIII",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": "I",
+   "prerrequisitos": [
+    "i1mov"
+   ]
+  },
+  {
+   "id": "i2avg",
+   "nombre": "Análisis y Visualización de Grandes Volúmenes de Datos",
+   "ciclo": "VIII",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": "II",
+   "prerrequisitos": [
+    "i2int"
+   ]
+  },
+  {
+   "id": "gp",
+   "nombre": "Gestión de Proyectos",
+   "ciclo": "IX",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "ir"
+   ]
+  },
+  {
+   "id": "si",
+   "nombre": "Seguridad de la Información",
+   "ciclo": "IX",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "rsd"
+   ]
+  },
+  {
+   "id": "te",
+   "nombre": "Tecnologías Emergentes",
+   "ciclo": "IX",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": []
+  },
+  {
+   "id": "ebt2",
+   "nombre": "Emprendimiento de Base Tecnológica II",
+   "ciclo": "IX",
+   "creditos": 2,
+   "horas": 96,
+   "area": "Integración de saberes, contextos y cultura",
+   "itinerario": null,
+   "prerrequisitos": [
+    "ebt1"
+   ]
+  },
+  {
+   "id": "sin",
+   "nombre": "Sistemas Inteligentes",
+   "ciclo": "IX",
+   "creditos": 3,
+   "horas": 144,
+   "area": "Fundamentos teóricos",
+   "itinerario": null,
+   "prerrequisitos": [
+    "rac"
+   ]
+  },
+  {
+   "id": "p42",
+   "nombre": "Prácticum 4.2: Trabajo de Integración Curricular / Examen Complexivo",
+   "ciclo": "IX",
+   "creditos": 4,
+   "horas": 192,
+   "area": "Unidad de Integración Curricular",
+   "itinerario": null,
+   "prerrequisitos": [
+    "p41"
+   ]
+  }
+ ]
+}
