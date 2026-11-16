@@ -1,0 +1,2376 @@
+{
+ "fc": [
+  [
+   [
+    "Representación binaria",
+    "Texto con ASCII y Unicode",
+    "Algoritmos y pseudocódigo",
+    "Funciones, condiciones y ciclos en Scratch"
+   ],
+   "x0"
+  ],
+  [
+   [
+    "Compilar y ejecutar un programa",
+    "Tipos de datos y variables",
+    "Condicionales, ciclos y operadores",
+    "Funciones y abstracción",
+    "Desbordamiento de enteros e imprecisión de punto flotante"
+   ],
+   "x1"
+  ],
+  [
+   [
+    "Etapas de la compilación",
+    "Depuración de programas",
+    "Arreglos",
+    "Cadenas como arreglos de caracteres",
+    "Argumentos de línea de comandos",
+    "Cifrado básico"
+   ],
+   "x2"
+  ],
+  [
+   [
+    "Búsqueda lineal y binaria",
+    "Notación O, Ω y Θ",
+    "Ordenamiento por selección y burbuja",
+    "Recursión",
+    "Ordenamiento por mezcla"
+   ],
+   "x3"
+  ],
+  [
+   [
+    "Notación hexadecimal",
+    "Punteros y direcciones",
+    "Memoria dinámica con malloc y free",
+    "Pila y montículo",
+    "Detección de fugas de memoria",
+    "Lectura y escritura de archivos"
+   ],
+   "x4"
+  ]
+ ],
+ "ip": [
+  [
+   [
+    "print e input",
+    "Cadenas y f-strings",
+    "Enteros y decimales",
+    "Definir funciones con return"
+   ],
+   "py0"
+  ],
+  [
+   [
+    "if, elif y else",
+    "Operadores de comparación y lógicos",
+    "Valores booleanos",
+    "La sentencia match"
+   ],
+   "py1"
+  ],
+  [
+   [
+    "while y for",
+    "range",
+    "Listas y diccionarios",
+    "Ciclos anidados"
+   ],
+   "py2"
+  ],
+  [
+   [
+    "Errores de sintaxis y de ejecución",
+    "try, except y else",
+    "Lanzar excepciones con raise",
+    "Validación de entradas"
+   ],
+   "py3"
+  ],
+  [
+   [
+    "Módulos e import",
+    "random y statistics",
+    "Argumentos con sys.argv",
+    "Paquetes con pip",
+    "Consumo de APIs con requests y JSON"
+   ],
+   "py4"
+  ],
+  [
+   [
+    "assert",
+    "pytest",
+    "Diseño de casos de prueba",
+    "Organización de pruebas en paquetes"
+   ],
+   "py5"
+  ],
+  [
+   [
+    "open y with",
+    "Leer y escribir texto",
+    "Archivos CSV",
+    "Imágenes con Pillow"
+   ],
+   "py6"
+  ],
+  [
+   [
+    "re.search y re.sub",
+    "Clases de caracteres y cuantificadores",
+    "Grupos de captura",
+    "Validación y limpieza de datos"
+   ],
+   "py7"
+  ],
+  [
+   [
+    "Clases y objetos",
+    "Método __init__ y atributos",
+    "Propiedades",
+    "Herencia",
+    "Sobrecarga de operadores"
+   ],
+   "py8"
+  ],
+  [
+   [
+    "Conjuntos",
+    "Anotaciones de tipo",
+    "Docstrings",
+    "argparse",
+    "Comprensiones y generadores"
+   ],
+   "py9"
+  ]
+ ],
+ "fbd": [
+  [
+   [
+    "SELECT, WHERE y LIMIT",
+    "LIKE, rangos y valores NULL",
+    "ORDER BY",
+    "Funciones de agregación"
+   ],
+   "sql0"
+  ],
+  [
+   [
+    "Modelo entidad-relación",
+    "Claves primarias y foráneas",
+    "Subconsultas",
+    "JOIN",
+    "Operaciones de conjuntos",
+    "GROUP BY y HAVING"
+   ],
+   "sql1"
+  ],
+  [
+   [
+    "CREATE TABLE",
+    "Tipos de datos",
+    "Restricciones",
+    "Normalización"
+   ],
+   "sql2"
+  ],
+  [
+   [
+    "INSERT",
+    "Importar datos desde CSV",
+    "UPDATE y DELETE",
+    "Claves foráneas en cascada",
+    "Disparadores"
+   ],
+   "sql3"
+  ],
+  [
+   [
+    "Selección y proyección",
+    "Producto y reunión",
+    "Unión, intersección y diferencia",
+    "Equivalencia con SQL"
+   ],
+   null
+  ]
+ ],
+ "bda": [
+  [
+   [
+    "CREATE VIEW",
+    "Vistas para simplificar y agregar",
+    "Expresiones de tabla comunes (CTE)",
+    "Seguridad con vistas",
+    "Borrado lógico"
+   ],
+   "sql4"
+  ],
+  [
+   [
+    "Índices",
+    "Planes de ejecución",
+    "Índices parciales y de cobertura",
+    "Transacciones y propiedades ACID",
+    "Condiciones de carrera y bloqueos"
+   ],
+   "sql5"
+  ],
+  [
+   [
+    "MySQL y PostgreSQL",
+    "Escalado vertical y horizontal",
+    "Replicación",
+    "Particionado",
+    "Control de acceso",
+    "Inyección SQL y sentencias preparadas"
+   ],
+   "sql6"
+  ],
+  [
+   [
+    "Documentos con MongoDB",
+    "Clave-valor con Redis",
+    "Bases de grafos",
+    "Teorema CAP"
+   ],
+   null
+  ],
+  [
+   [
+    "Embeddings",
+    "Búsqueda por similitud",
+    "Índices aproximados",
+    "Uso en RAG"
+   ],
+   null
+  ]
+ ],
+ "iw": [
+  [
+   [
+    "Estructura de HTML5",
+    "Selectores y especificidad",
+    "Modelo de caja",
+    "Diseño responsivo",
+    "Preprocesadores como Sass"
+   ],
+   "web0"
+  ],
+  [
+   [
+    "Commits",
+    "Ramas y fusiones",
+    "Conflictos",
+    "GitHub y pull requests"
+   ],
+   "web1"
+  ],
+  [
+   [
+    "Tipos y estructuras de datos",
+    "Funciones y módulos",
+    "Clases",
+    "Excepciones"
+   ],
+   "web2"
+  ],
+  [
+   [
+    "Proyectos y aplicaciones",
+    "Rutas y vistas",
+    "Plantillas",
+    "Formularios",
+    "Sesiones"
+   ],
+   "web3"
+  ],
+  [
+   [
+    "Modelos y relaciones",
+    "Migraciones",
+    "Consultas con el ORM",
+    "Panel de administración",
+    "Autenticación de usuarios"
+   ],
+   "web4"
+  ],
+  [
+   [
+    "Eventos y DOM",
+    "Funciones flecha",
+    "fetch y APIs",
+    "JSON",
+    "Almacenamiento local"
+   ],
+   "web5"
+  ],
+  [
+   [
+    "Aplicaciones de una sola página",
+    "Historial y desplazamiento",
+    "Animaciones",
+    "React y componentes"
+   ],
+   "web6"
+  ],
+  [
+   [
+    "Pruebas unitarias",
+    "Pruebas en el navegador",
+    "Integración continua con GitHub Actions",
+    "Contenedores con Docker"
+   ],
+   "web7"
+  ],
+  [
+   [
+    "Balanceo de carga",
+    "Escalado y caché",
+    "HTTPS y certificados",
+    "Inyección SQL, XSS y CSRF",
+    "Variables de entorno y secretos"
+   ],
+   "web8"
+  ]
+ ],
+ "si": [
+  [
+   [
+    "Contraseñas y gestores de contraseñas",
+    "Ataques de diccionario y fuerza bruta",
+    "Autenticación multifactor",
+    "Llaves de acceso (passkeys)",
+    "Inicio de sesión único"
+   ],
+   "sec0"
+  ],
+  [
+   [
+    "Funciones hash con sal",
+    "Cifrado simétrico y asimétrico",
+    "Firmas digitales",
+    "Cifrado de extremo a extremo",
+    "Borrado seguro"
+   ],
+   "sec1"
+  ],
+  [
+   [
+    "Puertos y cortafuegos",
+    "Redes privadas virtuales",
+    "Malware y ransomware",
+    "Ingeniería social",
+    "Denegación de servicio"
+   ],
+   "sec2"
+  ],
+  [
+   [
+    "Phishing",
+    "Inyección SQL y XSS",
+    "Validación de entradas",
+    "Dependencias y cadena de suministro",
+    "Divulgación responsable de vulnerabilidades"
+   ],
+   "sec3"
+  ],
+  [
+   [
+    "Historial y cookies",
+    "Rastreo y huella digital del navegador",
+    "Navegación privada",
+    "Permisos de las aplicaciones"
+   ],
+   "sec4"
+  ],
+  [
+   [
+    "Evaluación de riesgos",
+    "ISO/IEC 27001",
+    "Políticas de seguridad",
+    "Respuesta a incidentes"
+   ],
+   null
+  ]
+ ],
+ "i1jue": [
+  [
+   [
+    "Bucle de juego",
+    "LÖVE y Lua",
+    "Entrada del teclado",
+    "Colisiones entre rectángulos",
+    "Máquinas de estado"
+   ],
+   "g0"
+  ],
+  [
+   [
+    "Sprites e imágenes",
+    "Desplazamiento con paralaje",
+    "Gravedad",
+    "Generación procedural de obstáculos"
+   ],
+   "g1"
+  ],
+  [
+   [
+    "Hojas de sprites",
+    "Generación procedural de niveles",
+    "Puntajes y vidas",
+    "Sistemas de partículas"
+   ],
+   "g2"
+  ],
+  [
+   [
+    "Juegos en cuadrícula",
+    "Interpolación de animaciones",
+    "Temporizadores",
+    "Detección de coincidencias"
+   ],
+   "g3"
+  ],
+  [
+   [
+    "Mapas de baldosas",
+    "Cámara 2D",
+    "Animación de sprites",
+    "Entidades y comportamientos"
+   ],
+   "g4"
+  ],
+  [
+   [
+    "Vista superior",
+    "Cajas de colisión",
+    "Eventos",
+    "Mazmorras y habitaciones",
+    "Comportamiento de enemigos"
+   ],
+   "g5"
+  ],
+  [
+   [
+    "Motor de física Box2D",
+    "Cuerpos y fijaciones",
+    "Colisiones físicas",
+    "Entrada con el ratón"
+   ],
+   "g6"
+  ],
+  [
+   [
+    "Pila de estados",
+    "Menús y diálogos",
+    "Combate por turnos",
+    "Interfaz del juego"
+   ],
+   "g7"
+  ],
+  [
+   [
+    "Unity y C#",
+    "Unreal Engine",
+    "Godot",
+    "Publicación en varias plataformas"
+   ],
+   null
+  ]
+ ],
+ "i2fad": [
+  [
+   [
+    "Formular la pregunta",
+    "Recolectar datos",
+    "Limpiar y explorar",
+    "Comunicar hallazgos"
+   ],
+   null
+  ],
+  [
+   [
+    "Vectores",
+    "Data frames",
+    "Lectura de archivos CSV",
+    "Valores faltantes"
+   ],
+   "r1"
+  ],
+  [
+   [
+    "Subconjuntos",
+    "Filtros lógicos",
+    "Tablas de frecuencia",
+    "Entrada del usuario"
+   ],
+   "r2"
+  ],
+  [
+   [
+    "Definir funciones",
+    "Ciclos",
+    "Familia apply",
+    "Ámbito de las variables"
+   ],
+   "r3"
+  ],
+  [
+   [
+    "dplyr",
+    "Encadenamiento con pipes",
+    "tidyr",
+    "Texto con stringr"
+   ],
+   "r4"
+  ],
+  [
+   [
+    "ggplot2",
+    "Estéticas y geometrías",
+    "Escalas y etiquetas",
+    "Exportar gráficos"
+   ],
+   "r5"
+  ],
+  [
+   [
+    "testthat",
+    "Casos borde",
+    "Desarrollo guiado por pruebas"
+   ],
+   "r6"
+  ],
+  [
+   [
+    "Estructura de un paquete",
+    "Documentación",
+    "Dependencias",
+    "Publicación"
+   ],
+   "r7"
+  ]
+ ],
+ "edd": [
+  [
+   [
+    "Arreglos estáticos y dinámicos",
+    "Nodos y punteros",
+    "Inserción y eliminación",
+    "Costo de búsqueda O(n)"
+   ],
+   "x5"
+  ],
+  [
+   [
+    "LIFO y FIFO",
+    "push, pop, enqueue y dequeue",
+    "Implementación con arreglos o listas",
+    "Pila de llamadas"
+   ],
+   "x5"
+  ],
+  [
+   [
+    "Recorridos inorden, preorden y postorden",
+    "Búsqueda e inserción",
+    "Árboles balanceados (AVL y rojo-negro)",
+    "Tries"
+   ],
+   "x5"
+  ],
+  [
+   [
+    "Propiedad de montículo",
+    "Inserción y extracción en O(log n)",
+    "Heapsort",
+    "Colas de prioridad"
+   ],
+   null
+  ],
+  [
+   [
+    "Funciones hash",
+    "Colisiones por encadenamiento",
+    "Direccionamiento abierto",
+    "Factor de carga"
+   ],
+   "x5"
+  ],
+  [
+   [
+    "Listas y matrices de adyacencia",
+    "Búsqueda en anchura",
+    "Búsqueda en profundidad",
+    "Camino más corto"
+   ],
+   "ai0"
+  ]
+ ],
+ "aa": [
+  [
+   [
+    "Notación O, Ω y Θ",
+    "Orden de crecimiento",
+    "Costo en tiempo y en memoria"
+   ],
+   "x3"
+  ],
+  [
+   [
+    "Mejor caso",
+    "Peor caso",
+    "Caso promedio",
+    "Análisis amortizado"
+   ],
+   "x3"
+  ],
+  [
+   [
+    "Selección e inserción",
+    "Burbuja",
+    "Ordenamiento por mezcla",
+    "Quicksort",
+    "Estabilidad"
+   ],
+   "x3"
+  ],
+  [
+   [
+    "Recursión",
+    "Búsqueda binaria",
+    "Ordenamiento por mezcla",
+    "Recurrencias y teorema maestro"
+   ],
+   "x3"
+  ],
+  [
+   [
+    "Memoización",
+    "Tabulación",
+    "Problema de la mochila",
+    "Subsecuencia común más larga"
+   ],
+   null
+  ],
+  [
+   [
+    "Selección de actividades",
+    "Código de Huffman",
+    "Algoritmo de Dijkstra",
+    "Árbol de expansión mínima"
+   ],
+   null
+  ]
+ ],
+ "poo": [
+  [
+   [
+    "Atributos y métodos",
+    "Constructor",
+    "Instancias",
+    "Métodos de clase y estáticos"
+   ],
+   "py8"
+  ],
+  [
+   [
+    "Atributos privados",
+    "Getters y setters",
+    "Propiedades",
+    "Invariantes"
+   ],
+   "py8"
+  ],
+  [
+   [
+    "Clase base y derivada",
+    "super()",
+    "Sobrescritura de métodos",
+    "Composición frente a herencia"
+   ],
+   "py8"
+  ],
+  [
+   [
+    "Sobrescritura",
+    "Sobrecarga de operadores",
+    "Interfaces comunes",
+    "Tipado por comportamiento"
+   ],
+   "py8"
+  ],
+  [
+   [
+    "Clases abstractas",
+    "Interfaces en Java y C#",
+    "Protocolos",
+    "Contratos de comportamiento"
+   ],
+   null
+  ],
+  [
+   [
+    "try y catch",
+    "Excepciones propias",
+    "Propagación",
+    "Liberación de recursos"
+   ],
+   "py3"
+  ],
+  [
+   [
+    "Clases y atributos",
+    "Asociación, agregación y composición",
+    "Herencia en UML",
+    "Multiplicidad"
+   ],
+   null
+  ]
+ ],
+ "pa": [
+  [
+   [
+    "Patrones creacionales",
+    "Patrones estructurales",
+    "Patrones de comportamiento",
+    "Antipatrones"
+   ],
+   null
+  ],
+  [
+   [
+    "Tipos genéricos",
+    "Listas, conjuntos y mapas",
+    "Iteradores",
+    "Complejidad de las colecciones"
+   ],
+   null
+  ],
+  [
+   [
+    "Hilos y procesos",
+    "Condiciones de carrera",
+    "Bloqueos y semáforos",
+    "Programación asíncrona"
+   ],
+   null
+  ],
+  [
+   [
+    "Lectura y escritura",
+    "CSV y JSON",
+    "Serialización de objetos",
+    "Manejo de rutas"
+   ],
+   "py6"
+  ],
+  [
+   [
+    "Frameworks de pruebas",
+    "Casos de prueba",
+    "Dobles de prueba",
+    "Cobertura"
+   ],
+   "py5"
+  ],
+  [
+   [
+    "Commits",
+    "Ramas",
+    "Pull requests",
+    "Integración continua"
+   ],
+   "web1"
+  ]
+ ],
+ "fia": [
+  [
+   [
+    "Definiciones y enfoques de la IA",
+    "IA débil e IA general",
+    "Historia breve",
+    "Aplicaciones actuales"
+   ],
+   "xai"
+  ],
+  [
+   [
+    "Percepción, estado y acción",
+    "Entorno y modelo de transición",
+    "Agentes basados en conocimiento",
+    "Agentes con modelos de lenguaje"
+   ],
+   "ai0"
+  ],
+  [
+   [
+    "Búsqueda en profundidad y en anchura",
+    "Búsqueda voraz y A*",
+    "Minimax y poda alfa-beta",
+    "Ascenso de colinas y recocido simulado",
+    "Satisfacción de restricciones"
+   ],
+   "ai0"
+  ],
+  [
+   [
+    "Clasificación y regresión",
+    "Vecinos más cercanos",
+    "Perceptrón y máquinas de vectores de soporte",
+    "Pérdida, sobreajuste y regularización",
+    "Aprendizaje por refuerzo",
+    "Agrupamiento k-means"
+   ],
+   "ai4"
+  ],
+  [
+   [
+    "Funciones de activación",
+    "Descenso del gradiente",
+    "Retropropagación",
+    "Dropout",
+    "Redes convolucionales",
+    "Redes recurrentes"
+   ],
+   "ai5"
+  ],
+  [
+   [
+    "Tokenización y n-gramas",
+    "Embeddings y word2vec",
+    "Atención",
+    "Transformers",
+    "Modelos de lenguaje de gran escala"
+   ],
+   "ai6"
+  ],
+  [
+   [
+    "Sesgo y equidad",
+    "Privacidad",
+    "Transparencia",
+    "Responsabilidad"
+   ],
+   null
+  ]
+ ],
+ "rac": [
+  [
+   [
+    "Lógica proposicional",
+    "Vinculación y comprobación de modelos",
+    "Reglas de inferencia",
+    "Resolución",
+    "Cuantificadores"
+   ],
+   "ai1"
+  ],
+  [
+   [
+    "Clases y relaciones",
+    "RDF y OWL",
+    "SPARQL",
+    "Razonadores"
+   ],
+   null
+  ],
+  [
+   [
+    "Entidades y relaciones",
+    "Tripletas",
+    "Consultas sobre grafos",
+    "Grafos de conocimiento con modelos de lenguaje"
+   ],
+   null
+  ],
+  [
+   [
+    "Reglas si-entonces",
+    "Encadenamiento hacia adelante y hacia atrás",
+    "Motores de reglas",
+    "Sistemas expertos"
+   ],
+   "ai1"
+  ],
+  [
+   [
+    "Probabilidad condicional y regla de Bayes",
+    "Redes bayesianas",
+    "Inferencia por muestreo",
+    "Modelos ocultos de Markov"
+   ],
+   "ai2"
+  ],
+  [
+   [
+    "Inferencia exacta y aproximada",
+    "Unificación",
+    "Programación lógica con Prolog",
+    "Explicabilidad"
+   ],
+   "ai1"
+  ]
+ ],
+ "sin": [
+  [
+   [
+    "Clasificación y regresión",
+    "Árboles de decisión",
+    "Máquinas de vectores de soporte",
+    "Validación cruzada"
+   ],
+   "ai4"
+  ],
+  [
+   [
+    "k-means",
+    "Agrupamiento jerárquico",
+    "Reducción de dimensionalidad",
+    "Detección de anomalías"
+   ],
+   "ai4"
+  ],
+  [
+   [
+    "Procesos de decisión de Markov",
+    "Q-learning",
+    "Exploración y explotación",
+    "Políticas"
+   ],
+   "ai4"
+  ],
+  [
+   [
+    "Redes convolucionales",
+    "Redes recurrentes y LSTM",
+    "Transferencia de aprendizaje",
+    "Regularización"
+   ],
+   "ai5"
+  ],
+  [
+   [
+    "Tokenización",
+    "Embeddings",
+    "Atención y transformers",
+    "Ajuste fino"
+   ],
+   "ai6"
+  ],
+  [
+   [
+    "Precisión, exhaustividad y F1",
+    "Matriz de confusión",
+    "Curva ROC",
+    "Conjuntos de validación y prueba"
+   ],
+   null
+  ],
+  [
+   [
+    "MLOps",
+    "Servir modelos mediante API",
+    "Monitoreo y deriva de datos",
+    "Versionado de modelos"
+   ],
+   null
+  ]
+ ],
+ "fm": [
+  [
+   [
+    "Conectivos y tablas de verdad",
+    "Equivalencias lógicas",
+    "Cuantificadores"
+   ],
+   null
+  ],
+  [
+   [
+    "Unión, intersección y complemento",
+    "Producto cartesiano",
+    "Propiedades de las relaciones"
+   ],
+   null
+  ],
+  [
+   [
+    "Propiedades de los reales",
+    "Ecuaciones lineales y cuadráticas",
+    "Inecuaciones y valor absoluto"
+   ],
+   null
+  ],
+  [
+   [
+    "Dominio y rango",
+    "Composición e inversa",
+    "Funciones lineales, cuadráticas y exponenciales"
+   ],
+   null
+  ],
+  [
+   [
+    "Razones trigonométricas",
+    "Identidades",
+    "Ley de senos y cosenos"
+   ],
+   null
+  ],
+  [
+   [
+    "Progresiones aritméticas",
+    "Progresiones geométricas",
+    "Notación sumatoria"
+   ],
+   null
+  ]
+ ],
+ "esd": [
+  [
+   [
+    "Inducción matemática",
+    "Demostración por contradicción",
+    "Contraejemplos"
+   ],
+   null
+  ],
+  [
+   [
+    "Conjuntos y subconjuntos",
+    "Cardinalidad",
+    "Conjunto potencia"
+   ],
+   null
+  ],
+  [
+   [
+    "Relaciones de equivalencia",
+    "Relaciones de orden",
+    "Funciones inyectivas y biyectivas"
+   ],
+   null
+  ],
+  [
+   [
+    "Permutaciones",
+    "Combinaciones",
+    "Principio del palomar",
+    "Inclusión-exclusión"
+   ],
+   null
+  ],
+  [
+   [
+    "Grados y caminos",
+    "Conectividad",
+    "Grafos eulerianos y hamiltonianos"
+   ],
+   null
+  ],
+  [
+   [
+    "Árboles con raíz",
+    "Árboles binarios",
+    "Árbol de expansión"
+   ],
+   null
+  ]
+ ],
+ "al": [
+  [
+   [
+    "Eliminación gaussiana",
+    "Sistemas consistentes e inconsistentes",
+    "Rango de una matriz"
+   ],
+   null
+  ],
+  [
+   [
+    "Producto de matrices",
+    "Matriz inversa",
+    "Matriz transpuesta"
+   ],
+   null
+  ],
+  [
+   [
+    "Cálculo por cofactores",
+    "Propiedades",
+    "Regla de Cramer"
+   ],
+   null
+  ],
+  [
+   [
+    "Independencia lineal",
+    "Base y dimensión",
+    "Subespacios"
+   ],
+   null
+  ],
+  [
+   [
+    "Núcleo e imagen",
+    "Matriz de una transformación",
+    "Rotaciones y escalados"
+   ],
+   null
+  ],
+  [
+   [
+    "Polinomio característico",
+    "Diagonalización",
+    "Aplicaciones en PCA"
+   ],
+   null
+  ]
+ ],
+ "amu": [
+  [
+   [
+    "Límites laterales",
+    "Límites al infinito",
+    "Indeterminaciones"
+   ],
+   null
+  ],
+  [
+   [
+    "Continuidad en un punto",
+    "Tipos de discontinuidad",
+    "Teorema del valor intermedio"
+   ],
+   null
+  ],
+  [
+   [
+    "Reglas de derivación",
+    "Regla de la cadena",
+    "Derivación implícita"
+   ],
+   null
+  ],
+  [
+   [
+    "Máximos y mínimos",
+    "Optimización",
+    "Regla de L'Hôpital"
+   ],
+   null
+  ],
+  [
+   [
+    "Sumas de Riemann",
+    "Teorema fundamental del cálculo",
+    "Áreas entre curvas"
+   ],
+   null
+  ],
+  [
+   [
+    "Sustitución",
+    "Integración por partes",
+    "Fracciones parciales"
+   ],
+   null
+  ]
+ ],
+ "fb": [
+  [
+   [
+    "Sistema internacional",
+    "Suma de vectores",
+    "Producto escalar"
+   ],
+   null
+  ],
+  [
+   [
+    "Movimiento rectilíneo",
+    "Caída libre",
+    "Tiro parabólico"
+   ],
+   null
+  ],
+  [
+   [
+    "Leyes de Newton",
+    "Fricción",
+    "Diagramas de cuerpo libre"
+   ],
+   null
+  ],
+  [
+   [
+    "Trabajo de una fuerza",
+    "Energía cinética y potencial",
+    "Conservación de la energía"
+   ],
+   null
+  ],
+  [
+   [
+    "Ley de Coulomb",
+    "Campo eléctrico",
+    "Potencial eléctrico"
+   ],
+   null
+  ],
+  [
+   [
+    "Ley de Ohm",
+    "Circuitos en serie y en paralelo",
+    "Potencia eléctrica"
+   ],
+   null
+  ]
+ ],
+ "edm": [
+  [
+   [
+    "Variables separables",
+    "Ecuaciones lineales",
+    "Modelos de crecimiento"
+   ],
+   null
+  ],
+  [
+   [
+    "Coeficientes constantes",
+    "Solución homogénea y particular",
+    "Oscilaciones"
+   ],
+   null
+  ],
+  [
+   [
+    "Errores de redondeo y truncamiento",
+    "Representación IEEE 754",
+    "Propagación del error"
+   ],
+   null
+  ],
+  [
+   [
+    "Bisección",
+    "Newton-Raphson",
+    "Punto fijo"
+   ],
+   null
+  ],
+  [
+   [
+    "Lagrange",
+    "Diferencias divididas de Newton",
+    "Splines"
+   ],
+   null
+  ],
+  [
+   [
+    "Regla del trapecio",
+    "Regla de Simpson",
+    "Error de integración"
+   ],
+   null
+  ],
+  [
+   [
+    "Método de Euler",
+    "Runge-Kutta",
+    "Estabilidad"
+   ],
+   null
+  ]
+ ],
+ "ld": [
+  [
+   [
+    "Compuertas AND, OR y NOT",
+    "NAND y NOR universales",
+    "Tablas de verdad"
+   ],
+   null
+  ],
+  [
+   [
+    "Mapas de Karnaugh",
+    "Suma de productos",
+    "Condiciones de no importa"
+   ],
+   null
+  ],
+  [
+   [
+    "Sumadores",
+    "Multiplexores",
+    "Decodificadores"
+   ],
+   null
+  ],
+  [
+   [
+    "Flip-flop SR",
+    "Flip-flop D",
+    "Flip-flop JK"
+   ],
+   null
+  ],
+  [
+   [
+    "Máquinas de Moore y Mealy",
+    "Diagramas de estado",
+    "Sincronización con reloj"
+   ],
+   null
+  ],
+  [
+   [
+    "Registros de desplazamiento",
+    "Contadores",
+    "Memorias"
+   ],
+   null
+  ]
+ ],
+ "pfr": [
+  [
+   [
+    "Funciones puras",
+    "Inmutabilidad",
+    "Transparencia referencial"
+   ],
+   null
+  ],
+  [
+   [
+    "Funciones como parámetros",
+    "Funciones que devuelven funciones",
+    "Clausuras"
+   ],
+   null
+  ],
+  [
+   [
+    "Casos base y recursivos",
+    "Recursión de cola",
+    "Recursión sobre listas"
+   ],
+   null
+  ],
+  [
+   [
+    "Funciones anónimas",
+    "Lambdas en Java y Python",
+    "Captura de variables"
+   ],
+   null
+  ],
+  [
+   [
+    "map",
+    "filter",
+    "reduce",
+    "Streams"
+   ],
+   null
+  ],
+  [
+   [
+    "Observables",
+    "Operadores de flujo",
+    "Suscripciones",
+    "RxJS"
+   ],
+   null
+  ]
+ ],
+ "aoc": [
+  [
+   [
+    "Unidad central y memoria",
+    "Ciclo de instrucción",
+    "Bus de datos"
+   ],
+   null
+  ],
+  [
+   [
+    "Formatos de instrucción",
+    "Modos de direccionamiento",
+    "RISC y CISC"
+   ],
+   null
+  ],
+  [
+   [
+    "Unidad de control",
+    "Unidad aritmético-lógica",
+    "Registros"
+   ],
+   null
+  ],
+  [
+   [
+    "Registros y caché",
+    "Memoria principal",
+    "Localidad"
+   ],
+   null
+  ],
+  [
+   [
+    "Interrupciones",
+    "Acceso directo a memoria",
+    "Controladores"
+   ],
+   null
+  ],
+  [
+   [
+    "Etapas del pipeline",
+    "Riesgos de datos y de control",
+    "Predicción de saltos"
+   ],
+   null
+  ]
+ ],
+ "pro": [
+  [
+   [
+    "Investigación con usuarios",
+    "Personas y escenarios",
+    "Mapas de empatía"
+   ],
+   null
+  ],
+  [
+   [
+    "Bocetos rápidos",
+    "Arquitectura de información",
+    "Wireframes"
+   ],
+   null
+  ],
+  [
+   [
+    "Baja fidelidad",
+    "Alta fidelidad",
+    "Prototipos interactivos"
+   ],
+   null
+  ],
+  [
+   [
+    "Figma",
+    "Componentes y sistemas de diseño",
+    "Prototipos generados con IA"
+   ],
+   null
+  ],
+  [
+   [
+    "Pruebas con usuarios",
+    "Métricas de usabilidad",
+    "Heurísticas de Nielsen"
+   ],
+   null
+  ],
+  [
+   [
+    "Ciclos de iteración",
+    "Priorización de cambios",
+    "Documentación del diseño"
+   ],
+   null
+  ]
+ ],
+ "so": [
+  [
+   [
+    "Estados de un proceso",
+    "Hilos",
+    "Cambio de contexto"
+   ],
+   null
+  ],
+  [
+   [
+    "FCFS y SJF",
+    "Round Robin",
+    "Prioridades"
+   ],
+   null
+  ],
+  [
+   [
+    "Semáforos",
+    "Monitores",
+    "Interbloqueos"
+   ],
+   null
+  ],
+  [
+   [
+    "Paginación",
+    "Segmentación",
+    "Memoria virtual"
+   ],
+   null
+  ],
+  [
+   [
+    "Estructura de directorios",
+    "Asignación de bloques",
+    "Permisos"
+   ],
+   null
+  ],
+  [
+   [
+    "Controladores de dispositivo",
+    "Planificación de disco",
+    "Búferes"
+   ],
+   null
+  ]
+ ],
+ "ibi": [
+  [
+   [
+    "Ciclo de inteligencia de negocios",
+    "Decisiones basadas en datos",
+    "Roles del analista"
+   ],
+   null
+  ],
+  [
+   [
+    "Data warehouse",
+    "Data mart",
+    "Data lake"
+   ],
+   null
+  ],
+  [
+   [
+    "Extracción",
+    "Transformación",
+    "Carga"
+   ],
+   null
+  ],
+  [
+   [
+    "Tablas de hechos y dimensiones",
+    "Esquema en estrella",
+    "Esquema copo de nieve"
+   ],
+   null
+  ],
+  [
+   [
+    "Definición de KPI",
+    "Metas e indicadores",
+    "Cuadro de mando"
+   ],
+   null
+  ],
+  [
+   [
+    "Power BI",
+    "Looker Studio",
+    "Buenas prácticas de visualización"
+   ],
+   null
+  ]
+ ],
+ "eyp": [
+  [
+   [
+    "Media, mediana y moda",
+    "Varianza y desviación estándar",
+    "Gráficos descriptivos"
+   ],
+   null
+  ],
+  [
+   [
+    "Espacio muestral",
+    "Regla de la suma y del producto",
+    "Probabilidad condicional"
+   ],
+   null
+  ],
+  [
+   [
+    "Variables discretas y continuas",
+    "Esperanza",
+    "Varianza"
+   ],
+   null
+  ],
+  [
+   [
+    "Binomial",
+    "Poisson",
+    "Normal"
+   ],
+   null
+  ],
+  [
+   [
+    "Tipos de muestreo",
+    "Estimación puntual",
+    "Intervalos de confianza"
+   ],
+   null
+  ],
+  [
+   [
+    "Hipótesis nula y alternativa",
+    "Valor p",
+    "Errores tipo I y II"
+   ],
+   null
+  ],
+  [
+   [
+    "Mínimos cuadrados",
+    "Coeficiente de correlación",
+    "Interpretación del modelo"
+   ],
+   null
+  ]
+ ],
+ "fis": [
+  [
+   [
+    "Fases del ciclo de vida",
+    "Mantenimiento y retiro",
+    "Costos del software"
+   ],
+   null
+  ],
+  [
+   [
+    "Cascada",
+    "Incremental",
+    "Espiral"
+   ],
+   null
+  ],
+  [
+   [
+    "Scrum",
+    "Kanban",
+    "Manifiesto ágil"
+   ],
+   null
+  ],
+  [
+   [
+    "Requisitos funcionales y no funcionales",
+    "Historias de usuario",
+    "Priorización"
+   ],
+   null
+  ],
+  [
+   [
+    "Arquitectura y módulos",
+    "Principios SOLID",
+    "Diagramas de diseño"
+   ],
+   null
+  ],
+  [
+   [
+    "Pruebas unitarias e integración",
+    "Pruebas de aceptación",
+    "Automatización"
+   ],
+   null
+  ],
+  [
+   [
+    "Mantenimiento correctivo y evolutivo",
+    "Deuda técnica",
+    "Refactorización"
+   ],
+   null
+  ]
+ ],
+ "gcs": [
+  [
+   [
+    "Calidad del producto y del proceso",
+    "Costo de la calidad",
+    "Atributos de calidad"
+   ],
+   null
+  ],
+  [
+   [
+    "ISO/IEC 25010",
+    "Fiabilidad y mantenibilidad",
+    "Usabilidad y seguridad"
+   ],
+   null
+  ],
+  [
+   [
+    "Métricas de tamaño",
+    "Complejidad ciclomática",
+    "Defectos por módulo"
+   ],
+   null
+  ],
+  [
+   [
+    "Revisión de código",
+    "Inspecciones formales",
+    "Listas de verificación"
+   ],
+   null
+  ],
+  [
+   [
+    "Plan de aseguramiento",
+    "Análisis estático",
+    "Integración continua"
+   ],
+   null
+  ],
+  [
+   [
+    "CMMI",
+    "Mejora continua",
+    "Retrospectivas"
+   ],
+   null
+  ]
+ ],
+ "ir": [
+  [
+   [
+    "Requisitos funcionales",
+    "Requisitos no funcionales",
+    "Restricciones"
+   ],
+   null
+  ],
+  [
+   [
+    "Entrevistas",
+    "Observación",
+    "Talleres"
+   ],
+   null
+  ],
+  [
+   [
+    "Casos de uso",
+    "Historias de usuario",
+    "Criterios de aceptación"
+   ],
+   null
+  ],
+  [
+   [
+    "Revisión con usuarios",
+    "Prototipos",
+    "Verificación"
+   ],
+   null
+  ],
+  [
+   [
+    "Control de cambios",
+    "Priorización",
+    "Gestión con Jira"
+   ],
+   null
+  ],
+  [
+   [
+    "Matriz de trazabilidad",
+    "Requisitos a pruebas",
+    "Impacto de cambios"
+   ],
+   null
+  ]
+ ],
+ "tac": [
+  [
+   [
+    "Alfabetos y cadenas",
+    "Operaciones con lenguajes",
+    "Jerarquía de Chomsky"
+   ],
+   null
+  ],
+  [
+   [
+    "Autómatas deterministas",
+    "Autómatas no deterministas",
+    "Minimización"
+   ],
+   null
+  ],
+  [
+   [
+    "Sintaxis de expresiones regulares",
+    "Equivalencia con autómatas",
+    "Uso en herramientas"
+   ],
+   null
+  ],
+  [
+   [
+    "Producciones",
+    "Árboles de derivación",
+    "Ambigüedad"
+   ],
+   null
+  ],
+  [
+   [
+    "Tokens y lexemas",
+    "Generadores de analizadores léxicos",
+    "Errores léxicos"
+   ],
+   null
+  ],
+  [
+   [
+    "Análisis descendente",
+    "Análisis ascendente",
+    "ANTLR"
+   ],
+   null
+  ],
+  [
+   [
+    "Definición de la máquina",
+    "Tesis de Church-Turing",
+    "Problemas indecidibles"
+   ],
+   null
+  ]
+ ],
+ "fr": [
+  [
+   [
+    "Capas del modelo OSI",
+    "Pila TCP/IP",
+    "Encapsulamiento"
+   ],
+   null
+  ],
+  [
+   [
+    "Direcciones MAC",
+    "Conmutadores",
+    "VLAN"
+   ],
+   null
+  ],
+  [
+   [
+    "IPv4 y subredes",
+    "IPv6",
+    "NAT"
+   ],
+   null
+  ],
+  [
+   [
+    "Rutas estáticas",
+    "Protocolos de enrutamiento",
+    "Tablas de enrutamiento"
+   ],
+   null
+  ],
+  [
+   [
+    "Conexión TCP",
+    "Control de flujo",
+    "Datagramas UDP"
+   ],
+   null
+  ],
+  [
+   [
+    "DNS",
+    "HTTP y HTTPS",
+    "DHCP"
+   ],
+   null
+  ]
+ ],
+ "i1web": [
+  [
+   [
+    "Cliente y servidor",
+    "Solicitudes y respuestas",
+    "APIs REST"
+   ],
+   null
+  ],
+  [
+   [
+    "React",
+    "Vue",
+    "Angular"
+   ],
+   null
+  ],
+  [
+   [
+    "Node.js",
+    "Django",
+    "Spring Boot"
+   ],
+   null
+  ],
+  [
+   [
+    "Bases relacionales en la web",
+    "ORM",
+    "Bases NoSQL"
+   ],
+   null
+  ],
+  [
+   [
+    "Sesiones y cookies",
+    "Tokens JWT",
+    "OAuth"
+   ],
+   null
+  ],
+  [
+   [
+    "Vercel y Render",
+    "Variables de entorno",
+    "Dominios y HTTPS"
+   ],
+   null
+  ]
+ ],
+ "rsd": [
+  [
+   [
+    "Transparencia",
+    "Escalabilidad",
+    "Fallas parciales"
+   ],
+   null
+  ],
+  [
+   [
+    "Mensajes",
+    "Llamadas a procedimientos remotos",
+    "gRPC"
+   ],
+   null
+  ],
+  [
+   [
+    "Relojes lógicos de Lamport",
+    "Relojes vectoriales",
+    "Sincronización"
+   ],
+   null
+  ],
+  [
+   [
+    "Replicación primaria",
+    "Consistencia eventual",
+    "Teorema CAP"
+   ],
+   null
+  ],
+  [
+   [
+    "Detección de fallos",
+    "Consenso con Raft",
+    "Tolerancia bizantina"
+   ],
+   null
+  ],
+  [
+   [
+    "Servicios web",
+    "Colas de mensajes",
+    "Kafka y RabbitMQ"
+   ],
+   null
+  ]
+ ],
+ "as": [
+  [
+   [
+    "Arquitectura en capas",
+    "Cliente-servidor",
+    "Orientada a eventos"
+   ],
+   null
+  ],
+  [
+   [
+    "Rendimiento",
+    "Seguridad",
+    "Escalabilidad"
+   ],
+   null
+  ],
+  [
+   [
+    "MVC",
+    "Arquitectura hexagonal",
+    "CQRS"
+   ],
+   null
+  ],
+  [
+   [
+    "Servicios independientes",
+    "API Gateway",
+    "Contenedores"
+   ],
+   null
+  ],
+  [
+   [
+    "Modelo C4",
+    "Vistas 4+1",
+    "Registros de decisiones"
+   ],
+   null
+  ],
+  [
+   [
+    "ATAM",
+    "Escenarios de calidad",
+    "Compromisos de diseño"
+   ],
+   null
+  ]
+ ],
+ "i1mov": [
+  [
+   [
+    "Android",
+    "iOS",
+    "Tiendas de aplicaciones"
+   ],
+   null
+  ],
+  [
+   [
+    "Jetpack Compose",
+    "SwiftUI",
+    "Navegación"
+   ],
+   null
+  ],
+  [
+   [
+    "Preferencias",
+    "Bases locales",
+    "Sincronización"
+   ],
+   null
+  ],
+  [
+   [
+    "Peticiones HTTP",
+    "JSON",
+    "Manejo de errores de red"
+   ],
+   null
+  ],
+  [
+   [
+    "Cámara",
+    "Ubicación",
+    "Notificaciones"
+   ],
+   null
+  ],
+  [
+   [
+    "Firma de aplicaciones",
+    "Políticas de las tiendas",
+    "Versiones"
+   ],
+   null
+  ]
+ ],
+ "i2int": [
+  [
+   [
+    "JSON",
+    "XML",
+    "CSV"
+   ],
+   null
+  ],
+  [
+   [
+    "APIs REST",
+    "GraphQL",
+    "Autenticación de APIs"
+   ],
+   null
+  ],
+  [
+   [
+    "Mapeo de esquemas",
+    "Integración ETL",
+    "Calidad de la integración"
+   ],
+   null
+  ],
+  [
+   [
+    "Metadatos",
+    "Dublin Core",
+    "Vocabularios comunes"
+   ],
+   null
+  ],
+  [
+   [
+    "Exactitud",
+    "Completitud",
+    "Consistencia"
+   ],
+   null
+  ],
+  [
+   [
+    "Portales de datos abiertos",
+    "Licencias abiertas",
+    "Reutilización"
+   ],
+   null
+  ]
+ ],
+ "cpd": [
+  [
+   [
+    "Concurrencia frente a paralelismo",
+    "Tareas e hilos",
+    "Granularidad"
+   ],
+   null
+  ],
+  [
+   [
+    "Memoria compartida",
+    "Memoria distribuida",
+    "Taxonomía de Flynn"
+   ],
+   null
+  ],
+  [
+   [
+    "OpenMP",
+    "Condiciones de carrera",
+    "Sincronización"
+   ],
+   null
+  ],
+  [
+   [
+    "MPI",
+    "Comunicación punto a punto",
+    "Comunicación colectiva"
+   ],
+   null
+  ],
+  [
+   [
+    "Arquitectura de una GPU",
+    "CUDA",
+    "Cómputo para IA"
+   ],
+   null
+  ],
+  [
+   [
+    "Aceleración",
+    "Ley de Amdahl",
+    "Ley de Gustafson"
+   ],
+   null
+  ]
+ ],
+ "i2avg": [
+  [
+   [
+    "Volumen, velocidad y variedad",
+    "Casos de uso",
+    "Retos del Big Data"
+   ],
+   null
+  ],
+  [
+   [
+    "HDFS",
+    "Almacenamiento de objetos",
+    "Lagos de datos"
+   ],
+   null
+  ],
+  [
+   [
+    "Modelo MapReduce",
+    "Apache Spark",
+    "Procesamiento en flujo"
+   ],
+   null
+  ],
+  [
+   [
+    "Columnares",
+    "Documentos",
+    "Clave-valor"
+   ],
+   null
+  ],
+  [
+   [
+    "Mapas de calor",
+    "Visualización geoespacial",
+    "Reducción de datos para graficar"
+   ],
+   null
+  ],
+  [
+   [
+    "Filtros interactivos",
+    "Actualización en tiempo real",
+    "Herramientas de tableros"
+   ],
+   null
+  ]
+ ],
+ "gp": [
+  [
+   [
+    "Inicio y planificación",
+    "Ejecución y control",
+    "Cierre"
+   ],
+   null
+  ],
+  [
+   [
+    "Declaración del alcance",
+    "EDT",
+    "Entregables"
+   ],
+   null
+  ],
+  [
+   [
+    "Diagrama de Gantt",
+    "Ruta crítica",
+    "Holguras"
+   ],
+   null
+  ],
+  [
+   [
+    "Estimación de costos",
+    "Línea base",
+    "Valor ganado"
+   ],
+   null
+  ],
+  [
+   [
+    "Identificación de riesgos",
+    "Matriz de probabilidad e impacto",
+    "Planes de respuesta"
+   ],
+   null
+  ],
+  [
+   [
+    "Roles de Scrum",
+    "Sprints y eventos",
+    "Backlog"
+   ],
+   null
+  ],
+  [
+   [
+    "Entrega formal",
+    "Lecciones aprendidas",
+    "Archivo del proyecto"
+   ],
+   null
+  ]
+ ],
+ "te": [
+  [
+   [
+    "Cinco fases",
+    "Lectura del ciclo",
+    "Casos de tecnologías"
+   ],
+   null
+  ],
+  [
+   [
+    "Modelos de lenguaje",
+    "Generación de imágenes",
+    "RAG y agentes"
+   ],
+   null
+  ],
+  [
+   [
+    "Sensores y actuadores",
+    "Protocolos como MQTT",
+    "Plataformas IoT"
+   ],
+   null
+  ],
+  [
+   [
+    "Latencia y ancho de banda",
+    "IA en el dispositivo",
+    "Casos de uso"
+   ],
+   null
+  ],
+  [
+   [
+    "Cadena de bloques",
+    "Contratos inteligentes",
+    "Casos de uso reales"
+   ],
+   null
+  ],
+  [
+   [
+    "Realidad virtual",
+    "Realidad aumentada",
+    "Realidad mixta"
+   ],
+   null
+  ]
+ ]
+}

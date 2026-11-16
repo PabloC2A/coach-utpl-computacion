@@ -1,28 +1,24 @@
 {
  "fc": [
   [
-   "Introducción a la computación",
-   "Disciplina que estudia el procesamiento automático de la información mediante sistemas de cómputo."
+   "Pensamiento computacional",
+   "Representación de la información y primeros algoritmos con bloques visuales."
   ],
   [
-   "Sistemas de numeración",
-   "Representación de números en binario, octal y hexadecimal y conversión entre bases."
+   "Programación en C",
+   "Primer lenguaje compilado: tipos, control de flujo y funciones."
   ],
   [
-   "Representación de la información",
-   "Codificación de texto, imágenes y sonido como secuencias de bits."
+   "Arreglos y cadenas",
+   "Cómo se compila un programa y cómo se guardan colecciones de datos en memoria."
   ],
   [
-   "Algoritmos y pseudocódigo",
-   "Descripción ordenada de pasos para resolver un problema, independiente del lenguaje de programación."
+   "Algoritmos de búsqueda y ordenamiento",
+   "Diseño y comparación de algoritmos según su tiempo de ejecución."
   ],
   [
-   "Componentes de una computadora",
-   "Función del procesador, la memoria, el almacenamiento y los dispositivos de entrada y salida."
-  ],
-  [
-   "Software y sistema operativo",
-   "Diferencia entre software de sistema y de aplicación, y funciones básicas del sistema operativo."
+   "Memoria y punteros",
+   "Direcciones de memoria, memoria dinámica y archivos."
   ]
  ],
  "fm": [
@@ -53,32 +49,44 @@
  ],
  "ip": [
   [
-   "Variables y tipos de datos",
-   "Almacenamiento de valores en memoria y tipos básicos como enteros, decimales, texto y booleanos."
+   "Funciones y variables",
+   "Primeros programas en Python con entrada, salida y funciones propias."
   ],
   [
-   "Operadores y expresiones",
-   "Combinación de valores con operadores aritméticos, relacionales y lógicos."
+   "Condicionales",
+   "Decisiones en el programa según condiciones."
   ],
   [
-   "Estructuras condicionales",
-   "Ejecución de instrucciones según una condición mediante if y else."
+   "Ciclos",
+   "Repetición de instrucciones y recorrido de colecciones."
   ],
   [
-   "Estructuras repetitivas",
-   "Repetición de instrucciones con ciclos for y while."
+   "Excepciones",
+   "Manejo de errores para que un programa no falle ante entradas inesperadas."
   ],
   [
-   "Funciones",
-   "Bloques de código reutilizables con parámetros y valor de retorno."
+   "Bibliotecas",
+   "Reutilización de código propio y de terceros."
   ],
   [
-   "Arreglos y listas",
-   "Colecciones ordenadas de valores accesibles por índice."
+   "Pruebas unitarias",
+   "Verificación automática de que cada función hace lo que debe."
   ],
   [
-   "Depuración de errores",
-   "Identificación y corrección de errores de sintaxis y de lógica."
+   "Archivos",
+   "Lectura y escritura de datos persistentes."
+  ],
+  [
+   "Expresiones regulares",
+   "Patrones para validar, buscar y limpiar texto."
+  ],
+  [
+   "Programación orientada a objetos",
+   "Modelado de datos y comportamiento con clases."
+  ],
+  [
+   "Herramientas modernas de Python",
+   "Recursos del lenguaje que se usan en proyectos profesionales."
   ]
  ],
  "cys": [
@@ -347,28 +355,24 @@
  ],
  "fbd": [
   [
-   "Modelo relacional",
-   "Organización de datos en tablas con claves primarias y foráneas."
+   "Consultas",
+   "Recuperación de información de una base de datos con SQL."
   ],
   [
-   "Modelo entidad-relación",
-   "Diseño conceptual de una base de datos con entidades y relaciones."
+   "Relaciones",
+   "Modelado de varias tablas relacionadas y consultas entre ellas."
+  ],
+  [
+   "Diseño de esquemas",
+   "Creación de tablas con tipos y restricciones adecuadas."
+  ],
+  [
+   "Escritura de datos",
+   "Inserción, actualización y borrado de registros."
   ],
   [
    "Álgebra relacional",
-   "Operaciones formales sobre relaciones, como selección, proyección y unión."
-  ],
-  [
-   "SQL: consultas básicas",
-   "Recuperación de datos con SELECT, WHERE y ORDER BY."
-  ],
-  [
-   "SQL: uniones y agregaciones",
-   "Combinación de tablas con JOIN y resumen de datos con GROUP BY."
-  ],
-  [
-   "Normalización",
-   "Eliminación de redundancia mediante las formas normales."
+   "Fundamento formal de las operaciones sobre tablas."
   ]
  ],
  "pfr": [
@@ -521,28 +525,24 @@
  ],
  "bda": [
   [
-   "Índices y diseño físico",
-   "Estructuras que aceleran las consultas y organización del almacenamiento."
+   "Vistas",
+   "Consultas guardadas que simplifican y protegen el acceso a los datos."
   ],
   [
-   "Procedimientos y disparadores",
-   "Lógica almacenada en la base de datos que se ejecuta ante eventos."
+   "Optimización",
+   "Consultas más rápidas y operaciones seguras con muchos usuarios."
   ],
   [
-   "Transacciones y propiedades ACID",
-   "Unidades de trabajo que garantizan atomicidad, consistencia, aislamiento y durabilidad."
-  ],
-  [
-   "Control de concurrencia",
-   "Mecanismos para que varios usuarios accedan a los datos sin conflictos."
-  ],
-  [
-   "Recuperación ante fallos",
-   "Técnicas para restaurar la base de datos tras una falla."
+   "Escalamiento",
+   "Bases de datos de servidor que atienden a muchos usuarios."
   ],
   [
    "Bases de datos NoSQL",
-   "Modelos no relacionales, como documentos, clave-valor y grafos."
+   "Modelos no relacionales para casos con esquemas flexibles o gran escala."
+  ],
+  [
+   "Bases de datos vectoriales",
+   "Almacenamiento de embeddings para búsqueda por significado, base de los sistemas RAG."
   ]
  ],
  "pa": [
@@ -677,28 +677,40 @@
  ],
  "iw": [
   [
-   "Protocolo HTTP",
-   "Comunicación entre el navegador y el servidor mediante solicitudes y respuestas."
-  ],
-  [
    "HTML y CSS",
    "Estructura y estilo de las páginas web."
   ],
   [
-   "JavaScript en el navegador",
-   "Interactividad en el cliente y manipulación del DOM."
+   "Git",
+   "Control de versiones para trabajar en equipo."
   ],
   [
-   "Diseño responsivo",
-   "Adaptación de las páginas a distintos tamaños de pantalla."
+   "Python para la web",
+   "Bases del lenguaje usado en el servidor."
   ],
   [
-   "APIs REST",
-   "Servicios web que exponen recursos mediante HTTP y formatos como JSON."
+   "Django",
+   "Framework para construir aplicaciones web en Python."
   ],
   [
-   "Seguridad web básica",
-   "Protección frente a ataques comunes como XSS e inyección SQL."
+   "Modelos, SQL y migraciones",
+   "Persistencia de datos con un ORM."
+  ],
+  [
+   "JavaScript",
+   "Interactividad en el navegador."
+  ],
+  [
+   "Interfaces de usuario",
+   "Aplicaciones dinámicas y componentes."
+  ],
+  [
+   "Pruebas y CI/CD",
+   "Calidad automatizada y entrega continua."
+  ],
+  [
+   "Escalabilidad y seguridad",
+   "Aplicaciones que soportan carga y resisten ataques."
   ]
  ],
  "eyp": [
@@ -934,27 +946,35 @@
  "i2fad": [
   [
    "Ciclo del análisis de datos",
-   "Etapas desde la definición del problema hasta la comunicación de resultados."
+   "Etapas desde la pregunta hasta la comunicación de resultados."
   ],
   [
-   "Limpieza y preparación de datos",
-   "Tratamiento de valores faltantes, duplicados y errores."
+   "Representación de datos",
+   "Estructuras de datos para el análisis."
   ],
   [
-   "Análisis exploratorio",
-   "Revisión inicial de los datos para identificar patrones y anomalías."
+   "Transformación de datos",
+   "Selección y filtrado de la información relevante."
+  ],
+  [
+   "Funciones aplicadas",
+   "Automatización del análisis con funciones."
+  ],
+  [
+   "Datos ordenados (tidy)",
+   "Organización de datos para analizarlos con facilidad."
   ],
   [
    "Visualización de datos",
-   "Gráficos que comunican patrones y relaciones."
+   "Gráficos que comunican patrones."
   ],
   [
-   "Estadística aplicada",
-   "Uso de métodos estadísticos para interpretar los datos."
+   "Pruebas de programas",
+   "Verificación de las funciones de análisis."
   ],
   [
-   "Herramientas de análisis",
-   "Uso de lenguajes como Python y R para analizar datos."
+   "Paquetes",
+   "Distribución del código de análisis para reutilizarlo."
   ]
  ],
  "rsd": [
@@ -1271,28 +1291,40 @@
  ],
  "i1jue": [
   [
-   "Motores de videojuegos",
-   "Plataformas como Unity y Godot que integran las herramientas de desarrollo."
+   "Pong",
+   "El bucle de juego y la detección de colisiones."
   ],
   [
-   "Bucle de juego",
-   "Ciclo que procesa la entrada, actualiza el estado y dibuja cada cuadro."
+   "Flappy Bird",
+   "Sprites, gravedad y obstáculos generados por código."
   ],
   [
-   "Física y colisiones",
-   "Simulación del movimiento y detección de choques entre objetos."
+   "Breakout",
+   "Niveles generados y gestión del estado de una partida."
   ],
   [
-   "Gráficos 2D y 3D",
-   "Representación de imágenes, modelos y animaciones."
+   "Match 3",
+   "Cuadrículas, animaciones interpoladas y lógica de coincidencias."
   ],
   [
-   "Audio y entrada del usuario",
-   "Sonido y manejo de teclado, ratón y controles."
+   "Super Mario Bros.",
+   "Mapas de baldosas, cámara y animación de personajes."
   ],
   [
-   "Diseño de niveles",
-   "Planificación de la estructura y la dificultad de un juego."
+   "Legend of Zelda",
+   "Juegos de vista superior con habitaciones y enemigos."
+  ],
+  [
+   "Angry Birds",
+   "Física realista con un motor dedicado."
+  ],
+  [
+   "Pokémon",
+   "Estructura de un juego de rol por turnos."
+  ],
+  [
+   "Motores profesionales",
+   "Herramientas que usa hoy la industria del videojuego."
   ]
  ],
  "i2avg": [
@@ -1353,28 +1385,28 @@
  ],
  "si": [
   [
-   "Principios de la seguridad de la información",
-   "Confidencialidad, integridad y disponibilidad como objetivos de protección."
+   "Seguridad de las cuentas",
+   "Protección del acceso de los usuarios."
   ],
   [
-   "Amenazas y vulnerabilidades",
-   "Tipos de ataques y debilidades que los hacen posibles."
+   "Seguridad de los datos",
+   "Protección de la información almacenada y transmitida."
   ],
   [
-   "Criptografía",
-   "Cifrado simétrico y asimétrico, funciones hash y firmas digitales."
+   "Seguridad de los sistemas",
+   "Protección de equipos y redes frente a ataques."
   ],
   [
-   "Autenticación y control de acceso",
-   "Verificación de la identidad y asignación de permisos."
+   "Seguridad del software",
+   "Desarrollo de programas que resisten ataques."
   ],
   [
-   "Seguridad en redes",
-   "Protección del tráfico con cortafuegos y redes privadas virtuales."
+   "Privacidad",
+   "Protección de los datos personales en el uso diario de la tecnología."
   ],
   [
    "Gestión de riesgos y normas",
-   "Evaluación de riesgos y estándares como ISO 27001."
+   "Organización de la seguridad en una institución."
   ]
  ],
  "te": [

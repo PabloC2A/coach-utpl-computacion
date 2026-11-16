@@ -1,0 +1,322 @@
+{
+ "x0": {
+  "curso": "Harvard CS50x",
+  "clase": "Semana 0: Scratch",
+  "url": "https://cs50.harvard.edu/x/weeks/0/"
+ },
+ "x1": {
+  "curso": "Harvard CS50x",
+  "clase": "Semana 1: C",
+  "url": "https://cs50.harvard.edu/x/weeks/1/"
+ },
+ "x2": {
+  "curso": "Harvard CS50x",
+  "clase": "Semana 2: Arrays",
+  "url": "https://cs50.harvard.edu/x/weeks/2/"
+ },
+ "x3": {
+  "curso": "Harvard CS50x",
+  "clase": "Semana 3: Algorithms",
+  "url": "https://cs50.harvard.edu/x/weeks/3/"
+ },
+ "x4": {
+  "curso": "Harvard CS50x",
+  "clase": "Semana 4: Memory",
+  "url": "https://cs50.harvard.edu/x/weeks/4/"
+ },
+ "x5": {
+  "curso": "Harvard CS50x",
+  "clase": "Semana 5: Data Structures",
+  "url": "https://cs50.harvard.edu/x/weeks/5/"
+ },
+ "x6": {
+  "curso": "Harvard CS50x",
+  "clase": "Semana 6: Python",
+  "url": "https://cs50.harvard.edu/x/weeks/6/"
+ },
+ "x7": {
+  "curso": "Harvard CS50x",
+  "clase": "Semana 7: SQL",
+  "url": "https://cs50.harvard.edu/x/weeks/7/"
+ },
+ "x8": {
+  "curso": "Harvard CS50x",
+  "clase": "Semana 8: HTML, CSS, JavaScript",
+  "url": "https://cs50.harvard.edu/x/weeks/8/"
+ },
+ "x9": {
+  "curso": "Harvard CS50x",
+  "clase": "Semana 9: Flask",
+  "url": "https://cs50.harvard.edu/x/weeks/9/"
+ },
+ "xai": {
+  "curso": "Harvard CS50x",
+  "clase": "Clase especial: Artificial Intelligence",
+  "url": "https://cs50.harvard.edu/x/weeks/ai/"
+ },
+ "ai0": {
+  "curso": "Harvard CS50 AI",
+  "clase": "Semana 0: Search",
+  "url": "https://cs50.harvard.edu/ai/weeks/0/"
+ },
+ "ai1": {
+  "curso": "Harvard CS50 AI",
+  "clase": "Semana 1: Knowledge",
+  "url": "https://cs50.harvard.edu/ai/weeks/1/"
+ },
+ "ai2": {
+  "curso": "Harvard CS50 AI",
+  "clase": "Semana 2: Uncertainty",
+  "url": "https://cs50.harvard.edu/ai/weeks/2/"
+ },
+ "ai3": {
+  "curso": "Harvard CS50 AI",
+  "clase": "Semana 3: Optimization",
+  "url": "https://cs50.harvard.edu/ai/weeks/3/"
+ },
+ "ai4": {
+  "curso": "Harvard CS50 AI",
+  "clase": "Semana 4: Learning",
+  "url": "https://cs50.harvard.edu/ai/weeks/4/"
+ },
+ "ai5": {
+  "curso": "Harvard CS50 AI",
+  "clase": "Semana 5: Neural Networks",
+  "url": "https://cs50.harvard.edu/ai/weeks/5/"
+ },
+ "ai6": {
+  "curso": "Harvard CS50 AI",
+  "clase": "Semana 6: Language",
+  "url": "https://cs50.harvard.edu/ai/weeks/6/"
+ },
+ "sql0": {
+  "curso": "Harvard CS50 SQL",
+  "clase": "Semana 0: Querying",
+  "url": "https://cs50.harvard.edu/sql/weeks/0/"
+ },
+ "sql1": {
+  "curso": "Harvard CS50 SQL",
+  "clase": "Semana 1: Relating",
+  "url": "https://cs50.harvard.edu/sql/weeks/1/"
+ },
+ "sql2": {
+  "curso": "Harvard CS50 SQL",
+  "clase": "Semana 2: Designing",
+  "url": "https://cs50.harvard.edu/sql/weeks/2/"
+ },
+ "sql3": {
+  "curso": "Harvard CS50 SQL",
+  "clase": "Semana 3: Writing",
+  "url": "https://cs50.harvard.edu/sql/weeks/3/"
+ },
+ "sql4": {
+  "curso": "Harvard CS50 SQL",
+  "clase": "Semana 4: Viewing",
+  "url": "https://cs50.harvard.edu/sql/weeks/4/"
+ },
+ "sql5": {
+  "curso": "Harvard CS50 SQL",
+  "clase": "Semana 5: Optimizing",
+  "url": "https://cs50.harvard.edu/sql/weeks/5/"
+ },
+ "sql6": {
+  "curso": "Harvard CS50 SQL",
+  "clase": "Semana 6: Scaling",
+  "url": "https://cs50.harvard.edu/sql/weeks/6/"
+ },
+ "web0": {
+  "curso": "Harvard CS50 Web",
+  "clase": "Semana 0: HTML, CSS",
+  "url": "https://cs50.harvard.edu/web/weeks/0/"
+ },
+ "web1": {
+  "curso": "Harvard CS50 Web",
+  "clase": "Semana 1: Git",
+  "url": "https://cs50.harvard.edu/web/weeks/1/"
+ },
+ "web2": {
+  "curso": "Harvard CS50 Web",
+  "clase": "Semana 2: Python",
+  "url": "https://cs50.harvard.edu/web/weeks/2/"
+ },
+ "web3": {
+  "curso": "Harvard CS50 Web",
+  "clase": "Semana 3: Django",
+  "url": "https://cs50.harvard.edu/web/weeks/3/"
+ },
+ "web4": {
+  "curso": "Harvard CS50 Web",
+  "clase": "Semana 4: SQL, Models, and Migrations",
+  "url": "https://cs50.harvard.edu/web/weeks/4/"
+ },
+ "web5": {
+  "curso": "Harvard CS50 Web",
+  "clase": "Semana 5: JavaScript",
+  "url": "https://cs50.harvard.edu/web/weeks/5/"
+ },
+ "web6": {
+  "curso": "Harvard CS50 Web",
+  "clase": "Semana 6: User Interfaces",
+  "url": "https://cs50.harvard.edu/web/weeks/6/"
+ },
+ "web7": {
+  "curso": "Harvard CS50 Web",
+  "clase": "Semana 7: Testing, CI/CD",
+  "url": "https://cs50.harvard.edu/web/weeks/7/"
+ },
+ "web8": {
+  "curso": "Harvard CS50 Web",
+  "clase": "Semana 8: Scalability and Security",
+  "url": "https://cs50.harvard.edu/web/weeks/8/"
+ },
+ "sec0": {
+  "curso": "Harvard CS50 Cybersecurity",
+  "clase": "Semana 0: Securing Accounts",
+  "url": "https://cs50.harvard.edu/cybersecurity/weeks/0/"
+ },
+ "sec1": {
+  "curso": "Harvard CS50 Cybersecurity",
+  "clase": "Semana 1: Securing Data",
+  "url": "https://cs50.harvard.edu/cybersecurity/weeks/1/"
+ },
+ "sec2": {
+  "curso": "Harvard CS50 Cybersecurity",
+  "clase": "Semana 2: Securing Systems",
+  "url": "https://cs50.harvard.edu/cybersecurity/weeks/2/"
+ },
+ "sec3": {
+  "curso": "Harvard CS50 Cybersecurity",
+  "clase": "Semana 3: Securing Software",
+  "url": "https://cs50.harvard.edu/cybersecurity/weeks/3/"
+ },
+ "sec4": {
+  "curso": "Harvard CS50 Cybersecurity",
+  "clase": "Semana 4: Preserving Privacy",
+  "url": "https://cs50.harvard.edu/cybersecurity/weeks/4/"
+ },
+ "py0": {
+  "curso": "Harvard CS50 Python",
+  "clase": "Semana 0: Functions, Variables",
+  "url": "https://cs50.harvard.edu/python/weeks/0/"
+ },
+ "py1": {
+  "curso": "Harvard CS50 Python",
+  "clase": "Semana 1: Conditionals",
+  "url": "https://cs50.harvard.edu/python/weeks/1/"
+ },
+ "py2": {
+  "curso": "Harvard CS50 Python",
+  "clase": "Semana 2: Loops",
+  "url": "https://cs50.harvard.edu/python/weeks/2/"
+ },
+ "py3": {
+  "curso": "Harvard CS50 Python",
+  "clase": "Semana 3: Exceptions",
+  "url": "https://cs50.harvard.edu/python/weeks/3/"
+ },
+ "py4": {
+  "curso": "Harvard CS50 Python",
+  "clase": "Semana 4: Libraries",
+  "url": "https://cs50.harvard.edu/python/weeks/4/"
+ },
+ "py5": {
+  "curso": "Harvard CS50 Python",
+  "clase": "Semana 5: Unit Tests",
+  "url": "https://cs50.harvard.edu/python/weeks/5/"
+ },
+ "py6": {
+  "curso": "Harvard CS50 Python",
+  "clase": "Semana 6: File I/O",
+  "url": "https://cs50.harvard.edu/python/weeks/6/"
+ },
+ "py7": {
+  "curso": "Harvard CS50 Python",
+  "clase": "Semana 7: Regular Expressions",
+  "url": "https://cs50.harvard.edu/python/weeks/7/"
+ },
+ "py8": {
+  "curso": "Harvard CS50 Python",
+  "clase": "Semana 8: Object-Oriented Programming",
+  "url": "https://cs50.harvard.edu/python/weeks/8/"
+ },
+ "py9": {
+  "curso": "Harvard CS50 Python",
+  "clase": "Semana 9: Et Cetera",
+  "url": "https://cs50.harvard.edu/python/weeks/9/"
+ },
+ "r1": {
+  "curso": "Harvard CS50 R",
+  "clase": "Semana 1: Representing Data",
+  "url": "https://cs50.harvard.edu/r/weeks/1/"
+ },
+ "r2": {
+  "curso": "Harvard CS50 R",
+  "clase": "Semana 2: Transforming Data",
+  "url": "https://cs50.harvard.edu/r/weeks/2/"
+ },
+ "r3": {
+  "curso": "Harvard CS50 R",
+  "clase": "Semana 3: Applying Functions",
+  "url": "https://cs50.harvard.edu/r/weeks/3/"
+ },
+ "r4": {
+  "curso": "Harvard CS50 R",
+  "clase": "Semana 4: Tidying Data",
+  "url": "https://cs50.harvard.edu/r/weeks/4/"
+ },
+ "r5": {
+  "curso": "Harvard CS50 R",
+  "clase": "Semana 5: Visualizing Data",
+  "url": "https://cs50.harvard.edu/r/weeks/5/"
+ },
+ "r6": {
+  "curso": "Harvard CS50 R",
+  "clase": "Semana 6: Testing Programs",
+  "url": "https://cs50.harvard.edu/r/weeks/6/"
+ },
+ "r7": {
+  "curso": "Harvard CS50 R",
+  "clase": "Semana 7: Packaging Programs",
+  "url": "https://cs50.harvard.edu/r/weeks/7/"
+ },
+ "g0": {
+  "curso": "Harvard CS50 Games",
+  "clase": "Semana 0: Pong",
+  "url": "https://cs50.harvard.edu/games/weeks/0/"
+ },
+ "g1": {
+  "curso": "Harvard CS50 Games",
+  "clase": "Semana 1: Flappy Bird",
+  "url": "https://cs50.harvard.edu/games/weeks/1/"
+ },
+ "g2": {
+  "curso": "Harvard CS50 Games",
+  "clase": "Semana 2: Breakout",
+  "url": "https://cs50.harvard.edu/games/weeks/2/"
+ },
+ "g3": {
+  "curso": "Harvard CS50 Games",
+  "clase": "Semana 3: Match 3",
+  "url": "https://cs50.harvard.edu/games/weeks/3/"
+ },
+ "g4": {
+  "curso": "Harvard CS50 Games",
+  "clase": "Semana 4: Super Mario Bros.",
+  "url": "https://cs50.harvard.edu/games/weeks/4/"
+ },
+ "g5": {
+  "curso": "Harvard CS50 Games",
+  "clase": "Semana 5: Legend of Zelda",
+  "url": "https://cs50.harvard.edu/games/weeks/5/"
+ },
+ "g6": {
+  "curso": "Harvard CS50 Games",
+  "clase": "Semana 6: Angry Birds",
+  "url": "https://cs50.harvard.edu/games/weeks/6/"
+ },
+ "g7": {
+  "curso": "Harvard CS50 Games",
+  "clase": "Semana 7: Pokémon",
+  "url": "https://cs50.harvard.edu/games/weeks/7/"
+ }
+}

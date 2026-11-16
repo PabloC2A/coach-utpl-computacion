@@ -1,6 +1,6 @@
 {
  "fc": {
-  "tags": "ffffff",
+  "tags": "fffff",
   "hoy": [
    "Pensamiento computacional para descomponer problemas",
    "Codificación UTF-8 y formatos de intercambio como JSON",
@@ -33,7 +33,7 @@
   }
  },
  "ip": {
-  "tags": "ffffffv",
+  "tags": "ffffvvfffv",
   "hoy": [
    "Python como lenguaje habitual para iniciarse",
    "Depuradores integrados en editores como VS Code",
@@ -211,7 +211,7 @@
   }
  },
  "fbd": {
-  "tags": "fffvvf",
+  "tags": "fffff",
   "hoy": [
    "PostgreSQL como base relacional de código abierto de amplio uso",
    "SQL como una de las tecnologías más usadas por los desarrolladores"
@@ -309,7 +309,7 @@
   }
  },
  "bda": {
-  "tags": "fffffv",
+  "tags": "ffvve",
   "hoy": [
    "MongoDB y Redis como bases NoSQL comunes",
    "Bases de datos vectoriales para búsqueda semántica y RAG"
@@ -395,7 +395,7 @@
   }
  },
  "iw": {
-  "tags": "ffvvvv",
+  "tags": "fvfvvvvvv",
   "hoy": [
    "TypeScript en proyectos medianos y grandes",
    "Frameworks como React y Next.js",
@@ -530,7 +530,7 @@
   }
  },
  "i2fad": {
-  "tags": "fvfvfv",
+  "tags": "ffffvvvv",
   "hoy": [
    "Python con pandas y cuadernos Jupyter",
    "Visualización con Power BI o Matplotlib"
@@ -709,7 +709,7 @@
   }
  },
  "i1jue": {
-  "tags": "vfffff",
+  "tags": "ffffffffv",
   "hoy": [
    "Motores como Unity, Unreal Engine y Godot"
   ],
@@ -758,7 +758,7 @@
   }
  },
  "si": {
-  "tags": "fvfvvf",
+  "tags": "vffvvf",
   "hoy": [
    "Autenticación multifactor y llaves de acceso (passkeys)",
    "Modelo de confianza cero",
